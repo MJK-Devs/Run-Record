@@ -9,7 +9,7 @@
 	<nav role="navigation" class="navbar navbar-default">
 		<div class="navbar-header">
 			<button type="button" data-target="#navbarCollapse" data-toggle 
-			= "collapse" class = "navbar-toggle">
+			="collapse" class="navbar-toggle collapsed" aria-expanded="false">
 				<span class="sr-only"> Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -17,17 +17,11 @@
 			</button>
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
-			<!-- the navbar collapses into a button if the screen is too small
-				however, the button doesnt display the dropdown menu that it was 
-				supposed to. Needs fixed later on -->
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
-				
-				<!-- Dropdown class here needs fixed as it wasn't working
-					It should drop down a menu with the <li>'s below-->
 				<li class="dropdown">
-					<a data-toggle="dropdown" class="dropdown-toggle"
-					href="#">Menu <b class="caret"></b></a>
+					<a data-toggle="dropdown" class="dropdown-toggle" role="button"
+					href="#">Menu <span class="caret"></span></a>
 					<ul role="menu" class="dropdown-menu">
 						<li><a href="#">Record a Run</a></li>
 						<li><a href="#">My Runs</a></li>
@@ -47,9 +41,13 @@
 		</div>
 	</nav>
 </div>
-				
 
+			
 
-</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </body>
