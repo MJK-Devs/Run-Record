@@ -1,0 +1,15 @@
+.header img{
+	position: center;
+	float:left;
+	width: 100px;
+	height: 100px;
+	background:#555;
+	margin-bottom: 30px;
+}
+
+.header h1{
+	position: relative;
+	top: 30px;
+	left: 10px;
+}
+
