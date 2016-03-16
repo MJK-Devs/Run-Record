@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `rruser` (
     `Weight` int(11) DEFAULT '0',
     `JoinDate` date DEFAULT NULL,
     PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=122 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `rr-user`
