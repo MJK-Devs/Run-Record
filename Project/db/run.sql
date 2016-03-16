@@ -27,10 +27,10 @@ SET time_zone = "+00:00";
 --
 DROP TABLE IF EXISTS `rr-user`;
 CREATE TABLE IF NOT EXISTS `rr-user` (
-    `UserID` int(11) NOT NULL AUTO_INCREMENT,
-    `Username` varchar(50) NOT NULL,
+    `UserID` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
+    `Username` varchar(50) NOT NULL UNIQUE,
     `Password` varchar(50) NOT NULL,
-    `Email` varchar(50) NOT NULL,
+    `Email` varchar(50) NOT NULL UNIQUE,
     `FirstName` varchar(50) NOT NULL,
     `LastName` varchar(50) NOT NULL,
     `DOB` date DEFAULT NULL,
