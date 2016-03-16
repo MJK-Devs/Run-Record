@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `rruser` (
     `DOB` date DEFAULT NULL,
     `Gender` char DEFAULT NULL,
     `Weight` int(11) DEFAULT '0',
-    `JoinDate` date DEFAULT NULL,
+    `JoinDate` timestamp DEFAULT current_timestamp,
     PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `rruser` (
 -- Dumping data for table `rr-user`
 --
 
-INSERT INTO `rruser` (`UserID`, `Username`, `Password`, `Email`, `FirstName`, `LastName`, `DOB`, `Gender`, `Weight`, `JoinDate`) VALUES
-    (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 140, "2016-03-16");
+INSERT INTO `rruser` (`UserID`, `Username`, `Password`, `Email`, `FirstName`, `LastName`, `DOB`, `Gender`, `Weight`) VALUES
+    (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 140);
 
 -- --------------------------------------------------------
 
