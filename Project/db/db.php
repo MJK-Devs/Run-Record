@@ -35,12 +35,12 @@ function executeQuery($query, $attribute) {
     }
 }
 
-// =======================================
-// Sample Usage:
-// =======================================
-// $artists = executeQuery("select * from artists where ArtistID = 2", "LastName");
+// // =======================================
+// // Sample Usage:
+// // =======================================
+// $artists = executeQuery("select * from rruser where UserID = 1", "FirstName");
 // foreach($artists as $value) {
-//     // echos out "Matisse"
+//     // echos out "Kevin"
 //     echo $value . '<br/>';
 // }
 ?>

@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rr-user`
+-- Table structure for table `rruser`
 --
-DROP TABLE IF EXISTS `rr-user`;
-CREATE TABLE IF NOT EXISTS `rr-user` (
+DROP TABLE IF EXISTS `rruser`;
+CREATE TABLE IF NOT EXISTS `rruser` (
     `UserID` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
     `Username` varchar(50) NOT NULL UNIQUE,
     `Password` varchar(50) NOT NULL,
@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `rr-user` (
 -- Dumping data for table `rr-user`
 --
 
-INSERT INTO `rr-user` (`UserID`, `Username`, `Password`, `Email`, `FirstName`, `LastName`, `DOB`, `Gender`, `Weight`, `JoinDate`) VALUES
-    (2, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 140, "2016-03-16");
+INSERT INTO `rruser` (`UserID`, `Username`, `Password`, `Email`, `FirstName`, `LastName`, `DOB`, `Gender`, `Weight`, `JoinDate`) VALUES
+    (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 140, "2016-03-16");
 
 -- --------------------------------------------------------
 
