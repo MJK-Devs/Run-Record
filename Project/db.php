@@ -38,8 +38,9 @@ function executeQuery($query, $attribute) {
 // =======================================
 // Sample Usage:
 // =======================================
-// $artists = executeQuery("select * from artists", "LastName");
+// $artists = executeQuery("select * from artists where ArtistID = 2", "LastName");
 // foreach($artists as $value) {
+//     // echos out "Matisse"
 //     echo $value . '<br/>';
 // }
 ?>
