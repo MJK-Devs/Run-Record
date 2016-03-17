@@ -6,9 +6,6 @@
 <script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
 </head>
 
-<!-- SELECT COUNT(*) FROM table; -- returns the number of rows in the table	
-		- will be helpful for delegating user ID's -->
-
 <body>
 <div class="header">
 	<img width="100" height="100" alt="" src="images/logo.png">
@@ -18,9 +15,10 @@
 <div class="container">
 	<div class="row">
 	</div>
+	<form action="main.php" method="post">
 	<div class="col-md-5">
 		<div id="usernameAndPassword">
-			<form class="form-inline">
+			<div class="form-inline">
 <!--   -->		<label for="usernameInput">Username</label>
 				<div class="form-group">
 					<input type="text" class="form-control" name="username">
@@ -35,13 +33,13 @@
                   <input type="password" class="form-control" name="verifyPassword">
                 </div><br><br>
 				<!-- check whether these equal before creating the account -->
-				
+
 				</div><br><br>
-			</form>  
+			</div>
         </div>
 		<div id="contactInformation">
 			<h3> Contact Information </h3><br>
-			<form class="form-inline">
+			<div class="form-inline">
 				<label for="firstNameInput">First Name</label>
 					<div class="form-group">
 					<input type="text" class="form-control" name="firstName">
@@ -78,8 +76,9 @@
 				<div class="form-group">
 					<input type="number" class="form-control" name="zip">
 				</div><br><br>
-			</form>	
-		</div>	
+			</div>
+		</div>
         <button type="submit" class="btn btn-primary">Create</button>
-   </div>  
+	</form>
+   </div>
 </div>  <!-- end container -->
