@@ -15,7 +15,7 @@
 <div class="container">
 	<div class="row">
 	</div>
-	<form action="main.php" method="post">
+	<form action="db/createUser.php" method="post">
 	<div class="col-md-5">
 		<div id="usernameAndPassword">
 			<div class="form-inline">
