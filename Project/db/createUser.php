@@ -7,4 +7,5 @@ if ($_POST['male'] == "on") {
     $gender = 'F';
 }
 createUser($_POST['username'], $_POST['password'], $_POST['email'], $_POST['firstName'], $_POST['lastName'], $_POST['dateOfBirth'], $gender);
+header('Location: ../main.php');
 ?>
