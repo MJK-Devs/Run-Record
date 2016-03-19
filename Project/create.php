@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	// if there are no errors
 	if(!$badUsername && !$badPassword && !$badVerification){
-		//createUser($_POST['username'], $_POST['password']);
+		createUser($_POST['username'], $_POST['password']);
 		header('Location: main.php');
 	}
 	
@@ -193,7 +193,7 @@ function userNameExists($username, $pdo) {
 	$returned = false;
 	
 	foreach($users as $user) {
-		if(strcmp($username, $user["username"]) === 0){
+		if(strcmp($username, $user["username"]) == 0){
 			$returned = true;
 		}
 	}

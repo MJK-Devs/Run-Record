@@ -7,9 +7,9 @@
 function executeQuery($query, $attribute) {
     try {
         // connect to database
-        $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $connString = "mysql:host=localhost;dbname=mboehlke";
+        $user = "mboehlke";
+        $pass = "01lJZjam";
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -49,9 +49,9 @@ function executeQuery($query, $attribute) {
 function createUser($username, $password, $email, $firstname, $lastname, $dob, $gender) {
     try {
         // connect to database
-        $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $connString = "mysql:host=localhost;dbname=mboehlke";
+        $user = "mboehlke";
+        $pass = "01lJZjam";
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -69,7 +69,7 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
         ));
     }
     catch (PDOException $e) {
-        die( $e->getMessage() );
+        die( /*$e->getMessage() */ print("<br />Cannot enter a duplicate username<br />"));
         return null;
     }
 }

@@ -11,19 +11,24 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $createErrors[] = "password";
     }
     if (empty($_POST['email'])) {
-        $createErrors[] = "email";
+        //$createErrors[] = "email";
+        $_POST['email'] = "NOEMAIL@fake.com";
     }
     if (empty($_POST['firstName'])) {
-        $createErrors[] = "firstName";
+        //$createErrors[] = "firstName";
+        $_POST['firstName'] = "FIRST";
     }
     if (empty($_POST['lastName'])) {
-        $createErrors[] = "lastName";
+        //$createErrors[] = "lastName";
+        $_POST['lastName'] = 'LAST';
     }
     if (empty($_POST['dateOfBirth'])) {
-        $createErrors[] = "dateOfBirth";
+        //$createErrors[] = "dateOfBirth";
+        $_POST['dateOfBirth'] = '1993-11-28';
     }
     if (empty($_POST['male']) && empty($_POST['female'])) {
-        $createErrors[] = "gender";
+        //$createErrors[] = "gender";
+        $_POST['male'] = 'on';
     }
     if (count($createErrors) > 0) {
         // comment the line below to debug
