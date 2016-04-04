@@ -5,7 +5,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
 <?php //include "helper-functions.php";
-	  include_once "db/db.php";?>
+	  include_once "db/db.php";
+	  include_once "includes/states.php";
+?>
 </head>
 
 <!-- SELECT COUNT(*) FROM table; - returns the number of rows in the table	
@@ -13,18 +15,45 @@
 
 <body>
 <div class="header">
-	<img width="100" height="100" alt="" src="images/logo.png">
+	<a href="main.php"><img width="100" height="100" alt="" src="images/logo.png"></a>
 	<h1><b>Create Account</b></h1>
 </div>
 
 
 <?php  
-	$usernameErr = $passwordErr = $verifyPasswordErr = $uname = "";
-	$badUsername = $badPassword = $badVerification = false;
+
+	$usernameErr = $passwordErr = $verifyPasswordErr = $uname = $zipcodeErr = "";
+	$formErr = "ERROR: All forms must be filled out";
+	$badUsername = $badPassword = $badVerification = $badZipCode = false;
 	$usernameFormGroup = "control-group";
 	$passwordFormGroup = "control-group";
+	$correctForms = 0;
+	$filledOutAllForms = true;
+	
+	$firstName = $lastName = $dateOfBirth = $email = $state = $city = $zip = "";
+	$gender="female";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	
+	if(isset($_POST['firstName'])) {$firstName = $_POST['firstName']; $correctForms + 1;}
+	if(isset($_POST['lastName'])) {$lastName = $_POST['lastName']; $correctForms + 1;}
+	if(isset($_POST['gender'])) {$gender = $_POST['gender']; $correctForms + 1;}
+	if(isset($_POST['dateOfBirth'])) {$dateOfBirth = $_POST['dateOfBirth']; $correctForms + 1;}
+	if(isset($_POST['email'])) {$email = $_POST['email']; $correctForms + 1;}
+	if(isset($_POST['state'])) {$state = $_POST['state']; $correctForms + 1;}
+	if(isset($_POST['city'])) {$city = $_POST['city']; $correctForms + 1;}
+	if(isset($_POST['zip'])) {
+		$zip = $_POST['zip']; 
+		if(strlen($zip) != 5){ // if the zip code isn't 5 digits
+			$zipcodeErr = "Invalid zip code. Must be 5 digits";
+			$zip = "";
+			$badZipCode = true;
+		}
+		$correctForms + 1;
+	}
+	
+	
+	
 	if(empty($_POST["username"])){
 		$usernameErr = "Username is required.";
 		$usernameFormGroup = "control-group error";
@@ -69,14 +98,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			}
 		}
 	}
+
+	$filledOutAllForms = ($correctForms === 8);
+	
 	
 	
 	// if there are no errors
-	if(!$badUsername && !$badPassword && !$badVerification){
+	if(!$badUsername && !$badPassword && !$badVerification && !$badZipCode && filledOutAllForms){
 		//createUser($_POST['username'], $_POST['password']);
 		header('Location: main.php');
 	}
-	
 }	
 ?>
 
@@ -98,14 +129,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				  <span class="help-inline"><?php echo $usernameErr; ?></span>
 				</div>
 				<br>
-				<br>
+				
 				<label for="passwordInput">Password</label>
 				<?php echo '<div class="' . $usernameFormGroup . '">'; ?>
                   <input type="password" class="form-control" name="password" maxlength="20">
 				  <span class="help-inline"><?php echo $passwordErr; ?></span>
 				</div>
 				<br>
-				<br>
+				
 				<label for="verifyPasswordInput">Verify Password</label>
 				<div class="control-group warning">
                   <input type="password" class="form-control" name="verifyPassword" maxlength="20">
@@ -115,17 +146,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<br>
 				<br>
 				<br>
-				
-				
-				<!--- commented out for now, will implement this for milestone 3
 				<h3><b>Contact Information</b></h3>
+				<?php if(!$filledOutAllForms) {
+						echo '<span class="help-inline">' . $formErr . '</span><br><br>';
+					} 
+				?>
 				<br>
-				 check whether these equal before creating the account 
 				<label for="firstNameInput">First Name</label>
 				<div class="form-group">
 					<?php echo '<input type="text" class="form-control" name="firstName" maxlength="20" value="' . $firstName . '">';?>
 				</div>
-				<label for="lastNameInput">&nbsp; &nbsp;Last Name</label>
+				<br>
+				<br>
+				<label for="lastNameInput">Last Name</label>
 				<div class="form-group">
 					<?php echo '<input type="text" class="form-control" name="lastName" maxlength="20" value="' . $lastName .'">';?>
 				</div>
@@ -133,45 +166,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<br>
 				<label for="genderInput">Gender &nbsp; &nbsp; &nbsp;</label>
 				<div class="btn-group">
-					<label class="radio-inline"><input type="radio" name="male">Male</label>
-					<label class="radio-inline"><input type="radio" name="female">Female</label>
+				<?php
+				if($gender == "male"){
+					echo '<label class="radio-inline"><input type="radio" name="gender" value="male" checked="checked">Male</label>';
+					echo '<label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>';
+				}
+				else {
+					echo '<label class="radio-inline"><input type="radio" name="gender" value="male">Male</label>';
+					echo '<label class="radio-inline"><input type="radio" name="gender" value="female" checked="checked">Female</label>';
+				}
+					
+				?>
 				</div>
 				<br>
 				<br>
 				<label for="datOfBirthInput">Date of birth</label>
 				<div class="form-group">
-					<input type="date" class="form-control" name="dateOfBirth">
+					<?php echo '<input type="date" class="form-control" name="dateOfBirth" value="' . $dateOfBirth . '">'; ?>
 				</div>
 				<br>
 				<br>
 				<label for="emailInput">E-mail</label>
 				<div class="form-group">
-					<input type="email" class="form-control" name="email" maxlength="40">
+					<?php echo '<input type="email" class="form-control" name="email" maxlength="40" value="' . $email . '">'; ?>
 				</div>
 				<br>
 				<br>
-				<label for="countryInput">Country</label>
-				<select class="input-medium bfh-countries"></select>
-				<br>
-				<br>
-				<label for="stateInput">State</label>
+				
 				<div class="form-group">
-					<input type="text" class="form-control" name="state" maxlength="20">
+				    <label for="stateInput">State</label>
+					
+					<?php
+					echo '<select name = "state" class ="form-control" selected="' . $state . '">';
+					
+					foreach($states as $s){
+						if($s === $state) {
+							echo '<option selected="selected">' . $s . '</option>';
+						}
+						else {
+							echo '<option value="' . $s . '">' . $s . '</option>';
+						}
+					}
+					?>
+					</select>
 				</div>
 				<br>
 				<br>
+				<div class="form-group">
 				<label for="cityInput">City</label>
-				<div class="form-group">
-					<input type="text" class="form-control" name="city" maxlength="20">
+					<?php echo '<input type="text" class="form-control" name="city" maxlength="20" value="' . $city . '">'; ?>
 				</div>
 				<br>
 				<br>
 				<label for="zipInput">Zip</label>
 				<div class="form-group">
-					<input type="number" class="form-control" name="zip" maxLength="5">
+					<?php echo '<input type="number" class="form-control" name="zip" maxLength="5" value="' . $zip . '">' . 
+						'<span class="help-inline">  ' . $zipcodeErr . '</span>';
+					?>
+					
 				</div>
 				<br>
-				<br>-->
+				<br>
 				<input type="submit" action="post" name="submit">
 			</form>  
         </div>

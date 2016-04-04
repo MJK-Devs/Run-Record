@@ -76,4 +76,49 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
 
 // // Create User - Sample Usage:
 // createUser("knovak19", "web3", "knovak19@kent.edu", "Kevin", "Novak", "1993-11-29", "M");
+
+// authenticates a user. returns true if the user authenticated
+// and false otherwise
+function authenticate($username, $password) {
+	    try {
+        // connect to database
+        $connString = "mysql:host=localhost;dbname=knovak18";
+        $user = "knovak18";
+        $pass = "web2";
+
+        $pdo = new PDO($connString,$user,$pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		$query = "SELECT * FROM rrusers";
+		
+        // create query
+        $result = $pdo->query($query);
+
+        // put query results into array
+        $array = array();
+        $authenticated = false;
+		print_r($users);
+	
+		// finds the username & password in the database
+		foreach($users as $user) {
+			if(strcmp($username, $user["username"]) === 0){
+				if(strcmp($password, $user["password"]) === 0) {
+					// credentials matched, so returns true
+					$authenticated = true;
+				}	
+			}
+		}
+		
+		$pdo = null;
+	
+		return $authenticated;
+
+    }
+    catch (PDOException $e) {
+        die( $e->getMessage() );
+        return null;
+    }
+}
+
+
 ?>
