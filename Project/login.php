@@ -2,11 +2,11 @@
 
 	include_once "db/db.php";
 
-
-	if(isset($_COOKIE['User'])) {
-		//redirect user to main page if they are already authenticated.
-		header('Location: ./main.php');
-	}
+	// DEBUG - Comment the below for testing purposes
+	// if(isset($_COOKIE['User'])) {
+	// 	//redirect user to main page if they are already authenticated.
+	// 	header('Location: ./main.php');
+	// }
 
 	function formPassword() {
 		if(isset($_COOKIE['loginError'])) {
@@ -39,7 +39,7 @@
 
 <body>
 <div class="header">
-	<a href="main.php"><img width="100" height="100" alt="" src="images/logo.png"></a>
+	<img width="100" height="100" alt="" src="images/logo.png">
 	<h1><b>Login</b></h1>
 </div>
 
