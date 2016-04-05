@@ -89,7 +89,7 @@ function authUser($username, $password) {
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "select * from rruser where Username=\"" . $username . "$sql = "select * from rruser where Username=\"" . $username . "\"";"";
+        $sql = "select * from rruser where Username=\"" . $username . "\"";
         $result = $pdo->query($sql);
 
         while ($row = $result->fetch()) {

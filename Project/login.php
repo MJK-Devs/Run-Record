@@ -1,5 +1,5 @@
 <?php
-	
+
 	include_once "db/db.php";
 
 
@@ -48,7 +48,7 @@
 	</div>
 	<div class="col-md-6">
 		<div id="login">
-			
+
 			<form role="form" action="db/authUser.php" method="post">
 				<div class="form-group">
 					<label for="usernameInput">Username</label>
@@ -58,13 +58,11 @@
 					formPassword();
 				?>
               <button type="submit" value="submit" class="btn btn-primary">Login</button>
-            </form>  
+            </form>
          </div>
       </div>
       <div class="col-md-6">
       </div>
-   </div>  
+   </div>
 </div>  <!-- end container -->
 </body>
-
-
