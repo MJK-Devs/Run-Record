@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
     if (count($createErrors) > 0) {
         // comment the line below to debug
-        // header('Location: ../create.php');
+        header('Location: ../create.php');
         echo "ERROR - The following fields are empty:" . '<br/>';
         foreach ($createErrors as $error) {
             echo $error . '<br/>';
