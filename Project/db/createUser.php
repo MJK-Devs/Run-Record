@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (empty($_POST['dateOfBirth'])) {
         $createErrors[] = "dateOfBirth";
     }
-    if (empty($_POST['male']) && empty($_POST['female'])) {
+    if (empty($_POST['gender'])) {
         $createErrors[] = "gender";
     }
     if (count($createErrors) > 0) {
@@ -33,15 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             echo $error . '<br/>';
         }
     } else {
-        if (!empty($_POST['male']) || !empty($_POST['female'])) {
-            if ($_POST['male'] == "on") {
-                $gender = 'M';
-            }
-            if ($_POST['female'] == "on") {
-                $gender = 'F';
-            }
-        }
-        createUser($_POST['username'], $_POST['password'], $_POST['email'], $_POST['firstName'], $_POST['lastName'], $_POST['dateOfBirth'], $gender);
+        createUser($_POST['username'], $_POST['password'], $_POST['email'], $_POST['firstName'], $_POST['lastName'], $_POST['dateOfBirth'], $_POST['gender']);
         header('Location: ../main.php');
     }
 }

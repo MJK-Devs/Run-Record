@@ -7,7 +7,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
 
-	<?php //include "helper-functions.php";
+	<?php
+		//include "helper-functions.php";
 		  include_once "db/db.php";
 		  include_once "includes/states.php";
 	?>
@@ -20,14 +21,14 @@
 	</div>
 
 <?php
+	// setting all default values
 	$usernameErr = $passwordErr = $verifyPasswordErr = $uname = $zipcodeErr = "";
-	$formErr = "ERROR: All forms must be filled out";
+	$formErr = "ERROR: All forms must be filled out.";
 	$badUsername = $badPassword = $badVerification = $badZipCode = false;
 	$usernameFormGroup = "control-group";
 	$passwordFormGroup = "control-group";
 	$correctForms = 0;
 	$filledOutAllForms = true;
-
 	$firstName = $lastName = $dateOfBirth = $email = $state = $city = $zip = "";
 	$gender="female";
 
@@ -109,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</div>
 	<div class="col-md-5">
 		<div id="userInformation">
-			<form class="form-inline" method="post" > <!--action="db/createUser.php"> -->
+			<form class="form-inline" method="post" action="db/createUser.php">
 
 				<label for="usernameInput">Username</label>
 				<div class="control-group">
@@ -145,41 +146,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 				?>
 				<br>
+
 				<label for="firstNameInput">First Name</label>
 				<div class="form-group">
 					<?php echo '<input type="text" class="form-control" name="firstName" maxlength="20" value="' . $firstName . '">';?>
 				</div>
 				<br>
 				<br>
+
 				<label for="lastNameInput">Last Name</label>
 				<div class="form-group">
 					<?php echo '<input type="text" class="form-control" name="lastName" maxlength="20" value="' . $lastName .'">';?>
 				</div>
 				<br>
 				<br>
+
 				<label for="genderInput">Gender &nbsp; &nbsp; &nbsp;</label>
 				<div class="btn-group">
-				<?php
-				if($gender == "male"){
-					echo '<label class="radio-inline"><input type="radio" name="gender" value="male" checked="checked">Male</label>';
-					echo '<label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>';
-				}
-				else {
-					echo '<label class="radio-inline"><input type="radio" name="gender" value="male">Male</label>';
-					echo '<label class="radio-inline"><input type="radio" name="gender" value="female" checked="checked">Female</label>';
-				}
+				<label class="radio-inline"><input type="radio" name="gender" value="M">Male</label>
+				<label class="radio-inline"><input type="radio" name="gender" value="F">Female</label>
+				</div>
+				<br>
+				<br>
 
-				?>
-				</div>
-				<br>
-				<br>
-				<label for="datOfBirthInput">Date of birth</label>
+				<label for="datOfBirthInput">Date of Birth</label>
 				<div class="form-group">
+					<?php echo '<input type="date" class="form-control" name="dateOfBirth" value="' . $dateOfBirth . '">';?>
 				</div>
 				<br>
 				<br>
+
 				<label for="emailInput">E-mail</label>
 				<div class="form-group">
+					<?php echo '<input type="email" class="form-control" name="email" maxlength="40" value="' . $email . '">';?>
 				</div>
 				<br>
 				<br>
@@ -205,6 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<br>
 				<div class="form-group">
 				<label for="cityInput">City</label>
+					<?php echo '<input type="text" class="form-control" name="city" maxlength="20" value="' . $city . '">';?>
 				</div>
 				<br>
 				<br>
