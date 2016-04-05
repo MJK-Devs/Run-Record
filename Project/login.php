@@ -10,7 +10,7 @@
 
 	function formPassword() {
 		if(isset($_COOKIE['loginError'])) {
-			if(strcmp($_COOKIE['loginError'],"password") == 0) {
+			if(strcmp($_COOKIE['loginError'],"password") === 0) {
 				print('<div class="form-group has-error">');
 				print('
 					<div class="form-group">
@@ -37,23 +37,8 @@
 <head> <title>Record Run Login</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="style.css" rel="stylesheet">
-<?php include_once "db/db.php"; ?>
 </head>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	
-	$invalidCredentials = true;
-	$invalidCredsMessage = "Invalid username or password";
-	
-	if(isset($_POST['username'])) {
-		print_r($_POST['username']);
-	}
-	if(isset($_POST['password'])) {
-		
-	}
-	$authenticated = authenticate($_POST['username'], $_POST['password']);
-}
-?>
+
 <body>
 <div class="header">
 	<a href="main.php"><img width="100" height="100" alt="" src="images/logo.png"></a>

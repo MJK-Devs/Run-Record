@@ -7,12 +7,9 @@
 function executeQuery($query, $attribute) {
     try {
          // connect to database
-        #$connString = "mysql:host=localhost;dbname=knovak18";
-        #$user = "knovak18";
-        #$pass = "web2";
-        $connString = "mysql:host=localhost;dbname=mboehlke";
-        $user = "mboehlke";
-        $pass = "01lJZjam";
+        $connString = "mysql:host=localhost;dbname=knovak18";
+        $user = "knovak18";
+        $pass = "web2";
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -52,12 +49,10 @@ function executeQuery($query, $attribute) {
 function createUser($username, $password, $email, $firstname, $lastname, $dob, $gender) {
     try {
         // connect to database
-        #$connString = "mysql:host=localhost;dbname=knovak18";
-        #$user = "knovak18";
-        #$pass = "web2";
-        $connString = "mysql:host=localhost;dbname=mboehlke";
-        $user = "mboehlke";
-        $pass = "01lJZjam";
+        $connString = "mysql:host=localhost;dbname=knovak18";
+        $user = "knovak18";
+        $pass = "web2";
+
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $statement = $pdo->prepare("INSERT INTO rruser(Username, Password, Email, FirstName, LastName, DOB, Gender)
@@ -83,13 +78,13 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
 // =======================================
 // Checks if a user with the provided password exists in the database
 // returns TRUE if yes
-function authUser($username, $password) {
-    $pass = executeQuery("SELECT * FROM rruser WHERE Username ='".$username."'", "Password");
-    if(strcmp($pass[0], $password) == 0) {
-        return true;
-    }
-    return false;
-}
+//function authUser($username, $password) {
+//    $pass = executeQuery("SELECT * FROM rruser WHERE Username ='".$username."'", "Password");
+//    if(strcmp($pass[0], $password) == 0) {
+//        return true;
+//    }
+//    return false;
+//}
 
 // // Create User - Sample Usage:
 // createUser("knovak19", "web3", "knovak19@kent.edu", "Kevin", "Novak", "1993-11-29", "M");
