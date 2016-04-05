@@ -8,6 +8,30 @@
 		header('Location: https://webdev.cs.kent.edu/~mboehlke/Web2/RR/main.php');
 	}
 
+	function formPassword() {
+		if(isset($_COOKIE['loginError'])) {
+			if(strcmp($_COOKIE['loginError'],"password") == 0) {
+				print('<div class="form-group has-error">');
+				print('
+					<div class="form-group">
+                 	<label for="exampleInputPassword2">Password</label>
+                  	<input type="password" class="form-control" name="password">
+                  	</div>'
+                );
+				setcookie("loginError", "", time() - 3600, "/");
+			}
+		}
+		else {
+			print('<div class="form-group>"');
+			print('
+					<div class="form-group">
+                  	<label for="exampleInputPassword2">Password</label>
+                  	<input type="password" class="form-control" name="password">
+                  	</div>'
+                );
+		}
+	}
+
 ?>
 
 <head> <title>Record Run Login</title>
@@ -42,29 +66,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<div class="col-md-6">
 		<div id="login">
 			
-<<<<<<< HEAD
-			<form class="form" method="post">
+			<form role="form" action="db/authUser.php" method="post">
 				<div class="form-group">
 					<label for="usernameInput">Username</label>
 					<input type="text" class="form-control" name="username">
-=======
-			<form role="form" action="db/authUser.php" method="post">
-				<div class="form-group">
-					<label >Username</label>
-					<input type="text" class="form-control" name="email">
->>>>>>> origin/master
 				</div>
-				<div class="form-group">
-                  <label for="passwordInput">Password</label>
-                  <input type="password" class="form-control" name="password">
-                </div>
-<<<<<<< HEAD
-			  
-			  <button type="submit" class="btn btn-primary" action="post">Login</button>
-              <!--<input type="submit" action="post" name="submit">	-->
-=======
+				<?php
+					formPassword();
+				?>
               <button type="submit" value="submit" class="btn btn-primary">Login</button>
->>>>>>> origin/master
             </form>  
          </div>
       </div>

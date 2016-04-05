@@ -85,7 +85,7 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
 // returns TRUE if yes
 function authUser($username, $password) {
     $pass = executeQuery("SELECT * FROM rruser WHERE Username ='".$username."'", "Password");
-    if(strcmp($pass, $password) == 0) {
+    if(strcmp($pass[0], $password) == 0) {
         return true;
     }
     return false;
