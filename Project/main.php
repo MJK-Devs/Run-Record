@@ -33,9 +33,17 @@
 				</li>
 				<li><a href="#">Community</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="login.php#">Login</a></li>
-				<li><a href="create.php">Create Account</a></li>
+			<?php
+			print('<ul class="nav navbar-nav navbar-right">');
+					if(isset($_COOKIE['User'])) {
+						print('<li><a href="profile.php">Profile</a></li>');
+						print('<li><a href="logout.php">Log Out</a></li>');
+					}
+					else {
+						print('<li><a href="login.php#">Login</a></li>');
+						print('<li><a href="create.php">Create Account</a></li>');
+					}
+				?>
 				<!-- if the user is logged in, replace create account with
 						"Profile" instead, and link to "Profile.php"-->
 			</ul>

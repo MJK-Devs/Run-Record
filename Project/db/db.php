@@ -6,10 +6,13 @@
 // see sample usage below
 function executeQuery($query, $attribute) {
     try {
-        // connect to database
-        $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+         // connect to database
+        #$connString = "mysql:host=localhost;dbname=knovak18";
+        #$user = "knovak18";
+        #$pass = "web2";
+        $connString = "mysql:host=localhost;dbname=mboehlke";
+        $user = "mboehlke";
+        $pass = "01lJZjam";
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -49,13 +52,14 @@ function executeQuery($query, $attribute) {
 function createUser($username, $password, $email, $firstname, $lastname, $dob, $gender) {
     try {
         // connect to database
-        $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
-
+        #$connString = "mysql:host=localhost;dbname=knovak18";
+        #$user = "knovak18";
+        #$pass = "web2";
+        $connString = "mysql:host=localhost;dbname=mboehlke";
+        $user = "mboehlke";
+        $pass = "01lJZjam";
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         $statement = $pdo->prepare("INSERT INTO rruser(Username, Password, Email, FirstName, LastName, DOB, Gender)
             VALUES(:Username, :Password, :Email, :FirstName, :LastName, :DOB, :Gender)");
         $statement->execute(array(
@@ -72,6 +76,19 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
         die( $e->getMessage() );
         return null;
     }
+}
+
+// =======================================
+// Authenticate User
+// =======================================
+// Checks if a user with the provided password exists in the database
+// returns TRUE if yes
+function authUser($username, $password) {
+    $pass = executeQuery("SELECT * FROM rruser WHERE Username ='".$username."'", "Password");
+    if(strcmp($pass, $password) == 0) {
+        return true;
+    }
+    return false;
 }
 
 // // Create User - Sample Usage:
