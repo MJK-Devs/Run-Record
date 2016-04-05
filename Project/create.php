@@ -175,11 +175,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<br>
 				<label for="datOfBirthInput">Date of birth</label>
 				<div class="form-group">
+					<?php echo '<input type="date" class="form-control" name="dateOfBirth" value="' . $dateOfBirth . '">'; ?>
 				</div>
 				<br>
 				<br>
 				<label for="emailInput">E-mail</label>
 				<div class="form-group">
+					<?php echo '<input type="email" class="form-control" name="email" maxlength="40" value="' . $email . '">'; ?>
 				</div>
 				<br>
 				<br>
@@ -205,6 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<br>
 				<div class="form-group">
 				<label for="cityInput">City</label>
+					<?php echo '<input type="text" class="form-control" name="city" maxlength="20" value="' . $city . '">'; ?>
 				</div>
 				<br>
 				<br>
