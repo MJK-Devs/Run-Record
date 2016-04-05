@@ -1,15 +1,3 @@
-<?php
-	
-	include_once "db/db.php";
-
-
-	if(isset($_COOKIE['User'])) { 
-		//redirect user to main page if they are already authenticated.
-		header('Location: https://webdev.cs.kent.edu/~mboehlke/Web2/RR/main.php');
-	}
-
-?>
-
 <head> <title>Record Run Login</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="style.css" rel="stylesheet">
@@ -27,16 +15,16 @@
 	<div class="col-md-6">
 		<div id="login">
 			
-			<form role="form" action="db/authUser.php" method="post">
+			<form role="form">
 				<div class="form-group">
-					<label >Username</label>
-					<input type="text" class="form-control" name="email">
+					<label for="emailInput">Username</label>
+					<input type="email" class="form-control" name="email">
 				</div>
 				<div class="form-group">
                   <label for="exampleInputPassword2">Password</label>
                   <input type="password" class="form-control" name="password">
                 </div>
-              <button type="submit" value="submit" class="btn btn-primary">Login</button>
+              <button type="submit" class="btn btn-primary">Login</button>
             </form>  
          </div>
       </div>
