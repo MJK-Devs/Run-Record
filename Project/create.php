@@ -20,7 +20,6 @@
 	</div>
 
 <?php
-
 	$usernameErr = $passwordErr = $verifyPasswordErr = $uname = $zipcodeErr = "";
 	$formErr = "ERROR: All forms must be filled out";
 	$badUsername = $badPassword = $badVerification = $badZipCode = false;
@@ -114,30 +113,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 				<label for="usernameInput">Username</label>
 				<div class="control-group">
-				<!--<?php echo '<div class="' . $usernameFormGroup . '">';?>-->
+				<?php echo '<div class="' . $usernameFormGroup . '">';?>
 				  <?php echo '<input type="text" class="form-control" name="username" maxlength="20" value="' . $uname . '">';?>
-				  <span class="help-inline"><?php echo $usernameErr; ?></span>
+				  <span class="help-inline"><?php echo $usernameErr;?></span>
 				</div>
 				<br>
 
 				<label for="passwordInput">Password</label>
-				<?php echo '<div class="' . $usernameFormGroup . '">'; ?>
+				<?php echo '<div class="' . $usernameFormGroup . '">';?>
                   <input type="password" class="form-control" name="password" maxlength="20">
-				  <span class="help-inline"><?php echo $passwordErr; ?></span>
+				  <span class="help-inline"><?php echo $passwordErr;?></span>
 				</div>
 				<br>
 
 				<label for="verifyPasswordInput">Verify Password</label>
 				<div class="control-group warning">
                   <input type="password" class="form-control" name="verifyPassword" maxlength="20">
-                  <span class="help-inline"><?php echo $verifyPasswordErr; ?></span>
+                  <span class="help-inline"><?php echo $verifyPasswordErr;?></span>
 				</div>
+
 				<br>
 				<br>
 				<br>
 				<br>
+
 				<h3><b>Contact Information</b></h3>
-				<?php if(!$filledOutAllForms) {
+
+				<?php
+					if(!$filledOutAllForms) {
 						echo '<span class="help-inline">' . $formErr . '</span><br><br>';
 					}
 				?>
@@ -172,13 +175,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<br>
 				<label for="datOfBirthInput">Date of birth</label>
 				<div class="form-group">
-					<?php echo '<input type="date" class="form-control" name="dateOfBirth" value="' . $dateOfBirth . '">'; ?>
 				</div>
 				<br>
 				<br>
 				<label for="emailInput">E-mail</label>
 				<div class="form-group">
-					<?php echo '<input type="email" class="form-control" name="email" maxlength="40" value="' . $email . '">'; ?>
 				</div>
 				<br>
 				<br>
@@ -204,7 +205,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<br>
 				<div class="form-group">
 				<label for="cityInput">City</label>
-					<?php echo '<input type="text" class="form-control" name="city" maxlength="20" value="' . $city . '">'; ?>
 				</div>
 				<br>
 				<br>
