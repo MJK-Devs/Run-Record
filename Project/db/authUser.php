@@ -2,13 +2,16 @@
 
 	include_once "db.php";
 
-	if(isset($_POST['email']) && isset($_POST['password'])) {
+	if(isset($_POST['username']) && isset($_POST['password'])) {
 
-		$email = $_POST['email'];
+		$username = $_POST['username'];
 		$pass = $_POST['password'];
 		
-		if(authenticate($email, $pass)) {
-			setcookie("User", $_POST['email'], time() + (86400 * 30), "/"); // 86400 = 1 day
+		print($username);
+		print($password);
+
+		if(authUser($username, $pass)) {
+			setcookie("User", $username, time() + (86400 * 30), "/"); // 86400 = 1 day
 			setcookie("loginError", "", time() - 3600, "/"); //reset any login errors
 			header('Location: https://webdev.cs.kent.edu/~mboehlke/Web2/RR/main.php');
 		}

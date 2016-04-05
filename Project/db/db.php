@@ -78,20 +78,20 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
 // =======================================
 // Checks if a user with the provided password exists in the database
 // returns TRUE if yes
-//function authUser($username, $password) {
-//    $pass = executeQuery("SELECT * FROM rruser WHERE Username ='".$username."'", "Password");
-//    if(strcmp($pass[0], $password) == 0) {
-//        return true;
-//    }
-//    return false;
-//}
+function authUser($username, $password) {
+    $pass = executeQuery("SELECT * FROM rruser WHERE Username ='".$username."'", "Password");
+    if(strcmp($pass[0], $password) == 0) {
+        return true;
+    }
+    return false;
+}
 
 // // Create User - Sample Usage:
 // createUser("knovak19", "web3", "knovak19@kent.edu", "Kevin", "Novak", "1993-11-29", "M");
 
 // authenticates a user. returns true if the user authenticated
 // and false otherwise
-function authenticate($username, $password) {
+/*function authenticate($username, $password) {
 	    try {
         // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
@@ -130,7 +130,7 @@ function authenticate($username, $password) {
         die( $e->getMessage() );
         return null;
     }
-}
+}*/
 
 
 ?>

@@ -10,10 +10,9 @@
 
 	function formPassword() {
 		if(isset($_COOKIE['loginError'])) {
-			if(strcmp($_COOKIE['loginError'],"password") === 0) {
-				print('<div class="form-group has-error">');
+			if(strcmp($_COOKIE['loginError'],"password") == 0) {
 				print('
-					<div class="form-group">
+					<div class="form-group has-error">
                  	<label for="exampleInputPassword2">Password</label>
                   	<input type="password" class="form-control" name="password">
                   	</div>'
@@ -22,7 +21,6 @@
 			}
 		}
 		else {
-			print('<div class="form-group>"');
 			print('
 					<div class="form-group">
                   	<label for="exampleInputPassword2">Password</label>
@@ -68,11 +66,5 @@
    </div>  
 </div>  <!-- end container -->
 </body>
-<?php
 
-
-
-
-
-?>
 
