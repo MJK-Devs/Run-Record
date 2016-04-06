@@ -5,7 +5,7 @@
 	// DEBUG - Comment the below for testing purposes
 	if(isset($_COOKIE['User'])) {
 		//redirect user to main page if they are already authenticated.
-		header('Location: ./main.php');
+		header('Location: https://webdev.cs.kent.edu/~mboehlke/Web2/RR/main.php');
 	}
 
 	function formPassword() {
