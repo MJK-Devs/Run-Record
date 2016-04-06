@@ -27,21 +27,21 @@
 			<div id="userInformation">
 				<form class="form-inline" method="post" action="db/createUser2.php">
 
-					<label for="usernameInput">Username</label>
+					<label for="usernameInput">Username<span style="color:red">*<span></label>
 					<div class="control-group">
 						<input type="text" class="form-control <?php errorOutline("failedUsername"); ?>" name="username" maxlength="20" <?php rememberField("username") ?>>
 						<?php errorMessage("failedUsername"); ?>
 					</div>
 					<br>
 
-					<label for="passwordInput">Password</label>
+					<label for="passwordInput">Password<span style="color:red">*<span></label>
 					<div class="control-group">
 	                  	<input type="password" class="form-control <?php errorOutline("failedPassword"); ?>" name="password" maxlength="20">
 					 	<?php errorMessage("failedPassword"); ?>
 					</div>
 					<br>
 
-					<label for="verifyPasswordInput">Verify Password</label>
+					<label for="verifyPasswordInput">Verify Password<span style="color:red">*<span></label>
 					<div class="control-group">
                   		<input type="password" class="form-control <?php errorOutline("failedVerifyPassword"); ?>" name="verifyPassword" maxlength="20">
                   		<?php errorMessage("failedVerifyPassword"); ?>
@@ -55,7 +55,7 @@
 					<h3><b>Contact Information</b></h3>
 
 					<br>
-					<label for="firstNameInput">First Name</label>
+					<label for="firstNameInput">First Name<span style="color:red">*<span></label>
 					<div class="control-group">
 						<input type="text" class="form-control <?php errorOutline("failedFirstName"); ?>" name="firstName" maxlength="20" <?php rememberField("firstName") ?>>
 						<?php errorMessage("failedFirstName"); ?>
@@ -63,7 +63,7 @@
 					<br>
 
 					<br>
-					<label for="lastNameInput">Last Name</label>
+					<label for="lastNameInput">Last Name<span style="color:red">*<span></label>
 					<div class="control-group">
 						<input type="text" class="form-control <?php errorOutline("failedLastName"); ?>" name="lastName" maxlength="20" <?php rememberField("lastName") ?>>
 						<?php errorMessage("failedLastName"); ?>
