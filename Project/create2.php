@@ -29,8 +29,11 @@
 
 					<label for="usernameInput">Username</label>
 					<div class="control-group">
-						<div class="' . $usernameFormGroup . '">
-							<input type="text" class="form-control" name="username" maxlength="20">
+						<div class="control-group">
+							<input type="text" class="form-control <?php
+								if(!empty($_SESSION['failedUsername'])) {
+									echo "error";}?>"
+								name="username" maxlength="20">
 							<?php
 								if(!empty($_SESSION['failedUsername'])) {
 									echo $_SESSION['failedUsername'];
@@ -39,6 +42,7 @@
 							?>
 						</div>
 					</div>
+
 					<input type="submit" name="submit">
 				</form>
 	        </div>
