@@ -42,7 +42,7 @@
 		 </div>
 	 </div>
 </body>
-<html>
+</html>
 
 <?php
 function checkCookie() {
