@@ -6,6 +6,7 @@ session_start();
 // ========================================
 // if username is set
 if (isset($_POST['username'])) {
+    $_SESSION['username'] = $_POST['username'];
     // checks if username is empty
     if (empty($_POST['username'])) {
         $_SESSION['failedUsername'] = "Username cannot be empty!";
@@ -39,6 +40,28 @@ if (isset($_POST['verifyPassword'])) {
                 $_SESSION['failedVerifyPassword'] = "Passwords do not match!";
             }
         }
+    }
+}
+
+// ========================================
+// First Name
+// ========================================
+if (isset($_POST['firstName'])) {
+    $_SESSION['firstName'] = $_POST['firstName'];
+    // checks if first name is empty
+    if (empty($_POST['firstName'])) {
+        $_SESSION['failedFirstName'] = "Please fill in your first name!";
+    }
+}
+
+// ========================================
+// Last Name
+// ========================================
+if (isset($_POST['lastName'])) {
+    $_SESSION['lastName'] = $_POST['lastName'];
+    // checks if last name is empty
+    if (empty($_POST['lastName'])) {
+        $_SESSION['failedLastName'] = "Please fill in your last name!";
     }
 }
 

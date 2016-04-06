@@ -29,7 +29,7 @@
 
 					<label for="usernameInput">Username</label>
 					<div class="control-group">
-						<input type="text" class="form-control <?php errorOutline("failedUsername"); ?>" name="username" maxlength="20">
+						<input type="text" class="form-control <?php errorOutline("failedUsername"); ?>" name="username" maxlength="20" <?php rememberField("username") ?>>
 						<?php errorMessage("failedUsername"); ?>
 					</div>
 					<br>
@@ -47,6 +47,45 @@
                   		<?php errorMessage("failedVerifyPassword"); ?>
 					</div>
 
+					<br>
+					<br>
+					<br>
+					<br>
+
+					<h3><b>Contact Information</b></h3>
+
+					<br>
+					<label for="firstNameInput">First Name</label>
+					<div class="control-group">
+						<input type="text" class="form-control <?php errorOutline("failedFirstName"); ?>" name="firstName" maxlength="20" <?php rememberField("firstName") ?>>
+						<?php errorMessage("failedFirstName"); ?>
+					</div>
+					<br>
+
+					<br>
+					<label for="lastNameInput">Last Name</label>
+					<div class="control-group">
+						<input type="text" class="form-control <?php errorOutline("failedLastName"); ?>" name="lastName" maxlength="20" <?php rememberField("lastName") ?>>
+						<?php errorMessage("failedLastName"); ?>
+					</div>
+					<br>
+
+					<br>
+					<label for="genderInput">Gender</label>
+					<div class="btn-group <?php errorOutline("failedGender"); ?>">
+						<?php
+						if($gender == "male"){
+							echo '<label class="radio-inline"><input type="radio" name="gender" value="male" checked="checked">Male</label>';
+							echo '<label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>';
+						}
+						else {
+							echo '<label class="radio-inline"><input type="radio" name="gender" value="male">Male</label>';
+							echo '<label class="radio-inline"><input type="radio" name="gender" value="female" checked="checked">Female</label>';
+						}
+						?>
+					</div>
+					<?php errorMessage("failedGender"); ?>
+					<br>
 
 					<input type="submit" name="submit">
 				</form>
@@ -73,6 +112,17 @@ function errorMessage($failedType) {
 function errorOutline($failedType) {
 	if(!empty($_SESSION[$failedType])) {
 		echo "error";
+	}
+}
+
+// remembers the field accross submits
+// for example if a user types in their name
+// as "Bob", it will not ask them to re-enter
+// remember to save the session variable first in createUser.php
+// Sample Usage: errorMessage("firstName");
+function rememberField($fieldType) {
+	if(isset($_SESSION[$fieldType])) {
+		echo 'value="'. $_SESSION[$fieldType] . '"';
 	}
 }
 ?>
