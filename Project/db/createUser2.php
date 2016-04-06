@@ -64,6 +64,10 @@ if (isset($_POST['verifyPassword'])) {
 // ========================================
 if (isset($_POST['firstName'])) {
     $_SESSION['firstName'] = $_POST['firstName'];
+    // checking name length
+    if (strlen($_POST['firstName']) > 20) {
+        $_SESSION['failedFirstName'] = "Names cannot be longer than 20 letters!";
+    }
     // checking for allowed characters
     if(!ctype_alpha($_POST["firstName"])) {
         $_SESSION['failedFirstName'] = "Names can only contain letters!";
@@ -79,6 +83,10 @@ if (isset($_POST['firstName'])) {
 // ========================================
 if (isset($_POST['lastName'])) {
     $_SESSION['lastName'] = $_POST['lastName'];
+    // checking name length
+    if (strlen($_POST['lastName']) > 20) {
+        $_SESSION['failedLastName'] = "Names cannot be longer than 20 letters!";
+    }
     // checking for allowed characters
     if(!ctype_alpha($_POST["lastName"])) {
         $_SESSION['failedLastName'] = "Names can only contain letters!";
