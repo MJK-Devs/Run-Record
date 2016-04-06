@@ -3,10 +3,10 @@
 	include_once "db/db.php";
 
 	// DEBUG - Comment the below for testing purposes
-	// if(isset($_COOKIE['User'])) {
-	// 	//redirect user to main page if they are already authenticated.
-	// 	header('Location: ./main.php');
-	// }
+	if(isset($_COOKIE['User'])) {
+		//redirect user to main page if they are already authenticated.
+		header('Location: ./main.php');
+	}
 
 	function formPassword() {
 		if(isset($_COOKIE['loginError'])) {
