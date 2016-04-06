@@ -26,6 +26,8 @@
 		<div class="col-md-5">
 			<div id="userInformation">
 				<form class="form-inline" method="post" action="db/createUser2.php">
+				
+					<h3><b>Account Information</b></h3>
 
 					<label for="usernameInput">Username<span style="color:red">*<span></label>
 					<div class="control-group">
@@ -46,15 +48,10 @@
                   		<input type="password" class="form-control <?php errorOutline("failedVerifyPassword"); ?>" name="verifyPassword" maxlength="20">
                   		<?php errorMessage("failedVerifyPassword"); ?>
 					</div>
-
-					<br>
-					<br>
-					<br>
 					<br>
 
 					<h3><b>Contact Information</b></h3>
 
-					<br>
 					<label for="firstNameInput">First Name<span style="color:red">*<span></label>
 					<div class="control-group">
 						<input type="text" class="form-control <?php errorOutline("failedFirstName"); ?>" name="firstName" maxlength="20" <?php rememberField("firstName") ?>>
@@ -62,7 +59,7 @@
 					</div>
 					<br>
 
-					<br>
+
 					<label for="lastNameInput">Last Name<span style="color:red">*<span></label>
 					<div class="control-group">
 						<input type="text" class="form-control <?php errorOutline("failedLastName"); ?>" name="lastName" maxlength="20" <?php rememberField("lastName") ?>>
