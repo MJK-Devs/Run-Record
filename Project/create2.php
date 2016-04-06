@@ -29,19 +29,24 @@
 
 					<label for="usernameInput">Username</label>
 					<div class="control-group">
-						<div class="control-group">
-							<input type="text" class="form-control <?php
-								if(!empty($_SESSION['failedUsername'])) {
-									echo "error";}?>"
-								name="username" maxlength="20">
-							<?php
-								if(!empty($_SESSION['failedUsername'])) {
-									echo $_SESSION['failedUsername'];
-									unset($_SESSION['failedUsername']);
-								}
-							?>
-						</div>
+						<input type="text" class="form-control <?php errorOutline("failedUsername"); ?>" name="username" maxlength="20">
+						<?php errorMessage("failedUsername"); ?>
 					</div>
+					<br>
+
+					<label for="passwordInput">Password</label>
+					<div class="control-group">
+	                  	<input type="password" class="form-control <?php errorOutline("failedPassword"); ?>" name="password" maxlength="20">
+					 	<?php errorMessage("failedPassword"); ?>
+					</div>
+					<br>
+
+					<label for="verifyPasswordInput">Verify Password</label>
+					<div class="control-group">
+                  		<input type="password" class="form-control <?php errorOutline("failedVerifyPassword"); ?>" name="verifyPassword" maxlength="20">
+                  		<?php errorMessage("failedVerifyPassword"); ?>
+					</div>
+
 
 					<input type="submit" name="submit">
 				</form>
@@ -50,3 +55,24 @@
 	</div>
 </body>
 </html>
+
+<?php
+// echos out the error message
+// must pass in the $_SESSION parameter to check for
+// Sample Usage: errorMessage("failedUsername");
+function errorMessage($failedType) {
+	if(!empty($_SESSION[$failedType])) {
+		echo $_SESSION[$failedType];
+		unset($_SESSION[$failedType]);
+	}
+}
+
+// outputs "error" into the class of an input box
+// this will put a red line around the input box
+// Sample Usage: errorMessage("failedUsername");
+function errorOutline($failedType) {
+	if(!empty($_SESSION[$failedType])) {
+		echo "error";
+	}
+}
+?>
