@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+// ========================================
+// Username
+// ========================================
+// if username is set
 if (isset($_POST['username'])) {
     // checks if username is empty
     if (empty($_POST['username'])) {
@@ -8,6 +12,10 @@ if (isset($_POST['username'])) {
     }
 }
 
+// ========================================
+// Password
+// ========================================
+// if password is set
 if (isset($_POST['password'])) {
     // checks if password is empty
     if (empty($_POST['password'])) {
@@ -15,11 +23,17 @@ if (isset($_POST['password'])) {
     }
 }
 
+// ========================================
+// Verify
+// ========================================
+// if verify password is set
 if (isset($_POST['verifyPassword'])) {
-    // checks if password is empty
+    // checks if verify is empty
     if (empty($_POST['verifyPassword'])) {
         $_SESSION['failedVerifyPassword'] = "Please verify your password!";
     } else {
+        // otherwise if verify is not empty
+        // and verify doesnt match, then send an error
         if (isset($_POST['password'])) {
             if ($_POST['password'] != $_POST['verifyPassword']) {
                 $_SESSION['failedVerifyPassword'] = "Passwords do not match!";
