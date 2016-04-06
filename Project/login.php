@@ -1,7 +1,49 @@
 <?php
+	session_start();
 	include_once "db/db.php";
+	checkCookie();
+?>
 
-	// DEBUG - Comment the below for testing purposes
+<html>
+<head>
+	<title>Record Run Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+		<img width="100" height="100" alt="" src="images/logo.png">
+		<h1><b>Login</b></h1>
+	</div>
+
+	<div class="container">
+		<div class="row">
+		</div>
+
+		<div class="col-md-6">
+			<div id="login">
+
+				<form role="form" action="db/authUser.php" method="post">
+					<div class="form-group">
+						<label for="usernameInput">Username</label>
+						<input type="text" class="form-control" name="username">
+					</div>
+
+					<?php
+						formPassword();
+					?>
+
+	              <button type="submit" value="submit" class="btn btn-primary">Login</button>
+			  </form>
+			</div>
+		 </div>
+
+		 <div class="col-md-6">
+		 </div>
+	 </div>
+</body>
+<html>
+
 <?php
 function checkCookie() {
 	if(isset($_COOKIE['User'])) {
