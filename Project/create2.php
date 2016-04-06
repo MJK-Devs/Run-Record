@@ -70,23 +70,6 @@
 					</div>
 					<br>
 
-					<br>
-					<label for="genderInput">Gender</label>
-					<div class="btn-group <?php errorOutline("failedGender"); ?>">
-						<?php
-						if($gender == "male"){
-							echo '<label class="radio-inline"><input type="radio" name="gender" value="male" checked="checked">Male</label>';
-							echo '<label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>';
-						}
-						else {
-							echo '<label class="radio-inline"><input type="radio" name="gender" value="male">Male</label>';
-							echo '<label class="radio-inline"><input type="radio" name="gender" value="female" checked="checked">Female</label>';
-						}
-						?>
-					</div>
-					<?php errorMessage("failedGender"); ?>
-					<br>
-
 					<input type="submit" name="submit">
 				</form>
 	        </div>

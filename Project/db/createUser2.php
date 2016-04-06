@@ -7,6 +7,14 @@ session_start();
 // if username is set
 if (isset($_POST['username'])) {
     $_SESSION['username'] = $_POST['username'];
+    // checking username length
+    if (strlen($_POST['username']) < 5 || strlen($_POST['username']) > 20) {
+        $_SESSION['failedUsername'] = "Username must be between 5 and 20 characters!";
+    }
+    // checking for allowed characters
+    if(!ctype_alnum($_POST["username"])) {
+    	$_SESSION['failedUsername'] = "Usernames can only contain alphanumeric characters!";
+    }
     // checks if username is empty
     if (empty($_POST['username'])) {
         $_SESSION['failedUsername'] = "Username cannot be empty!";
@@ -18,6 +26,14 @@ if (isset($_POST['username'])) {
 // ========================================
 // if password is set
 if (isset($_POST['password'])) {
+    // checking password length
+    if (strlen($_POST['password']) < 8 || strlen($_POST['password']) > 20) {
+        $_SESSION['failedPassword'] = "Password must be between 8 and 20 characters!";
+    }
+    // checking for allowed characters
+    if(!ctype_alnum($_POST["password"])) {
+        $_SESSION['failedPassword'] = "Passwords can only contain alphanumeric characters!";
+    }
     // checks if password is empty
     if (empty($_POST['password'])) {
         $_SESSION['failedPassword'] = "Password cannot be empty!";
@@ -48,6 +64,10 @@ if (isset($_POST['verifyPassword'])) {
 // ========================================
 if (isset($_POST['firstName'])) {
     $_SESSION['firstName'] = $_POST['firstName'];
+    // checking for allowed characters
+    if(!ctype_alnum($_POST["username"])) {
+        $_SESSION['failedUsername'] = "Passwords can only contain alphanumeric characters!";
+    }
     // checks if first name is empty
     if (empty($_POST['firstName'])) {
         $_SESSION['failedFirstName'] = "Please fill in your first name!";
@@ -59,6 +79,10 @@ if (isset($_POST['firstName'])) {
 // ========================================
 if (isset($_POST['lastName'])) {
     $_SESSION['lastName'] = $_POST['lastName'];
+    // checking for allowed characters
+    if(!ctype_alnum($_POST["username"])) {
+        $_SESSION['failedUsername'] = "Passwords can only contain alphanumeric characters!";
+    }
     // checks if last name is empty
     if (empty($_POST['lastName'])) {
         $_SESSION['failedLastName'] = "Please fill in your last name!";
