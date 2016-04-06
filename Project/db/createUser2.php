@@ -66,7 +66,7 @@ if (isset($_POST['firstName'])) {
     $_SESSION['firstName'] = $_POST['firstName'];
     // checking for allowed characters
     if(!ctype_alnum($_POST["username"])) {
-        $_SESSION['failedUsername'] = "Passwords can only contain alphanumeric characters!";
+        $_SESSION['failedUsername'] = "Names can only contain alphanumeric characters!";
     }
     // checks if first name is empty
     if (empty($_POST['firstName'])) {
@@ -81,7 +81,7 @@ if (isset($_POST['lastName'])) {
     $_SESSION['lastName'] = $_POST['lastName'];
     // checking for allowed characters
     if(!ctype_alnum($_POST["username"])) {
-        $_SESSION['failedUsername'] = "Passwords can only contain alphanumeric characters!";
+        $_SESSION['failedUsername'] = "Names can only contain alphanumeric characters!";
     }
     // checks if last name is empty
     if (empty($_POST['lastName'])) {
