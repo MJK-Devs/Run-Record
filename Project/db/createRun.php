@@ -18,6 +18,7 @@ if($filledOutForms) {
 }
 else {
 	echo "forms not filled out";
+	$_SESSION['failedCreateRun'] = "forms not filled out";
 	header('Location: ../record.php');
 	//$errMessage = '<h6 color="red">All forms must be filled out.</h6>';
 }
@@ -26,5 +27,7 @@ function convertTimeToSeconds($hours, $minutes, $seconds) {
 	$newTime = ( $hours * 60 * 60 ) + ( $minutes * 60 ) + ( $seconds );
 	return $newTime;
 }
+
+
 
 ?>

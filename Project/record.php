@@ -11,6 +11,10 @@
 <?php 
 	  include "includes/navbar.php";
 	  include_once "db/db.php";
+	  
+	  if(isset($_SESSION['failedCreateRun'])) {
+		  $errMessage = $_SESSION['failedCreateRun'];
+	  }
 ?>
 
 

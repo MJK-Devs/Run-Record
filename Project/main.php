@@ -9,6 +9,8 @@
 
 <?php include("includes/navbar.php"); ?>
 
+
+
 <!--<div class="container">
 	<div class="image-slider-wrapper">
 	  <ul id="image_slider">
