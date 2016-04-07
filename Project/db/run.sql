@@ -60,7 +60,7 @@ DROP TABLE IF EXISTS `rrruns`;
 CREATE TABLE IF NOT EXISTS `rrruns` (
     `RunID` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
     `Date` date NOT NULL,
-    `Distance` int(11) DEFAULT '0',
+    `Distance` DECIMAL(6,2) DEFAULT '0',
     `Time` int(11) DEFAULT '0',
     `AddDate` timestamp DEFAULT current_timestamp,
     PRIMARY KEY (`RunID`)
