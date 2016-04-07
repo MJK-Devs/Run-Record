@@ -1,7 +1,7 @@
 <div id="navbar">
 	<nav role="navigation" class="navbar navbar-default">
 		<div class="navbar-header">
-			<button type="button" data-target="#navbarCollapse" data-toggle 
+			<button type="button" data-target="#navbarCollapse" data-toggle
 			="collapse" class="navbar-toggle collapsed" aria-expanded="false">
 				<span class="sr-only"> Toggle navigation</span>
 				<span class="icon-bar"></span>
@@ -17,8 +17,8 @@
 					<a data-toggle="dropdown" class="dropdown-toggle" role="button"
 					href="#">Menu <span class="caret"></span></a>
 					<ul role="menu" class="dropdown-menu">
-						<li><a href="myruns.php">Record a Run</a></li>
-						<li><a href="#">My Runs</a></li>
+						<li><a href="record.php">Record a Run</a></li>
+						<li><a href="myruns.php">My Runs</a></li>
 						<li><a href="#">My Races</a></li>
 						<li><a href="#">Statistics</a></li>
 						<li><a href="#">Routes</a></li>
