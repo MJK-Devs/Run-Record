@@ -111,7 +111,7 @@ else {
 // Date Of Birth
 // ========================================
 if (!empty($_POST['dateOfBirth'])) {
-    $_SESSION['dateofBirth'] = $_POST['dateOfBirth'];
+    $_SESSION['dateOfBirth'] = $_POST['dateOfBirth'];
     // checking name length
 }
 else{
