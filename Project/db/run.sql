@@ -7,7 +7,7 @@
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
--- USE run;
+USE knovak18;
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -18,9 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---Database: `run`
+-- Database: `run`
 --
-CREATE DATABASE run;
 
 -- --------------------------------------------------------
 
@@ -43,11 +42,54 @@ CREATE TABLE IF NOT EXISTS `rruser` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `rr-user`
+-- Dumping data for table `rruser`
 --
 
 INSERT INTO `rruser` (`UserID`, `Username`, `Password`, `Email`, `FirstName`, `LastName`, `DOB`, `Gender`, `Weight`) VALUES
     (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 140);
+
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rrruns`
+--
+DROP TABLE IF EXISTS `rrruns`;
+CREATE TABLE IF NOT EXISTS `rrruns` (
+    `RunID` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
+    `Date` date NOT NULL,
+    `Distance` int(11) DEFAULT '0',
+    `Time` int(11) DEFAULT '0',
+    `AddDate` timestamp DEFAULT current_timestamp,
+    PRIMARY KEY (`RunID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `rrruns`
+--
+
+
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rruserruns`
+--
+DROP TABLE IF EXISTS `rruserruns`;
+CREATE TABLE IF NOT EXISTS `rruserruns` (
+    `UserID` int(11) NOT NULL,
+    `RunID` int(11) NOT NULL,
+    PRIMARY KEY (`UserID`, `RunID`),
+    KEY `UserID` (`UserID`),
+    KEY `RunID` (`RunID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `rrruns`
+--
+
 
 -- --------------------------------------------------------
 
