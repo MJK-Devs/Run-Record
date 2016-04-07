@@ -1,3 +1,18 @@
+
+.welcomePage{
+    background: gray; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, gray, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, gray, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, gray, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, gray, white); /* Standard syntax */
+
+
+}
+
+.error {
+	border-color: red;
+}
+
 .header img{
 	position: center;
 	float:left;
@@ -13,4 +28,29 @@
 	left: 10px;
 }
 
+
+.slider > ul > li {
+    float: left;
+    width: 400px; height: 300px;
+}
+
+.carousel-inner img {
+  margin: auto;
+}
+
+.vertical-center-row {
+    vertical-align: middle;
+}
+
+.welcome-links{
+    padding-top:3em;
+}
+
+#Welcome-Carousel {
+    width: auto;
+    height: 500px;
+    max-height: 1000px;
+    overflow: hidden;
+    padding-top:2em;
+}
 
