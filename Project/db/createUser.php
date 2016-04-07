@@ -191,9 +191,10 @@ else{
 
 // if errors go to create page
 if($error) {header("Location: ../create.php");}
+else{
 
 createUser($_SESSION['username'],$_POST['password'], $_SESSION['email'], $_SESSION['firstName'], $_SESSION['lastName'], $_SESSION['dateOfBirth'], $_SESSION['gender']);
- 
+ }
 // if no errors then create the user
 // use the createUser function in db.php
 // then go to the main page
