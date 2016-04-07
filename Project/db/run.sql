@@ -46,7 +46,8 @@ CREATE TABLE IF NOT EXISTS `rruser` (
 --
 
 INSERT INTO `rruser` (`UserID`, `Username`, `Password`, `Email`, `FirstName`, `LastName`, `DOB`, `Gender`, `Weight`) VALUES
-    (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 140);
+    (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 140),
+    (2, "knovak19", "web3", "knovak19@kent.edu", "Kevin", "Novak", "1993-11-29", "M", 141);
 
 -- --------------------------------------------------------
 
@@ -69,6 +70,9 @@ CREATE TABLE IF NOT EXISTS `rrruns` (
 -- Dumping data for table `rrruns`
 --
 
+INSERT INTO `rrruns` (`RunID`, `Date`, `Distance`, `Time`) VALUES
+    (1, "2016-04-03", 2, 720),
+    (2, "2016-05-03", 3, 923);
 
 -- --------------------------------------------------------
 
@@ -90,6 +94,9 @@ CREATE TABLE IF NOT EXISTS `rruserruns` (
 -- Dumping data for table `rrruns`
 --
 
+INSERT INTO `rruserruns` (`UserID`, `RunID`) VALUES
+    (1, 1),
+    (2, 2);
 
 -- --------------------------------------------------------
 
