@@ -1,7 +1,7 @@
 <?php
-include_once "db/db.php";
+include_once "db.php";
 
-echo "hello world";
+#echo "hello world";
 
 $errMessage = "";
 $filledOutForms = isset($_POST['date']) and
@@ -11,7 +11,7 @@ $filledOutForms = isset($_POST['date']) and
 				  isset($_POST['seconds']);
 
 if($filledOutForms) {
-	$timeInSeconds = convertTimeToSeconds($_POST['hours'], $_POST['minutes'], $_POST['seconds'])
+	$timeInSeconds = convertTimeToSeconds($_POST['hours'], $_POST['minutes'], $_POST['seconds']);
 	createRun($_POST['date'], $_POST['distance'], $timeInSeconds);
 	header('Location: ../main.php');
 	echo "all forms filled out";

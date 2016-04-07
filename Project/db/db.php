@@ -112,6 +112,7 @@ function authUser($username, $password) {
 // creates a run in the database based on the passed parameters
 // Sample Usage: createRun("01/01/2016","1.5","3600");
 function createRun($date, $distance, $time) {
+    //create record in rruns
     try {
         // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
@@ -132,6 +133,33 @@ function createRun($date, $distance, $time) {
         die( $e->getMessage() );
         return null;
     }
+
+    //get last runID created
+    $aid = executeQuery("SELECT RunID FROM rrruns ORDER BY RunID DESC LIMIT 1","RunID");
+    $id=$aid[0];
+    $user = getUserID($_COOKIE['User']);
+
+    //Create Record in rruserruns
+        try {
+        // connect to database
+        $connString = "mysql:host=localhost;dbname=knovak18";
+        $user = "knovak18";
+        $pass = "web2";
+
+        $pdo = new PDO($connString,$user,$pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement = $pdo->prepare("INSERT INTO rruserruns(UserID, RunID)
+            VALUES(:UserID, :RunID)");
+        $statement->execute(array(
+            "UserID" => $user,
+            "RunID" => $id,
+        ));
+    }
+    catch (PDOException $e) {
+        die( $e->getMessage() );
+        return null;
+    }
+    
 }
 
 // =======================================
