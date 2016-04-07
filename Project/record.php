@@ -8,7 +8,11 @@
 </head>
 <body>
 
-<?php include("includes/navbar.php"); ?>
+<?php 
+	  include "includes/navbar.php";
+	  include_once "db/db.php";
+?>
+
 
 
 
@@ -20,29 +24,34 @@
 			<br>
 			<h3><b>General Run Information</b></h3>
 			<br>
+			<?php echo $errMessage; ?>
+			<br>
 			
-			<form class="form-inline" method="post">
+			
 				<div id="record-a-run">
-					<div class="form-inline" method="post">
-						<label>Date</label>
-						<input type="date" class="form-control" name="date">
-					</div>
-					<br>
-					<div class="form-inline">
-						<label>Distance</label>
-						<input type="number" class="form-control" name="distance">
-						<label>miles</label>
-					</div>
-					<br>
-					<div class="form-inline">
-						<label>Time</label>
-						<?php printTimeForms(); ?>
-					</div>
-					<br>
-					<br>
-					<button type="submit" value="submit" class="btn btn-primary">Save this Run</button>
+					<form class="form-inline" method="post">
+						<div class="form-inline" method="post">
+							<label>Date</label>
+							<input type="date" class="form-control" name="date">
+						</div>
+						<br>
+						<div class="form-inline">
+							<label>Distance</label>
+							<input type="number" min="0" class="form-control" name="distance">
+							<label>miles</label>
+						</div>
+						<br>
+						<div class="form-inline">
+							<label>Time</label>
+							<?php printTimeForms(); ?>
+						</div>
+						<br>
+						<br>
+						
+						<button type="submit" value="submit" class="btn btn-primary" action="db/createRun.php">Save this Run</button>
+					</form>
 				</div>
-			</form>
+			
 		</div>
 	</div>
 </div>
