@@ -72,7 +72,9 @@ CREATE TABLE IF NOT EXISTS `rrruns` (
 
 INSERT INTO `rrruns` (`RunID`, `Date`, `Distance`, `Time`) VALUES
     (1, "2016-04-03", 2, 720),
-    (2, "2016-05-03", 3, 923);
+    (2, "2016-03-28", 3, 923),
+    (3, "2016-03-23", 3, 937),
+    (4, "2016-03-22", 3, 933);
 
 -- --------------------------------------------------------
 
@@ -96,6 +98,8 @@ CREATE TABLE IF NOT EXISTS `rruserruns` (
 
 INSERT INTO `rruserruns` (`UserID`, `RunID`) VALUES
     (1, 1),
+    (1, 3),
+    (1, 4),
     (2, 2);
 
 -- --------------------------------------------------------
