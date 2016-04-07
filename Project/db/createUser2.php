@@ -97,6 +97,74 @@ if (isset($_POST['lastName'])) {
     }
 }
 
+// ========================================
+// Gender
+// ========================================
+if (!empty($_POST['gender'])) {
+    $_SESSION['gender'] = $_POST['gender'];
+}
+else {
+    $_SESSION['failedGender'] = "Please Select a Gender!";
+}
+
+// ========================================
+// Date Of Birth
+// ========================================
+if (!empty($_POST['dateOfBirth'])) {
+    $_SESSION['dateofBirth'] = $_POST['dateOfBirth'];
+    // checking name length
+}
+else{
+    $_SESSION['failedDateOfBirth'] = "Please Select a Birthday!";
+}
+
+// ========================================
+// Email
+// ========================================
+if (!empty($_POST['email'])) {
+    $_SESSION['email'] = $_POST['email'];
+    // checking name length  
+}
+else{
+    $_SESSION['failedEmail'] = "Please Enter an Email!";
+}
+
+// ========================================
+// State
+// ========================================
+if (!empty($_POST['state'])) {
+    $_SESSION['state'] = $_POST['state'];
+}
+else {
+    $_SESSION['failedState'] = "Please Select a State!";
+}
+
+// ========================================
+// City
+// ========================================
+if (isset($_POST['city'])) {
+    $_SESSION['city'] = $_POST['city'];
+    
+    // checking for allowed characters
+    if(!ctype_alpha($_POST["city"])) {
+        $_SESSION['failedCity'] = "City names can only contain letters!";  
+    }
+    if (empty($_SESSION['city'])) {
+        $_SESSION['failedCity'] = "Please Enter a City!";
+    }
+}
+
+// ========================================
+// Zip
+// ========================================
+if (!empty($_POST['zip'])) {
+    $_SESSION['zip'] = $_POST['zip'];  
+}
+else{
+    $_SESSION['failedZip'] = "Please Enter your Zip Code!";
+}
+
+
 // if errors go to create page
 header("Location: ../create2.php");
 

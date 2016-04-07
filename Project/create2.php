@@ -31,8 +31,9 @@
 
 					<label for="usernameInput">Username<span style="color:red">*<span></label>
 					<div class="control-group">
-						<input type="text" class="form-control <?php errorOutline("failedUsername"); ?>" name="username" maxlength="20" <?php rememberField("username") ?>>
+						<input type="text" class="form-control <?php errorOutline("failedUsername"); ?>" name="username" maxlength="20" <?php rememberField("username") ?> >
 						<?php errorMessage("failedUsername"); ?>
+						<?php echo $_SESSION['username']; ?>
 					</div>
 					<br>
 
@@ -54,19 +55,94 @@
 
 					<label for="firstNameInput">First Name<span style="color:red">*<span></label>
 					<div class="control-group">
-						<input type="text" class="form-control <?php errorOutline("failedFirstName"); ?>" name="firstName" maxlength="20" <?php rememberField("firstName") ?>>
+						<input type="text" class="form-control <?php errorOutline("failedFirstName"); ?>" name="firstName" maxlength="20" <?php rememberField("firstName") ?> >
 						<?php errorMessage("failedFirstName"); ?>
+						<?php echo $_SESSION['firstname']; ?>
 					</div>
 					<br>
 
 
 					<label for="lastNameInput">Last Name<span style="color:red">*<span></label>
 					<div class="control-group">
-						<input type="text" class="form-control <?php errorOutline("failedLastName"); ?>" name="lastName" maxlength="20" <?php rememberField("lastName") ?>>
+						<input type="text" class="form-control <?php errorOutline("failedLastName"); ?>" name="lastName" maxlength="20" <?php rememberField("lastName") ?> >
 						<?php errorMessage("failedLastName"); ?>
+						<?php echo $_SESSION['lastname']; ?>
 					</div>
 					<br>
 
+					<label for="genderInput">Gender</label>
+					<div class="btn-group has-<?php errorOutLine("failedGender"); ?>" >
+						<label class="radio-inline"><input type="radio" name="gender" value="male" class="form-control" <?php if(strcmp($_POST['gender'],"male") === 0) { print ' checked="checked"';}?> >Male</label>
+						<label class="radio-inline"><input type="radio" name="gender" value="female" class="form-control" <?php if(strcmp($_POST['gender'],"female") === 0) { print ' checked="checked"'; }?> >Female</label>
+						<?php errorMessage("failedGender"); ?>
+						<?php echo $_SESSION['gender']; ?>
+					</div>
+
+
+					<br>
+					<br>
+					<label for="dateOfBirthInput">Date of birth</label>
+					<div class="form-group has-<?php errorOutLine("failedDateOfBirth"); ?>">
+						<?php echo '<input type="date" class="form-control" name="dateOfBirth" '; rememberField("dateOfBirth"); 
+								echo'>';?>
+						<?php errorMessage("failedDateOfBirth"); ?>
+						<?php echo $_SESSION['dateOfBirth']; ?>
+					</div>
+
+					<br>
+					<br>
+					<label for="emailInput">E-mail</label>
+					<div class="form-group has-<?php errorOutline("failedEmail");?>">
+						<?php echo '<input type="email" class="form-control" name="email" maxlength="40" class="errorOutLine("failedEmail")." '; rememberField("email"); echo">";?>
+						<?php errorMessage("failedEmail"); ?>
+						<?php echo $_SESSION['email']; ?>
+					</div>
+
+
+					<br>
+					<br>
+
+					<div class="form-group has-<?php errorOutLine("failedState"); ?>">
+					    <label for="stateInput">State</label>
+
+						<?php
+						echo '<select name="state" class="form-control <?php errorOutline("failedState"); ?>" selected="' . $_SESSION['state'] . '">';
+						foreach($states as $s){
+							if($s === $state) {
+								echo '<option selected="selected">' . $s . '</option>';
+							}
+							else {
+								echo '<option value="' . $s . '">' . $s . '</option>';
+							}
+						}
+						?>
+						</select>
+						<?php errorMessage("failedState"); ?>
+						<?php echo $_SESSION['state']; ?>
+					</div>
+
+					<br>
+					<br>
+					<div class="form-group has-<?php errorOutLine("failedCity"); ?>">
+					<label for="cityInput">City</label>
+						<?php echo '<input type="text" class="form-control" name="city" maxlength="20"'; rememberField("city"); echo '>'; ?>
+						<?php errorMessage("failedCity"); ?>
+						<?php echo $_SESSION['city']; ?>
+					</div>
+
+					<br>
+					<br>
+					<label for="zipInput">Zip</label>
+					<div class="form-group has-<?php errorOutLine("failedZip"); ?>">
+						<?php echo '<input type="number" class="form-control" name="zip" maxLength="5" '; rememberField("zip");
+							echo '> <span class="help-inline"> </span>';
+						?>
+						<?php errorMessage("failedZip"); ?>
+						<?php echo $_SESSION['zip']; ?>
+					</div>
+
+					<br />
+					<br />
 					<input type="submit" name="submit">
 				</form>
 	        </div>
