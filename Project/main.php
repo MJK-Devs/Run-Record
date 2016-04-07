@@ -1,26 +1,28 @@
 <head>  <title> Record Run </title> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="style.css" rel="stylesheet">
+<!--<script src="includes/sliderScript.js"></script>-->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">-->
 </head>
 
 <body>
-<?php include("includes/navbar.php");?>
 
-<!--
-<div class="slider">
-  <ul>
-    <li><img src="images/quote_pictures/1.jpg"></li>
-    <li><img src="images/quote_pictures/2.jpg"></li>
-    <li><img src="images/quote_pictures/3.jpg"></li>
-    <li><img src="images/quote_pictures/4.jpg"></li>
-	<li><img src="images/quote_pictures/5.jpg"></li>
-	<li><img src="images/quote_pictures/6.jpg"></li>
-	<li><img src="images/quote_pictures/7.jpg"></li>
-	<li><img src="images/quote_pictures/8.png"></li>
-  </ul>
-</div>
--->
+<?php include("includes/navbar.php"); ?>
+
+<!--<div class="container">
+	<div class="image-slider-wrapper">
+	  <ul id="image_slider">
+		<li><img src="images/quote_pictures/1.jpg"></li>
+		<li><img src="images/quote_pictures/2.jpg"></li>
+		<li><img src="images/quote_pictures/3.jpg"></li>
+		<li><img src="images/quote_pictures/4.jpg"></li>
+		<li><img src="images/quote_pictures/5.jpg"></li>
+		<li><img src="images/quote_pictures/6.jpg"></li>
+		<li><img src="images/quote_pictures/7.jpg"></li>
+		
+	  </ul>
+	</div>
+</div>-->
 
 
 

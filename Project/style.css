@@ -1,14 +1,10 @@
-.error {
-	border-color: red;
-}
-
 .header img{
 	position: center;
 	float:left;
 	width: 100px;
 	height: 100px;
 	background:#555;
-	margin-bottom: 30px;
+	margin-bottom: 5px;
 }
 
 .header h1{
@@ -17,22 +13,4 @@
 	left: 10px;
 }
 
-.slider {
-    width: 700px; height: 700px;
-    overflow: hidden;
-}
-.slider > ul {
-    /* styled by JS to match the added width and height of all <li>’s */
-    position: relative;
-    -webkit-transition: 0.5s left;
-    -moz-transition: 0.5s left;
-    -ms-transition: 0.5s left;
-    -o-transition: 0.5s left;
 
-    list-style: none;
-    margin: 0; padding: 0;
-}
-.slider > ul > li {
-    float: left;
-    width: 400px; height: 300px;
-}
