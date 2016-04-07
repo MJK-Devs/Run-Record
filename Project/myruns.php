@@ -12,6 +12,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
+				<?php displayRuns(1); ?>
 			</div>
 		</div>
 	</div>
@@ -22,3 +23,35 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>
+<?php
+function displayRuns($UserID) {
+    try {
+         // connect to database
+        $connString = "mysql:host=localhost;dbname=knovak18";
+        $user = "knovak18";
+        $pass = "web2";
+
+        $pdo = new PDO($connString,$user,$pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // create query
+		$sql = "select Date, Distance, Time from rruser natural join rruserruns natural join rrruns where UserID=" . $UserID;
+        $result = $pdo->query($sql);
+
+        // put query results into array
+        $array = array();
+        while ($row = $result->fetch()) {
+			echo "Date: " . $row['Date'] . "  Distance: " . $row['Distance'] . "  Time: " . $row['Time'] . "<br>";
+        }
+        $pdo = null;
+
+        // return the results
+        return $array;
+    }
+    catch (PDOException $e) {
+        die( $e->getMessage() );
+        return null;
+    }
+}
+
+?>
