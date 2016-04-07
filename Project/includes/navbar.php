@@ -29,7 +29,7 @@
 			<?php
 			print('<ul class="nav navbar-nav navbar-right">');
 					if(isset($_COOKIE['User'])) {
-						print('<li><a href="profile.php">Profile</a></li>');
+						print('<li><a href="profile.php">'.$_COOKIE['User'].'</a></li>');
 						print('<li><a href="logout.php">Log Out</a></li>');
 					}
 					else {
