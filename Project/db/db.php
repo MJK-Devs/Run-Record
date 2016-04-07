@@ -134,8 +134,41 @@ function createRun($date, $distance, $time) {
     }
 }
 
+// =======================================
+// Get User ID
+// =======================================
+// function that returns the UserID based on the passed Username
+// Sample Usage: geetUserID("knovak18");
+// returns 1
+function getUserID($username) {
+	try {
+         // connect to database
+        $connString = "mysql:host=localhost;dbname=knovak18";
+        $user = "knovak18";
+        $pass = "web2";
 
+        $pdo = new PDO($connString,$user,$pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        // create query
+		$sql = 'select * from rruser where Username="' . $username . '"';
+        $result = $pdo->query($sql);
+
+        // put query results into array
+        $array = array();
+        while ($row = $result->fetch()) {
+			$id = $row['UserID'];
+        }
+        $pdo = null;
+
+        // return the results
+        return $id;
+    }
+    catch (PDOException $e) {
+        die( $e->getMessage() );
+        return null;
+    }
+}
 
 // =======================================
 // OLD Authenticate User
@@ -190,6 +223,4 @@ function createRun($date, $distance, $time) {
         return null;
     }
 }*/
-
-
 ?>

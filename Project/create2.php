@@ -26,7 +26,7 @@
 		<div class="col-md-5">
 			<div id="userInformation">
 				<form class="form-inline" method="post" action="db/createUser2.php">
-				
+
 					<h3><b>Account Information</b></h3>
 
 					<label for="usernameInput">Username<span style="color:red">*<span></label>
