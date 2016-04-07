@@ -137,7 +137,7 @@ function createRun($date, $distance, $time) {
     //get last runID created
     $aid = executeQuery("SELECT RunID FROM rrruns ORDER BY RunID DESC LIMIT 1","RunID");
     $id=$aid[0];
-    $user = getUserID($_COOKIE['User']);
+    $userID = getUserID($_COOKIE['User']);
 
     //Create Record in rruserruns
         try {
@@ -146,12 +146,12 @@ function createRun($date, $distance, $time) {
         $user = "knovak18";
         $pass = "web2";
 
-        $pdo = new PDO($connString,$user,$pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $statement = $pdo->prepare("INSERT INTO rruserruns(UserID, RunID)
+        $pdo2 = new PDO($connString,$user,$pass);
+        $pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement = $pdo2->prepare("INSERT INTO rruserruns(UserID, RunID)
             VALUES(:UserID, :RunID)");
         $statement->execute(array(
-            "UserID" => $user,
+            "UserID" => $userID,
             "RunID" => $id,
         ));
     }

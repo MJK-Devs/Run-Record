@@ -33,7 +33,7 @@
 			
 			
 				<div id="record-a-run">
-					<form class="form-inline" method="post">
+					<form class="form-inline" method="post" action="db/createRun.php">
 						<div class="form-inline" method="post">
 							<label>Date</label>
 							<input type="date" class="form-control" name="date">
@@ -52,7 +52,7 @@
 						<br>
 						<br>
 						
-						<button type="submit" value="submit" class="btn btn-primary" action="db/createRun.php">Save this Run</button>
+						<button type="submit" value="submit" class="btn btn-primary" >Save this Run</button>
 					</form>
 				</div>
 			

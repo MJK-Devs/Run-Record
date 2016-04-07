@@ -13,7 +13,7 @@ $filledOutForms = isset($_POST['date']) and
 if($filledOutForms) {
 	$timeInSeconds = convertTimeToSeconds($_POST['hours'], $_POST['minutes'], $_POST['seconds']);
 	createRun($_POST['date'], $_POST['distance'], $timeInSeconds);
-	header('Location: ../main.php');
+	header('Location: ../myruns.php');
 	echo "all forms filled out";
 }
 else {
