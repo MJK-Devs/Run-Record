@@ -107,6 +107,37 @@ function authUser($username, $password) {
 }
 
 // =======================================
+// Create Run
+// =======================================
+// creates a run in the database based on the passed parameters
+// Sample Usage: createRun("01/01/2016","1.5","3600");
+function createRun($date, $distance, $time) {
+    try {
+        // connect to database
+        $connString = "mysql:host=localhost;dbname=knovak18";
+        $user = "knovak18";
+        $pass = "web2";
+
+        $pdo = new PDO($connString,$user,$pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement = $pdo->prepare("INSERT INTO rrruns(Date, Distance, Time)
+            VALUES(:Date, :Distance, :Time)");
+        $statement->execute(array(
+			"Date" => $date,
+			"Distance" => $distance,
+			"Time" => $time
+        ));
+    }
+    catch (PDOException $e) {
+        die( $e->getMessage() );
+        return null;
+    }
+}
+
+
+
+
+// =======================================
 // OLD Authenticate User
 // =======================================
 // function authUser($username, $password) {
