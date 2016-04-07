@@ -45,8 +45,22 @@ function displayRuns($UserID) {
         // put query results into array
         $array = array();
         while ($row = $result->fetch()) {
-			echo "<div style=\"margin:3px\" class=\"col-md-10\">Date: " . $row['Date'] . "  Distance: " . $row['Distance'] . "  Time: " . $row['Time'] . "</div><br>";
-        }
+			echo '<div style="margin:3px" class="col-md-10">';
+
+			$dayOfWeek = date("l",strtotime($row['Date']));
+			$month = date("F",strtotime($row['Date']));
+			$day = date("j",strtotime($row['Date']));
+			$year = date("Y",strtotime($row['Date']));
+			echo $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year;
+			echo '<br>';
+
+			echo 'Distance: ' . $row['Distance'] . ' Miles';
+			echo '<br>';
+
+			echo 'Time: ' . $row['Time'] . ' Seconds';
+
+			echo '</div>';
+		}
         $pdo = null;
 
         // return the results
