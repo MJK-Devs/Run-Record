@@ -100,8 +100,13 @@
 					    <label for="stateInput">State</label>
 
 						<?php
-						echo '<select name="state" class="form-control <?php errorOutline("failedState"); ?>" selected="' . $_SESSION['state'] . '">';
+						if(isset($_SESSION['state'])) {
+							echo '<select name="state" class="form-control <?php errorOutline("failedState"); ?>" selected="' . $_SESSION['state'] . '">';
 							echo '<option selected="selected" value="'.$_SESSION['state'].'">'.$_SESSION['state'].'</option>';
+						}
+						else{
+							echo '<select name="state" class="form-control <?php errorOutline("failedState"); ?> >';
+						}
 						foreach($states as $s){
 								echo '<option value="' . $s . '">' . $s . '</option>';
 						}
