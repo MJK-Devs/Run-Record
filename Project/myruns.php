@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
-				<?php displayRuns(1); ?>
+				<?php displayRuns(getUserID($_COOKIE['User'])); ?>
 			</div>
 		</div>
 	</div>
@@ -47,6 +47,36 @@ function displayRuns($UserID) {
 
         // return the results
         return $array;
+    }
+    catch (PDOException $e) {
+        die( $e->getMessage() );
+        return null;
+    }
+}
+
+function getUserID($username) {
+	try {
+         // connect to database
+        $connString = "mysql:host=localhost;dbname=knovak18";
+        $user = "knovak18";
+        $pass = "web2";
+
+        $pdo = new PDO($connString,$user,$pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // create query
+		$sql = 'select * from rruser where Username="' . $username . '"';
+        $result = $pdo->query($sql);
+
+        // put query results into array
+        $array = array();
+        while ($row = $result->fetch()) {
+			$id = $row['UserID'];
+        }
+        $pdo = null;
+
+        // return the results
+        return $id;
     }
     catch (PDOException $e) {
         die( $e->getMessage() );
