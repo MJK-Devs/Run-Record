@@ -167,7 +167,7 @@ else{
 
 // if errors go to create page
 header("Location: ../create2.php");
-
+ 
 // if no errors then create the user
 // use the createUser function in db.php
 // then go to the main page
