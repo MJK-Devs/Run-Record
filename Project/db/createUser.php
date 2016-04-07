@@ -25,6 +25,10 @@ if (isset($_POST['username'])) {
         $_SESSION['failedUsername'] = "Username cannot be empty!";
         $error=TRUE;
     }
+    if(getUserID($_POST['username']) > 0) {
+        $_SESSION['failedUsername'] = "Username already in use.";
+        $error = TRUE;
+    }
 }
 
 // ========================================
@@ -132,7 +136,7 @@ if (!empty($_POST['dateOfBirth'])) {
     $_SESSION['dateOfBirth'] = $_POST['dateOfBirth'];
     // checking name length
 }
-else{
+else {
     $_SESSION['failedDateOfBirth'] = "Please Select a Birthday!";
     $error=TRUE;
 }
@@ -141,10 +145,15 @@ else{
 // Email
 // ========================================
 if (!empty($_POST['email'])) {
-    $_SESSION['email'] = $_POST['email'];
-    // checking name length  
+
+    if(!checkEmail($_POST['email'])) {
+        $_SESSION['email'] = $_POST['email'];
+    }
+    else {
+        $_SESSION['failedEmail'] = "This email already in use.";
+    }
 }
-else{
+else {
     $_SESSION['failedEmail'] = "Please Enter an Email!";
     $error=TRUE;
 }

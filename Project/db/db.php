@@ -166,8 +166,9 @@ function createRun($date, $distance, $time) {
 // Get User ID
 // =======================================
 // function that returns the UserID based on the passed Username
-// Sample Usage: geetUserID("knovak18");
+// Sample Usage: getUserID("knovak18");
 // returns 1
+// returns -1 if no user is found
 function getUserID($username) {
 	try {
          // connect to database
@@ -190,7 +191,55 @@ function getUserID($username) {
         $pdo = null;
 
         // return the results
-        return $id;
+        if (!empty($id) && $id !== 0) {
+            return $id;
+        }
+        else {
+            return -1;
+        }
+    }
+    catch (PDOException $e) {
+        die( $e->getMessage() );
+        return null;
+    }
+}
+
+
+// =======================================
+// checkEmail
+// =======================================
+// function that checks to see if the email is in the database
+// Sample Usage: checkEmail("test@gmail.com")
+// returns TRUE if the email is in the database
+// returns FALSE if else
+function checkEmail($email) {
+    try {
+         // connect to database
+        $connString = "mysql:host=localhost;dbname=knovak18";
+        $user = "knovak18";
+        $pass = "web2";
+
+        $pdo = new PDO($connString,$user,$pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // create query
+        $sql = 'select * from rruser where Email="' . $email . '"';
+        $result = $pdo->query($sql);
+
+        // put query results into array
+        $array = array();
+        while ($row = $result->fetch()) {
+            $email2 = $row['Email'];
+        }
+        $pdo = null;
+
+        // return the results
+        if (strcmp($email, $email2) === 0) {
+            return TRUE;
+        }
+        else {
+            return FALSE;
+        }
     }
     catch (PDOException $e) {
         die( $e->getMessage() );

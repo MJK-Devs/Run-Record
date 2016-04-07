@@ -69,8 +69,8 @@
 
 					<label for="genderInput">Gender</label>
 					<div class="btn-group has-<?php errorOutLine("failedGender"); ?>" >
-						<label class="radio-inline"><input type="radio" name="gender" value="male" class="form-control" <?php if(strcmp($_SESSION['gender'],"male") === 0) { print ' checked="checked"';}?> >Male</label>
-						<label class="radio-inline"><input type="radio" name="gender" value="female" class="form-control" <?php if(strcmp($_SESSION['gender'],"female") === 0) { print ' checked="checked"'; }?> >Female</label>
+						<label class="radio-inline"><input type="radio" name="gender" value="male" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"male") === 0) { print ' checked="checked"'; }}?> >Male</label>
+						<label class="radio-inline"><input type="radio" name="gender" value="female" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"female") === 0) { print ' checked="checked"'; }}?> >Female</label>
 						<?php errorMessage("failedGender"); ?>
 					</div>
 
