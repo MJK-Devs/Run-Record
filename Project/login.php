@@ -65,6 +65,7 @@ function formPassword() {
 				<div class="form-group has-error">
 				<label for="exampleInputPassword2">Password</label>
 				<input type="password" class="form-control" name="password">
+				Sorry, that is an invalid username and password combination.
 				</div>'
 			);
 			setcookie("loginError", "", time() - 3600, "/");
