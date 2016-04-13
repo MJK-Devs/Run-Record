@@ -202,7 +202,7 @@ else{
 if($error) {header("Location: ../create.php");}
 else{
 
-createUser($_SESSION['username'],$_POST['password'], $_SESSION['email'], $_SESSION['firstName'], $_SESSION['lastName'], $_SESSION['dateOfBirth'], $_SESSION['gender']);
+createUser($_SESSION['username'],$_POST['password'], $_SESSION['email'], $_SESSION['firstName'], $_SESSION['lastName'], $_SESSION['dateOfBirth'], $_SESSION['gender'], $_SESSION['state'], $_SESSION['city']);
 
 header("Location: ../login.php");
  }

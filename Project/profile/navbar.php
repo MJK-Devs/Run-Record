@@ -12,13 +12,13 @@
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				
-				<li class="active"><a href="main.php">Home</a></li>
+				<li class="active"><a href="../main.php">Home</a></li>
 				<li class="dropdown">
 					<a data-toggle="dropdown" class="dropdown-toggle" role="button"
 					href="#">Menu <span class="caret"></span></a>
 					<ul role="menu" class="dropdown-menu">
-						<li><a href="record.php">Record a Run</a></li>
-						<li><a href="myruns.php">My Runs</a></li>
+						<li><a href="../record.php">Record a Run</a></li>
+						<li><a href="../myruns.php">My Runs</a></li>
 						<li><a href="#">My Races</a></li>
 						<li><a href="#">Statistics</a></li>
 						<li><a href="#">Routes</a></li>
@@ -29,8 +29,8 @@
 			<?php
 			print('<ul class="nav navbar-nav navbar-right">');
 					if(isset($_COOKIE['User'])) {
-						print('<li><a href="profile/profile.php">'.$_COOKIE['User'].'</a></li>');
-						print('<li><a href="logout.php">Log Out</a></li>');
+						print('<li><a href="profile.php">'.$_COOKIE['User'].'</a></li>');
+						print('<li><a href="../logout.php">Log Out</a></li>');
 					}
 					else {
 						print('<li><a href="login.php#">Login</a></li>');

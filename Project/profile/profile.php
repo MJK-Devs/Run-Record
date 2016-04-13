@@ -1,4 +1,4 @@
-<head> <title>Record Run Login</title>
+<head> <title>My Profile</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="style.css" type="text/css" rel="stylesheet"></link>
 </head>
@@ -7,7 +7,10 @@
 	<?php 
 	include("../db/user.php");
 	include("../db/db.php");
-	include("../includes/navbar.php");
+	include("navbar.php");
+	
+	$user = new User(getUserID($_COOKIE['User']));
+	
 	if(isset($_COOKIE['User'])) {
 		$username = $_COOKIE['User'];
 	} //else { $username = ""; }
@@ -15,7 +18,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 	   <div class="panel panel-info">
 		  <div class="panel-heading">
-			<h3 class="panel-title">jryan</h3>
+			<h3 class="panel-title"><?php echo $user->getUsername(); ?></h3>
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
@@ -32,8 +35,8 @@
 		  <div class="panel-footer">
 		    <a href="#" title="Statistics" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-stats"></i></a>
 			<span class="pull-right">
-			  <a href="#" title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a> 
-			  <a href="#" title="Delete Account" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+			  <a href="edit.php" title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a> 
+			  <a href="delete.php" title="Delete Account" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			</span>
 			  
 
@@ -51,6 +54,10 @@
 function userInfoTable() {
 	$user = new User(getUserID($_COOKIE['User']));
 	echo '<tr>
+ 		    <td>About me</td>
+     	    <td>' . $user->getAboutMe() . '</td>
+		  </tr>';
+	echo '<tr>
  		    <td>Name</td>
      	    <td>' . $user->getFirstName() . ' ' . $user->getLastName() . '</td>
 		  </tr>';
@@ -62,6 +69,10 @@ function userInfoTable() {
 			<td>Weight</td>
 			<td>' . $user->getWeight() . '</td>
 		  </tr>';
+	echo '<tr>
+		    <td>Height</td>
+		    <td>' . $user->getHeight() . '</td>
+         </tr>';
 	echo '<tr>
 			<td>Gender</td>
 			<td>' . $user->getGender() . '</td>

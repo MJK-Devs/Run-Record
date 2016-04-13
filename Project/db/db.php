@@ -47,7 +47,7 @@ function executeQuery($query, $attribute) {
 // =======================================
 // creates a user in the database based on the passed parameters
 // Sample Usage: createUser("knovak19", "web3", "knovak19@kent.edu", "Kevin", "Novak", "1993-11-29", "M");
-function createUser($username, $password, $email, $firstname, $lastname, $dob, $gender) {
+function createUser($username, $password, $email, $firstname, $lastname, $dob, $gender, $state, $city) {
     try {
         // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
@@ -56,8 +56,8 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $statement = $pdo->prepare("INSERT INTO rruser(Username, Password, Email, FirstName, LastName, DOB, Gender)
-            VALUES(:Username, :Password, :Email, :FirstName, :LastName, :DOB, :Gender)");
+        $statement = $pdo->prepare("INSERT INTO rruser(Username, Password, Email, FirstName, LastName, DOB, Gender, State, City)
+            VALUES(:Username, :Password, :Email, :FirstName, :LastName, :DOB, :Gender, :State, :City)");
         $statement->execute(array(
             "Username" => $username,
             "Password" => $password,
@@ -65,7 +65,9 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
             "FirstName" => $firstname,
             "LastName" => $lastname,
             "DOB" => $dob,
-            "Gender" => $gender
+            "Gender" => $gender,
+			"State" => $state,
+			"City" => $city
         ));
     }
     catch (PDOException $e) {
