@@ -39,18 +39,18 @@
 				<div id="record-a-run">
 					<form class="form-inline" method="post" action="db/createRun.php">
 						<div class="form-inline" method="post">
-							<label>Date</label>
+							<label>Date: </label>
 							<input type="date" class="form-control" name="date">
 						</div>
 						<br>
 						<div class="form-inline">
-							<label>Distance</label>
-							<input type="number" min="0" class="form-control" name="distance">
+							<label>Distance: </label>
+							<input type="number" min="0" max="100" step="0.25" value="0.00" class="numeric form-control" name="distance">
 							<label>miles</label>
 						</div>
 						<br>
 						<div class="form-inline">
-							<label>Time</label>
+							<label>Time: </label>
 							<?php printTimeForms(); ?>
 						</div>
 						<br>
