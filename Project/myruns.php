@@ -60,7 +60,7 @@ function displayRuns($UserID) {
 			echo 'Distance: ' . $row['Distance'] . ' Miles';
 			echo '<br>';
 
-			echo 'Time: ' . $row['Time'] . ' Seconds';
+			echo 'Time: ' . gmdate("H:i:s", $row['Time']);
 
 			echo '</div>';
 		}
