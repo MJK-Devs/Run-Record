@@ -83,7 +83,7 @@ function printTimeForms() {
 	$seconds = 0;
 
 	//print hour options
-	echo '<select name="hour" class="form-control">';
+	echo '<select name="hours" class="form-control">';
 	while($hours <= 12) {
 		echo '<option>' . $hours . '</option>';
 		$hours = $hours + 1;
