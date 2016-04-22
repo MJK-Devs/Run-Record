@@ -45,7 +45,7 @@
 						<br>
 						<div class="form-inline">
 							<label>Distance: </label>
-							<input type="number" min="0" max="100" step="0.25" value="0.00" class="numeric form-control" name="distance">
+							<input type="number" min="0" max="100" step="0.01" value="0.00" class="numeric form-control" name="distance">
 							<label>miles</label>
 						</div>
 						<br>
