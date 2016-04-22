@@ -54,7 +54,7 @@ function displayRuns($UserID) {
 			$month = date("F",strtotime($row['Date']));
 			$day = date("j",strtotime($row['Date']));
 			$year = date("Y",strtotime($row['Date']));
-			echo $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year;
+			echo '<strong>' . $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year . '</strong>';
 			echo '<br>';
 
 			echo 'Distance: ' . $row['Distance'] . ' Miles';
