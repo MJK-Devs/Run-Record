@@ -8,10 +8,10 @@
 </head>
 <body>
 
-<?php 
+<?php
 	  include "includes/navbar.php";
 	  include_once "db/db.php";
-	  
+
 	  if(isset($_SESSION['failedCreateRun'])) {
 		  $errMessage = $_SESSION['failedCreateRun'];
 	  }
@@ -23,15 +23,19 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
-			
+
 			<br>
 			<br>
 			<h3><b>General Run Information</b></h3>
 			<br>
-			<?php echo $errMessage; ?>
+			<?php
+			if(isset($errMessage)) {
+				echo $errMessage;
+			}
+			?>
 			<br>
-			
-			
+
+
 				<div id="record-a-run">
 					<form class="form-inline" method="post" action="db/createRun.php">
 						<div class="form-inline" method="post">
@@ -51,11 +55,11 @@
 						</div>
 						<br>
 						<br>
-						
+
 						<button type="submit" value="submit" class="btn btn-primary" >Save this Run</button>
 					</form>
 				</div>
-			
+
 		</div>
 	</div>
 </div>
@@ -77,32 +81,32 @@ function printTimeForms() {
 	$hours = 0;
 	$minutes = 0;
 	$seconds = 0;
-	
+
 	//print hour options
 	echo '<select name="hour" class="form-control">';
 	while($hours <= 12) {
-		echo '<option>' . $hours . '</option>'; 
+		echo '<option>' . $hours . '</option>';
 		$hours = $hours + 1;
 		echo $hours;
 	}
 	echo '</select>';
 	echo '<label> &nbsp; h &nbsp; </label>';
-	
+
 	//print minute options
 	echo '<select name="minutes" class="form-control">';
 	while($minutes <= 60) {
-		echo '<option>' . $minutes . '</option>'; 
+		echo '<option>' . $minutes . '</option>';
 		$minutes = $minutes + 1;
 		echo $minutes;
 	}
 	echo '</select>';
 	echo '<label> &nbsp; m &nbsp; </label>';
-	
+
 	//print second options
 	echo '<select name="seconds" class="form-control">';
-	
+
 	while($seconds <= 60) {
-		echo '<option>' . $seconds . '</option>'; 
+		echo '<option>' . $seconds . '</option>';
 		$seconds = $seconds + 1;
 		echo $seconds;
 	}
