@@ -42,7 +42,7 @@ function displayRuns($UserID) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // create query
-		$sql = "select Date, Distance, Time from rruser natural join rruserruns natural join rrruns where UserID=" . $UserID;
+		$sql = "select Date, Distance, Time from rruser natural join rruserruns natural join rrruns where UserID=" . $UserID . " order by Date DESC, AddDate DESC";
         $result = $pdo->query($sql);
 
         // put query results into array
