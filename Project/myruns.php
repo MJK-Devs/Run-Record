@@ -45,7 +45,14 @@ function displayRuns($UserID) {
 		$sql = "select Date, Distance, Time from rruser natural join rruserruns natural join rrruns where UserID=" . $UserID . " order by Date DESC, AddDate DESC";
         $result = $pdo->query($sql);
 
-        // put query results into array
+		//if no runs in database
+		$number_of_rows = $result->fetchColumn();
+		if ($number_of_rows == 0) {
+			echo 'You have no recorded runs.';
+			echo '<b><a href=record.php><br>Record your first run</a></b>';
+		}
+
+		// put query results into array
         $array = array();
         while ($row = $result->fetch()) {
 			echo '<div style="margin:3px" class="col-md-10">';
