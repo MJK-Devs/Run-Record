@@ -36,7 +36,12 @@ CREATE TABLE IF NOT EXISTS `rruser` (
     `LastName` varchar(50) NOT NULL,
     `DOB` date DEFAULT NULL,
     `Gender` char DEFAULT NULL,
+    `Height` int(11) DEFAULT '0',
     `Weight` int(11) DEFAULT '0',
+    `State` varchar(20),
+    `City` varchar(30),
+    `ZipCode` int(11) DEFAULT '0',
+    `AboutMe` varchar(300),
     `JoinDate` timestamp DEFAULT current_timestamp,
     PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
@@ -45,9 +50,9 @@ CREATE TABLE IF NOT EXISTS `rruser` (
 -- Dumping data for table `rruser`
 --
 
-INSERT INTO `rruser` (`UserID`, `Username`, `Password`, `Email`, `FirstName`, `LastName`, `DOB`, `Gender`, `Weight`) VALUES
-    (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 140),
-    (2, "knovak19", "web3", "knovak19@kent.edu", "Kevin", "Novak", "1993-11-29", "M", 141);
+INSERT INTO `rruser` (`UserID`, `Username`, `Password`, `Email`, `FirstName`, `LastName`, `DOB`, `Gender`, `Height`, `Weight`, `State`, `City`, `ZipCode`, `AboutMe`) VALUES
+    (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 66, 140, "OH", "Kent", 44134, "This is me."),
+    (2, "knovak19", "web3", "knovak19@kent.edu", "Kevin", "Novak", "1993-11-29", "M", 66, 140, "OH", "Kent", 44134, "This is me.");
 
 -- --------------------------------------------------------
 
