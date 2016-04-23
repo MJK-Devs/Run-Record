@@ -112,12 +112,29 @@ class User {
 	
 	
 	
-	function changePassword($oldPassword, $newPassword, $confirmedNewPassword) {
-		//check that old password is correct
-			//check that the new password is > 8 characters
-			//check that the two new passwords match
-				//return true if it updated correctly
-				
+	function changePassword($newPassword) {
+		try {
+			$connString = "mysql:host=localhost;dbname=knovak18";
+			$user = "knovak18";
+			$pass = "web2";
+			
+			$pdo = new PDO($connString,$user,$pass);
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			
+			$sql = "UPDATE rruser 
+					SET Password=:Password
+					WHERE UserID=:ID";
+			
+			$statement = $pdo->prepare($sql);
+			$statement->execute(array(
+				"Password" => $newPassword,
+				"ID" => $this->UserID
+			));
+		}
+		catch (PDOException $e) {
+			die( $e->getMessage() );
+			return null;
+		}		
 	}
 	
 	function deleteUser(){
