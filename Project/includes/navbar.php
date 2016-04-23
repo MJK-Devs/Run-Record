@@ -20,7 +20,7 @@
 						<li><a href="record.php">Record a Run</a></li>
 						<li><a href="myruns.php">My Runs</a></li>
 						<li><a href="#">My Races</a></li>
-						<li><a href="#">Statistics</a></li>
+						<li><a href="stats/stats_main.php">Statistics</a></li>
 						<li><a href="#">Routes</a></li>
 					</ul>
 				</li>
