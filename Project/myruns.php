@@ -52,6 +52,8 @@ function displayRuns($UserID) {
 			echo '<b><a href=record.php><br>Record your first run</a></b>';
 		}
 
+        $result = $pdo->query($sql);
+
 		// put query results into array
         $array = array();
         while ($row = $result->fetch()) {
