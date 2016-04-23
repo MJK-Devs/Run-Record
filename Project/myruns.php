@@ -46,16 +46,12 @@ function displayRuns($UserID) {
         $result = $pdo->query($sql);
 
 		//if no runs in database
-		$number_of_rows = $result->fetchColumn();
+		$number_of_rows = $result->rowCount();
 		if ($number_of_rows == 0) {
 			echo 'You have no recorded runs.';
 			echo '<b><a href=record.php><br>Record your first run</a></b>';
 		}
 
-        $result = $pdo->query($sql);
-
-		// put query results into array
-        $array = array();
         while ($row = $result->fetch()) {
 			echo '<div style="margin:3px" class="col-md-10">';
 
@@ -74,9 +70,6 @@ function displayRuns($UserID) {
 			echo '</div>';
 		}
         $pdo = null;
-
-        // return the results
-        return $array;
     }
     catch (PDOException $e) {
         die( $e->getMessage() );
