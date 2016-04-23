@@ -54,7 +54,7 @@
 function checkCookie() {
 	if(isset($_COOKIE['User'])) {
 		//redirect user to main page if they are already authenticated.
-		header('Location: https://webdev.cs.kent.edu/~mboehlke/Web2/RR/main.php');
+		header('Location: ./main.php');
 	}
 }
 
