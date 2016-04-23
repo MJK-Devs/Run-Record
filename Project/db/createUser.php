@@ -151,6 +151,7 @@ if (!empty($_POST['email'])) {
     }
     else {
         $_SESSION['failedEmail'] = "This email already in use.";
+        $error=TRUE;
     }
 }
 else {
@@ -174,11 +175,11 @@ else {
 // ========================================
 if (isset($_POST['city'])) {
     $_SESSION['city'] = $_POST['city'];
-    
+
     // checking for allowed characters
     if(!ctype_alpha($_POST["city"])) {
-        $_SESSION['failedCity'] = "City names can only contain letters!"; 
-        $error=TRUE; 
+        $_SESSION['failedCity'] = "City names can only contain letters!";
+        $error=TRUE;
     }
     if (empty($_SESSION['city'])) {
         $_SESSION['failedCity'] = "Please Enter a City!";
@@ -190,7 +191,7 @@ if (isset($_POST['city'])) {
 // Zip
 // ========================================
 if (!empty($_POST['zip'])) {
-    $_SESSION['zip'] = $_POST['zip'];  
+    $_SESSION['zip'] = $_POST['zip'];
 }
 else{
     $_SESSION['failedZip'] = "Please Enter your Zip Code!";
