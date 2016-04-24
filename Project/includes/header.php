@@ -4,3 +4,4 @@
 <link href="css/cosmo.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2Run' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2RunLogin' rel='stylesheet' type='text/css'>

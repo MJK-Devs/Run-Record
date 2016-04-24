@@ -7,11 +7,7 @@
 <html>
 <head>
 	<title>Record Run Login</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link href="css/cosmo.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/welcome.css" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2RunLogin' rel='stylesheet' type='text/css'>
+	<?php include("includes/header.php"); ?>
 </head>
 <body class="login">
 	<?php include("includes/navbar2.php"); ?>
