@@ -91,8 +91,8 @@ function userInfoTable_Edit() {
 					<select name="height" class="form-control">';
 						include("../includes/height.php");
 						foreach($height as $h){ 
-							if(strcmp($user->getHeight(),$height) === 0 ) {
-								echo '<option selected="selected">' . $user->getHeight() . '</option>';
+							if(strcmp($user->getHeight(),$h) === 0 ) {
+								echo '<option selected="selected">' . $h . '</option>';
 							}
 							else {
 								echo '<option value="' . $h . '">' . $h . '</option>';
@@ -142,8 +142,8 @@ function userInfoTable_Edit() {
  		    <td>About me</td>
      	    <td>
 				<div class="col-xs-7">
-					<textarea value="' . $user->getAboutMe() . '" 
-						class="form-control" rows="3" name="aboutMe"></textarea>
+					<textarea class="form-control" rows="3" name="aboutMe">
+					' . $user->getAboutMe() . '</textarea>
 				</div>
 			</td>
 		  </tr>';
