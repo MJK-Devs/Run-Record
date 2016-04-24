@@ -3,8 +3,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="css/cosmo.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
-<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2Run' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2RunLogin' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2RunLoginCreateAnAccount' rel='stylesheet' type='text/css'>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!-- FAVICONS -->

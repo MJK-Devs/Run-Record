@@ -21,6 +21,7 @@
 	<div class="container">
 		<div class="row">
 		<div class="col-md-12">
+			<h1 class="logo page-header text-center">Create An Account</h1>
 			<div id="userInformation">
 				<form class="form-inline" method="post" action="db/createUser.php">
 				<div class="row">
@@ -48,10 +49,11 @@
 					</div>
 					<br>
 					</div>
-					<h3 class="text-center"><b>Contact Information</b></h3>
-					<div class="col-md-4">
 					
-
+					<div class="col-md-8">
+					<h3><b>Contact Information</b></h3>
+					<div class="row">
+					<div class="col-md-6">
 					<label for="firstNameInput">First Name<span style="color:red">*</span></label>
 					<div class="control-group">
 						<input type="text" class="form-control <?php errorOutline("failedFirstName"); ?>" name="firstName" maxlength="20" <?php rememberField("firstName") ?> >
@@ -75,8 +77,9 @@
 					</div>
 
 
-					<br>
-					<br>
+					<br />
+					<br />
+					<br />
 					<label for="dateOfBirthInput">Date of birth</label><br />
 					<div class="form-group has-<?php errorOutLine("failedDateOfBirth"); ?>">
 						<?php echo '<input type="date" class="form-control" name="dateOfBirth" '; rememberField("dateOfBirth");
@@ -84,7 +87,7 @@
 						<?php errorMessage("failedDateOfBirth"); ?>
 					</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-6">
 
 					<label for="emailInput">E-mail</label><br />
 					<div class="form-group has-<?php errorOutline("failedEmail");?>">
@@ -137,10 +140,11 @@
 					<br />
 					</div>
 					<br />
+
+					</div>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
 						<input type="submit" name="submit" class="btn btn-primary btn-block login-submit">
-						</div>
 					</div>
 				</form>
 	        </div>
