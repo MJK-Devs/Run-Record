@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link href="css/cosmo.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/welcome.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2Run' rel='stylesheet' type='text/css'>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.en_US.js" type="text/javascript"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
@@ -18,6 +19,7 @@
 </head>
 
 <body>
+	<?php include("includes/navbar2.php"); ?>
 	<div class="header">
 		<a href="main.php"><img width="100" height="100" alt="" src="images/logo.png"></a>
 		<h1><b>Create Account</b></h1>
@@ -81,7 +83,7 @@
 					<br>
 					<label for="dateOfBirthInput">Date of birth</label>
 					<div class="form-group has-<?php errorOutLine("failedDateOfBirth"); ?>">
-						<?php echo '<input type="date" class="form-control" name="dateOfBirth" '; rememberField("dateOfBirth"); 
+						<?php echo '<input type="date" class="form-control" name="dateOfBirth" '; rememberField("dateOfBirth");
 								echo'>';?>
 						<?php errorMessage("failedDateOfBirth"); ?>
 					</div>
@@ -176,4 +178,3 @@ function rememberField($fieldType) {
 	}
 }
 ?>
-

@@ -9,30 +9,7 @@
 </head>
 <body class="welcomePage">
 
-	<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand logo" href="#">Record•Run</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="create.php">Create An Account</a></li>
-        <li><a href="login.php">Login</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
+<?php include("includes/navbar2.php"); ?>
 
 	<div class="fill">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -41,7 +18,7 @@
 	      <div class="fill" style="background-image:url('images/quote_pictures/1-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
-	    		
+
 			  </div>
 	        </div>
 	      </div>
@@ -50,7 +27,7 @@
 	      <div class="fill" style="background-image:url('images/quote_pictures/2-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
-	    		
+
 			  </div>
 	        </div>
 	      </div>
@@ -59,7 +36,7 @@
 	      <div class="fill" style="background-image:url('images/quote_pictures/3-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
-	    		
+
 			  </div>
 	        </div>
 	      </div>
@@ -68,7 +45,7 @@
 	      <div class="fill" style="background-image:url('images/quote_pictures/4-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
-	    		
+
 			  </div>
 	        </div>
 	      </div>
@@ -77,7 +54,7 @@
 	      <div class="fill" style="background-image:url('images/quote_pictures/5-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
-	    		
+
 			  </div>
 	        </div>
 	      </div>
