@@ -18,6 +18,7 @@
 </head>
 
 <body>
+	<?php include("includes/navbar2.php"); ?>
 	<div class="header">
 		<a href="main.php"><img width="100" height="100" alt="" src="images/logo.png"></a>
 		<h1><b>Create Account</b></h1>
@@ -81,7 +82,7 @@
 					<br>
 					<label for="dateOfBirthInput">Date of birth</label>
 					<div class="form-group has-<?php errorOutLine("failedDateOfBirth"); ?>">
-						<?php echo '<input type="date" class="form-control" name="dateOfBirth" '; rememberField("dateOfBirth"); 
+						<?php echo '<input type="date" class="form-control" name="dateOfBirth" '; rememberField("dateOfBirth");
 								echo'>';?>
 						<?php errorMessage("failedDateOfBirth"); ?>
 					</div>
@@ -176,4 +177,3 @@ function rememberField($fieldType) {
 	}
 }
 ?>
-

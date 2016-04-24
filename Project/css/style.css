@@ -1,6 +1,7 @@
 
 .logo{
     font-family:Bangers;
+    font-size:24px;
 }
 .welcomePage{
     background: gray; /* For browsers that do not support gradients */
@@ -70,4 +71,3 @@
     overflow: hidden;
     padding-top:2em;
 }
-

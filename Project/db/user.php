@@ -14,30 +14,30 @@ class User {
 	private $ZipCode = "";
 	private $Height = "";
 	private $AboutMe = "";
-	
-	
+
+
 	function __construct($ID){
 		try {
 			$connString = "mysql:host=localhost;dbname=knovak18";
 			$user = "knovak18";
 			$pass = "web2";
-			
+
 			$pdo = new PDO($connString,$user,$pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			
+
 			$sql = "SELECT Username, Password, Email, FirstName,
 				LastName, DOB, Gender, Weight, JoinDate, Height,
 				City, State, AboutMe
 				FROM rruser WHERE UserID = ?";
-			
+
 			// create a prepared statement to completely sanitize the input
 			$statement = $pdo->prepare($sql);
 			$statement->bindValue(1,$ID);
 			$statement->execute();
-			
+
 			// grab the associative array from the query
 			$a = $statement->fetch();
-			
+
 			// populate the variables with data from the associative array
 			$this->UserID = $ID;
 			$this->Username = $a['Username'];
@@ -52,40 +52,40 @@ class User {
 			$this->City = $a['City'];
 			$this->State = $a['State'];
 			$this->AboutMe = $a['AboutMe'];
-			
+
 			if($a['Gender'] == "m" or $a['Gender'] == "M"){ $this->Gender = "Male"; }
 			else { $this->Gender = "Female";}
 		}
 		catch (PDOException $e) {
 			die( $e->getMessage() );
 			return null;
-		}		
-	}	
-	
+		}
+	}
+
 	// error handling is done outside of the function
 	// therefore, this assumes all inputs are valid and non-empty
 	function changeInfo($Username, $Email, $FirstName, $LastName, $Weight, $Height, $AboutMe, $City, $State) {
 		try {
 			// if any fields are empty, they are not to be updated
-			if(empty($Email)){ $Email = $this->Email}
-			if(empty($FirstName)){ $FirstName = $this->FirstName}
-			if(empty($LastName)){ $LastName = $this->LastName}
-			if(empty($Weight)){ $Weight = $this->$Weight}
-			if(empty($State)){ $State = $this->State}
-			
+			if(empty($Email)){ $Email = $this->Email;}
+			if(empty($FirstName)){ $FirstName = $this->FirstName;}
+			if(empty($LastName)){ $LastName = $this->LastName;}
+			if(empty($Weight)){ $Weight = $this->$Weight;}
+			if(empty($State)){ $State = $this->State;}
+
 			$connString = "mysql:host=localhost;dbname=knovak18";
 			$user = "knovak18";
 			$pass = "web2";
-			
+
 			$pdo = new PDO($connString,$user,$pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			
-			$sql = "UPDATE rruser 
+
+			$sql = "UPDATE rruser
 					SET Username=:Username, Email=:Email, FirstName=:FirstName,
 						LastName=:LastName, Weight=:Weight, Height=:Height, AboutMe=:AboutMe,
 						Height=:Height, City=:City, State=:State
 					WHERE UserID=:ID";
-			
+
 			$statement = $pdo->prepare($sql);
 			$statement->execute(array(
 				"Username" => $Username,
@@ -97,7 +97,7 @@ class User {
 				"Height" => convertStringHeightToInches($Height),
 				"City" => $City,
 				"State" => $State,
-				"ID" => $this->UserID 
+				"ID" => $this->UserID
 			));
 
 			$this->Username = $Username;
@@ -114,24 +114,24 @@ class User {
 		catch (PDOException $e) {
 			die( $e->getMessage() );
 			return null;
-		}		
+		}
 	}
-	
-	
-	
+
+
+
 	function changePassword($newPassword) {
 		try {
 			$connString = "mysql:host=localhost;dbname=knovak18";
 			$user = "knovak18";
 			$pass = "web2";
-			
+
 			$pdo = new PDO($connString,$user,$pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			
-			$sql = "UPDATE rruser 
+
+			$sql = "UPDATE rruser
 					SET Password=:Password
 					WHERE UserID=:ID";
-			
+
 			$statement = $pdo->prepare($sql);
 			$statement->execute(array(
 				"Password" => $newPassword,
@@ -141,20 +141,20 @@ class User {
 		catch (PDOException $e) {
 			die( $e->getMessage() );
 			return null;
-		}		
+		}
 	}
-	
+
 	function deleteUser(){
 		$connString = "mysql:host=localhost;dbname=knovak18";
 		$user = "knovak18";
 		$pass = "web2";
-		
+
 		$pdo = new PDO($connString,$user,$pass);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
+
 		$sql = "DELETE FROM rruser
 				WHERE UserID=" . $this->UserID . "";
-		
+
 		$statement = $pdo->prepare($sql);
 		$statement->execute();
 	}
