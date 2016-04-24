@@ -27,8 +27,39 @@
 				<table class="table table-user-information">
 				  <tbody>
 				    <form method="post" action="dbChangePassword.php">
-					  <?php passwordChangeTable(); ?>
-					
+						<tr>
+						  <td>Current Password</td>
+						  <td>
+						    <div class="col-xs-7">
+							  <div class="form-group has-<?php errorOutline("failedCurrent"); ?>">
+							    <input class="form-control" type="password" name="current" maxlength="20">
+							    <?php errorMessage("failedCurrent"); ?>
+							  </div>
+							</div>
+						  </td>
+						</tr>
+						<tr>
+						  <td>New Password</td>
+						  <td>
+						    <div class="col-xs-7">
+							  <div class="form-group has-<?php errorOutline("failedNew"); ?>">
+							    <input class="form-control" type="password" name="new" maxlength="20">
+							    <?php errorMessage("failedNew"); ?>
+							  </div>
+							</div>
+						  </td>
+						</tr>
+						<tr>
+						  <td>Confirm Password</td>
+						  <td>
+						    <div class="col-xs-7">
+						      <div class="form-group has-<?php errorOutline("failedConfirm"); ?>">
+							    <input class="form-control" type="password" name="confirm" maxlength="20">
+							    <?php errorMessage("failedConfirm"); ?>
+							  </div>
+							</div>
+						  </td>
+						</tr>
 				  </tbody>
 				</table>
 			  </div>
@@ -50,46 +81,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 <?php
-function passwordChangeTable() {
-	$user = new User(getUserID($_COOKIE['User']));
-	$formSize = "col-xs-7";
-
-	echo '<tr>
- 		    <td>Current Password</td>
-     	    <td>
-				<div class="control-group">
-					<input class="form-control ' . errorOutline("failedCurrent") . '" type="password" name="current" maxlength="20">';
-					errorMessage("failedCurrent");
-				'</div>
-			</td>
-		  </tr>';
-	echo '<tr>
- 		    <td>New Password</td>
-     	    <td>
-				<div class="control-group">
-					<input class="form-control ' . errorOutline("failedNew") . '" type="password" name="new" maxlength="20">';
-					errorMessage("failedNew");
-				'</div>
-			</td>
-		  </tr>';
-	echo '<tr>
-			<td>Confirm Password</td>
-			<td>
-				<div class="control-group">
-					<input class="form-control ' . errorOutline("failedConfirm") . '" type="password" name="confirm" maxlength="20">';
-					errorMessage("failedConfirm");
-	echo		'</div>
-			</td>
-		  </tr>';
-	
-}
-
 // echos out the error message
 // must pass in the $_SESSION parameter to check for
 // Sample Usage: errorMessage("failedUsername");
 function errorMessage($failedType) {
 	if(!empty($_SESSION[$failedType])) {
-		echo '<label style="color:red">' . $_SESSION[$failedType] . '</label>';
+		echo $_SESSION[$failedType];
 		unset($_SESSION[$failedType]);
 	}
 }
