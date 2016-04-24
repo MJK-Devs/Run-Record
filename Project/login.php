@@ -6,7 +6,7 @@
 
 <html>
 <head>
-	<title>Record Run Login</title>
+	<title>Record Run - Login</title>
 	<?php include("includes/header.php"); ?>
 </head>
 <body class="login">

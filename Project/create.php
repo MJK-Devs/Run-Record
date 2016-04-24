@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <html>
 <head>
-	<title>Create Account</title>
+	<title>Record Run - Create</title>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.en_US.js" type="text/javascript"></script>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
 	<?php

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Record a Run</title>
+	<title>Record Run - Record</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link href="css/cosmo.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">

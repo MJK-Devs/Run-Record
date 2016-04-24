@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Record Run</title>
+	<title>Record Run - Welcome</title>
 	<?php include("includes/header.php"); ?>
 	<link href="css/welcome.css" rel="stylesheet">
 </head>
