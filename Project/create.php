@@ -72,7 +72,7 @@
 					<br>
 
 					<label for="genderInput">Gender</label><br />
-					<div class="btn-group has-<?php errorOutLine("failedGender"); ?>" >
+					<div class="btn-group <?php errorOutLine("failedGender"); ?>" >
 						<label class="radio-inline inline"><input type="radio" name="gender" value="male" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"male") === 0) { print ' checked="checked"'; }}?> >Male</label>
 						<label class="radio-inline inline"><input type="radio" name="gender" value="female" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"female") === 0) { print ' checked="checked"'; }}?> >Female</label>
 						<?php errorMessage("failedGender"); ?>
@@ -83,7 +83,7 @@
 					<br />
 					<br />
 					<label for="dateOfBirthInput">Date of birth</label><br />
-					<div class="form-group has-<?php errorOutLine("failedDateOfBirth"); ?>">
+					<div class="form-group <?php errorOutLine("failedDateOfBirth"); ?>">
 						<?php echo '<input type="date" class="form-control" name="dateOfBirth" '; rememberField("dateOfBirth");
 								echo'>';?>
 						<?php errorMessage("failedDateOfBirth"); ?>
@@ -92,7 +92,7 @@
 					<div class="col-md-6">
 
 					<label for="emailInput">E-mail</label><br />
-					<div class="form-group has-<?php errorOutline("failedEmail");?>">
+					<div class="form-group <?php errorOutline("failedEmail");?>">
 						<?php echo '<input type="email" class="form-control" name="email" maxlength="40" class="errorOutLine("failedEmail")." '; rememberField("email"); echo">";?>
 						<?php errorMessage("failedEmail"); ?>
 					</div>
@@ -101,7 +101,7 @@
 					<br>
 					<br>
 
-					<div class="form-group has-<?php errorOutLine("failedState"); ?>">
+					<div class="form-group <?php errorOutLine("failedState"); ?>">
 					    <label for="stateInput">State</label> <br />
 
 						<?php
@@ -122,7 +122,7 @@
 
 					<br>
 					<br>
-					<div class="form-group has-<?php errorOutLine("failedCity"); ?>">
+					<div class="form-group <?php errorOutLine("failedCity"); ?>">
 					<label for="cityInput">City</label><br />
 						<?php echo '<input type="text" class="form-control" name="city" maxlength="20"'; rememberField("city"); echo '>'; ?>
 						<?php errorMessage("failedCity"); ?>
@@ -131,7 +131,7 @@
 					<br>
 					<br>
 					<label for="zipInput">Zip</label><br />
-					<div class="form-group has-<?php errorOutLine("failedZip"); ?>">
+					<div class="form-group <?php errorOutLine("failedZip"); ?>">
 						<?php echo '<input type="number" class="form-control" name="zip" maxLength="5" '; rememberField("zip");
 							echo '> <span class="help-inline"> </span>';
 						?>
