@@ -4,10 +4,10 @@
 	<title>Create Account</title>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.en_US.js" type="text/javascript"></script>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
-	<?php include("includes/header.php"); ?>
 	<?php
-		  include_once "db/db.php";
-		  include_once "includes/states.php";
+		include("includes/header.php");
+		include_once "db/db.php";
+		include_once "includes/states.php";
 	?>
 </head>
 
