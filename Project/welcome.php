@@ -38,7 +38,7 @@
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 	  <div class="carousel-inner">
 	    <div class="active item">
-	      <div class="fill" style="background-image:url('images/quote_pictures/1.jpg');">
+	      <div class="fill" style="background-image:url('images/quote_pictures/1-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
 	    		
@@ -47,7 +47,7 @@
 	      </div>
 	    </div>
 	    <div class="item">
-	      <div class="fill" style="background-image:url('images/quote_pictures/2.jpg');">
+	      <div class="fill" style="background-image:url('images/quote_pictures/2-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
 	    		
@@ -56,7 +56,7 @@
 	      </div>
 	    </div>
 	    <div class="item">
-	      <div class="fill" style="background-image:url('images/quote_pictures/3.jpg');">
+	      <div class="fill" style="background-image:url('images/quote_pictures/3-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
 	    		
@@ -65,7 +65,7 @@
 	      </div>
 	    </div>
 	    <div class="item">
-	      <div class="fill" style="background-image:url('images/quote_pictures/4.jpg');">
+	      <div class="fill" style="background-image:url('images/quote_pictures/4-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
 	    		
@@ -74,7 +74,7 @@
 	      </div>
 	    </div>
 	    <div class="item">
-	      <div class="fill" style="background-image:url('images/quote_pictures/5.jpg');">
+	      <div class="fill" style="background-image:url('images/quote_pictures/5-1.png');">
 	        <div class="container">
 	          <div class="welcome-links">
 	    		

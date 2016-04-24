@@ -22,3 +22,7 @@ html,body{height:100%;}
 .navbar{
 	margin:0px;
 }
+
+.logo{
+	font-size:24px;
+}
