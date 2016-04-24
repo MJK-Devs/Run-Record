@@ -163,7 +163,7 @@
 // Sample Usage: errorMessage("failedUsername");
 function errorMessage($failedType) {
 	if(!empty($_SESSION[$failedType])) {
-		echo $_SESSION[$failedType];
+		echo '<br>' . $_SESSION[$failedType];
 		unset($_SESSION[$failedType]);
 	}
 }
