@@ -52,9 +52,9 @@ function formPassword() {
 	if(isset($_COOKIE['loginError'])) {
 		if(strcmp($_COOKIE['loginError'],"password") == 0) {
 			print('
-				<div class="form-group has-error">
+				<div class="form-group">
 				<label for="exampleInputPassword2">Password</label>
-				<input type="password" class="form-control" name="password">
+				<input type="password" class="form-control error" name="password">
 				Sorry, that is an invalid username and password combination.
 				</div>'
 			);
