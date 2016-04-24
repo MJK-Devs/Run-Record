@@ -1,18 +1,16 @@
 <div id="navbar">
 	<nav role="navigation" class="navbar navbar-inverse navbar-fixed">
 		<div class="navbar-header">
-			<button type="button" data-target="#navbarCollapse" data-toggle
-			="collapse" class="navbar-toggle collapsed" aria-expanded="false">
-				<span class="sr-only"> Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		    <span class="sr-only">Toggle navigation</span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand logo" href="main.php">Record•Run</a>
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-
-				<li><a href="main.php" class="logo navbar-brand">Record•Run</a></li>
 				<li class="dropdown">
 					<a data-toggle="dropdown" class="dropdown-toggle" role="button"
 					href="#">Menu <span class="caret"></span></a>
