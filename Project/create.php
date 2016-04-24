@@ -15,37 +15,38 @@
 	<?php include("includes/navbar2.php"); ?>
 	<div class="container">
 		<div class="row">
-		</div>
-		<div class="col-md-5">
+		<div class="col-md-8">
 			<div id="userInformation">
 				<form class="form-inline" method="post" action="db/createUser.php">
-
+				<div class="row">
+				<div class="col-md-6">
 					<h3><b>Account Information</b></h3>
 
-					<label for="usernameInput">Username<span style="color:red">*<span></label>
+					<label for="usernameInput">Username<span style="color:red">*</span></label>
 					<div class="control-group">
 						<input type="text" class="form-control <?php errorOutline("failedUsername"); ?>" name="username" maxlength="20" <?php rememberField("username") ?> >
 						<?php errorMessage("failedUsername"); ?>
 					</div>
 					<br>
 
-					<label for="passwordInput">Password<span style="color:red">*<span></label>
+					<label for="passwordInput">Password<span style="color:red">*</span></label>
 					<div class="control-group">
 	                  	<input type="password" class="form-control <?php errorOutline("failedPassword"); ?>" name="password" maxlength="20">
 					 	<?php errorMessage("failedPassword"); ?>
 					</div>
 					<br>
 
-					<label for="verifyPasswordInput">Verify Password<span style="color:red">*<span></label>
+					<label for="verifyPasswordInput">Verify Password<span style="color:red">*</span></label>
 					<div class="control-group">
                   		<input type="password" class="form-control <?php errorOutline("failedVerifyPassword"); ?>" name="verifyPassword" maxlength="20">
                   		<?php errorMessage("failedVerifyPassword"); ?>
 					</div>
 					<br>
-
+					</div>
+					<div class="col-md-6">
 					<h3><b>Contact Information</b></h3>
 
-					<label for="firstNameInput">First Name<span style="color:red">*<span></label>
+					<label for="firstNameInput">First Name<span style="color:red">*</span></label>
 					<div class="control-group">
 						<input type="text" class="form-control <?php errorOutline("failedFirstName"); ?>" name="firstName" maxlength="20" <?php rememberField("firstName") ?> >
 						<?php errorMessage("failedFirstName"); ?>
@@ -53,7 +54,7 @@
 					<br>
 
 
-					<label for="lastNameInput">Last Name<span style="color:red">*<span></label>
+					<label for="lastNameInput">Last Name<span style="color:red">*</span></label>
 					<div class="control-group">
 						<input type="text" class="form-control <?php errorOutline("failedLastName"); ?>" name="lastName" maxlength="20" <?php rememberField("lastName") ?> >
 						<?php errorMessage("failedLastName"); ?>
@@ -128,9 +129,11 @@
 
 					<br />
 					<br />
+					</div>
 					<input type="submit" name="submit">
 				</form>
 	        </div>
+	     </div>
 	   </div>
 	</div>
 </body>
