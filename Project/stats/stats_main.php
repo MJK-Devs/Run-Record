@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <html>
 <head>
-	<title>Statistics</title>
+	<title>Record Run - Stats</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link href="style.css" rel="stylesheet">
@@ -15,13 +15,13 @@
 </head>
 
 <body>
-	<?php 
+	<?php
 	include("../db/user.php");
 	//include("../db/db.php");
 	include("navbar.php");
-	
+
 	$user = new User(getUserID($_COOKIE['User']));
-	
+
 	if(isset($_COOKIE['User'])) {
 		$username = $_COOKIE['User'];
 	} //else { $username = ""; }
@@ -34,7 +34,7 @@
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
-		
+
 			  <div class="c1ol-md-9 col-lg-9">
 				<table class="table table-user-information">
 				  <tbody>
@@ -63,7 +63,7 @@
 		</div>
 	</div>
 
-	
+
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  toppad" >
 	   <div class="panel panel-info">
 		  <div class="panel-heading">
@@ -74,7 +74,7 @@
 			  <div class="c1ol-md-9 col-lg-9">
 				<table class="table table-user-information">
 				  <tbody>
-					
+
 				  </tbody>
 				</table>
 			  </div>
@@ -82,7 +82,7 @@
 		  </div>
 		</div>
 	</div>
-	
+
 	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 toppad" >
 	   <div class="panel panel-primary">
 		  <div class="panel-heading">
@@ -146,7 +146,7 @@ function userAverages() {
 	echo '<tr>
 			<td>Calories Burned</td>
 			<td>0</td>
-		  </tr>';	  
+		  </tr>';
 	echo '<tr>
 			<td>Miles per Week</td>
 			<td>0</td>
@@ -159,7 +159,7 @@ function userAverages() {
 			<td>Miles per Year</td>
 			<td>0</td>
 		  </tr>';
-	
+
 }
 
 function userPersonalInfo() {
@@ -200,7 +200,7 @@ function userInfoTable() {
 	echo '<tr>
 			<td>Member Since</td>
 			<td>' . convertDate($user->getJoinDate()) . '</td>
-		  </tr>';				
+		  </tr>';
 }
 
 function calculateAge($DOB) {

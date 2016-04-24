@@ -1,17 +1,17 @@
 <?php session_start(); ?>
-<head> <title>Change Password</title>
+<head> <title>Record Run - Change Password</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="style.css" type="text/css" rel="stylesheet"></link>
 </head>
 
 <body>
-	<?php 
+	<?php
 	include("../db/user.php");
 	include("../db/db.php");
 	include("navbar.php");
-	
+
 	$user = new User(getUserID($_COOKIE['User']));
-	
+
 	if(isset($_COOKIE['User'])) {
 		$username = $_COOKIE['User'];
 	} //else { $username = ""; }
@@ -101,5 +101,3 @@ function errorOutline($failedType) {
 }
 
 ?>
-
-

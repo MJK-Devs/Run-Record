@@ -1,16 +1,16 @@
-<head> <title>My Profile</title>
+<head> <title>Record Run - Delete Profile</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="style.css" type="text/css" rel="stylesheet"></link>
 </head>
 
 <body>
-	<?php 
+	<?php
 	include("../db/user.php");
 	include("../db/db.php");
 	include("navbar.php");
-	
+
 	$user = new User(getUserID($_COOKIE['User']));
-	
+
 	if(isset($_COOKIE['User'])) {
 		$username = $_COOKIE['User'];
 	} //else { $username = ""; }
@@ -27,10 +27,10 @@
 		  </div>
 		  <div class="panel-footer">&nbsp;
 			<span class="pull-right">
-			  <a href="confirmedDelete.php" title="Confirm" data-toggle="tooltip" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i></a> 
+			  <a href="confirmedDelete.php" title="Confirm" data-toggle="tooltip" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i></a>
 			  <a href="profile.php" title="Cancel" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
 			</span>
-			  
+
 
 		  </div>
 		</div>

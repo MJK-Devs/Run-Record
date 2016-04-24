@@ -1,16 +1,16 @@
-<head> <title>My Profile</title>
+<head> <title>Record Run - Profile</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="style.css" type="text/css" rel="stylesheet"></link>
 </head>
 
 <body>
-	<?php 
+	<?php
 	include("../db/user.php");
 	include("../db/db.php");
 	include("navbar.php");
-	
+
 	$user = new User(getUserID($_COOKIE['User']));
-	
+
 	if(isset($_COOKIE['User'])) {
 		$username = $_COOKIE['User'];
 	} //else { $username = ""; }
@@ -35,10 +35,10 @@
 		  <div class="panel-footer">
 		    <a href="#" title="Statistics" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-stats"></i></a>
 			<span class="pull-right">
-			  <a href="edit.php" title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a> 
+			  <a href="edit.php" title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 			  <a href="delete.php" title="Delete Account" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			</span>
-			  
+
 
 		  </div>
 		</div>
@@ -88,7 +88,7 @@ function userInfoTable() {
 	echo '<tr>
 			<td>Member Since</td>
 			<td>' . convertDate($user->getJoinDate()) . '</td>
-		  </tr>';				
+		  </tr>';
 }
 
 function calculateAge($DOB) {

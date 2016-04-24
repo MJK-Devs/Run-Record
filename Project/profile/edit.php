@@ -1,16 +1,16 @@
-<head> <title>Edit Profile</title>
+<head> <title>Record Run - Edit Profile</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link href="style.css" type="text/css" rel="stylesheet"></link>
 </head>
 
 <body>
-	<?php 
+	<?php
 	include("../db/user.php");
 	include("../db/db.php");
 	include("navbar.php");
-	
+
 	$user = new User(getUserID($_COOKIE['User']));
-	
+
 	if(isset($_COOKIE['User'])) {
 		$username = $_COOKIE['User'];
 	} //else { $username = ""; }
@@ -28,7 +28,7 @@
 				  <tbody>
 				    <form method="post" action="update.php">
 					  <?php userInfoTable_Edit(); ?>
-					
+
 				  </tbody>
 				</table>
 			  </div>
@@ -41,7 +41,7 @@
 			  </form>
 			  <a href="profile.php" title="Cancel" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
 			</span>
-			  
+
 
 		  </div>
 		</div>
@@ -90,14 +90,14 @@ function userInfoTable_Edit() {
 				<div class="col-xs-7">
 					<select name="height" class="form-control">';
 						include("../includes/height.php");
-						foreach($height as $h){ 
+						foreach($height as $h){
 							if(strcmp($user->getHeight(),$h) === 0 ) {
 								echo '<option selected="selected">' . $h . '</option>';
 							}
 							else {
 								echo '<option value="' . $h . '">' . $h . '</option>';
 							}
-						} 
+						}
 				echo '</select>
 				</div>
 			</td>
@@ -126,14 +126,14 @@ function userInfoTable_Edit() {
 				<div class="col-xs-7">
 					<select name="state" class="form-control">';
 						include("../includes/states.php");
-						foreach($states as $s){ 
+						foreach($states as $s){
 							if(strcmp($states,$user->getState()) === 0) {
 								echo '<option selected="selected">' . $user->getState() . '</option>';
 							}
 							else {
 								echo '<option value="' . $s . '">' . $s . '</option>';
 							}
-						} 
+						}
 				echo '</select>
 				</div>
 			</td>
@@ -153,9 +153,7 @@ function userInfoTable_Edit() {
 				<input type="file" name="profilePicture">
 			</td>
 		  </tr>';
-	
+
 }
 
 ?>
-
-
