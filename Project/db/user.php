@@ -66,6 +66,13 @@ class User {
 	// therefore, this assumes all inputs are valid and non-empty
 	function changeInfo($Username, $Email, $FirstName, $LastName, $Weight, $Height, $AboutMe, $City, $State) {
 		try {
+			// if any fields are empty, they are not to be updated
+			if(empty($Email)){ $Email = $this->Email}
+			if(empty($FirstName)){ $FirstName = $this->FirstName}
+			if(empty($LastName)){ $LastName = $this->LastName}
+			if(empty($Weight)){ $Weight = $this->$Weight}
+			if(empty($State)){ $State = $this->State}
+			
 			$connString = "mysql:host=localhost;dbname=knovak18";
 			$user = "knovak18";
 			$pass = "web2";
@@ -98,7 +105,7 @@ class User {
 			$this->FirstName = $FirstName;
 			$this->LastName = $LastName;
 			$this->Weight = $Weight;
-			$this->Height = convertStringHeightToInches($Height);
+			$this->Height = convertInchesToStringHeight($Height);
 			$this->City = $City;
 			$this->State = $State;
 			$this->AboutMe = $AboutMe;
