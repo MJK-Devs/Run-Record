@@ -11,22 +11,15 @@
 	<link href="css/cosmo.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/welcome.css" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2Run' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2RunLogin' rel='stylesheet' type='text/css'>
 </head>
 <body class="login">
 	<?php include("includes/navbar2.php"); ?>
-	<div class="header">
-		<img width="100" height="100" alt="" src="images/logo.png">
-		<h1><b>Login</b></h1>
-	</div>
-
 	<div class="container">
 		<div class="row">
-		
-
 		<div class="col-md-4 col-md-offset-4">
 			<div id="login">
-
+				<h1 class="logo page-header text-center">Login</h1>
 				<form role="form" action="db/authUser.php" method="post">
 					<div class="form-group">
 						<label for="usernameInput">Username</label>
@@ -41,8 +34,6 @@
 			</div>
 		 </div>
 
-		 <div class="col-md-6">
-		 </div>
 	 </div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

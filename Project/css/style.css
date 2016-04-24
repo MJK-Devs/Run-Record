@@ -23,6 +23,10 @@
     margin: 0 auto;
 }
 
+.page-header{
+    font-size:40px !important;
+}
+
 #login{
     color:white;
 }
