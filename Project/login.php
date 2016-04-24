@@ -12,17 +12,35 @@
 	<link href="css/style.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2Run' rel='stylesheet' type='text/css'>
 </head>
-<body>
-	<div class="header">
-		<img width="100" height="100" alt="" src="images/logo.png">
-		<h1><b>Login</b></h1>
-	</div>
+<body class="login">
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand logo" href="#">Record•Run</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="create.php">Create An Account</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 	<div class="container">
 		<div class="row">
-		</div>
+		
 
-		<div class="col-md-6">
+		<div class="col-md-4 col-md-offset-4">
 			<div id="login">
 
 				<form role="form" action="db/authUser.php" method="post">
@@ -34,8 +52,7 @@
 					<?php
 						formPassword();
 					?>
-
-	              <button type="submit" value="submit" class="btn btn-primary">Login</button>
+	              <button type="submit" value="submit" class="btn btn-primary btn-block login-submit">Login</button>
 			  </form>
 			</div>
 		 </div>

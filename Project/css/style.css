@@ -11,6 +11,20 @@
 
 
 }
+.login{
+    background:url('../images/quote_pictures/5-2.png');
+    background-size:100%;
+}
+
+.login-submit{
+    display:block;
+    float:none;
+    margin: 0 auto;
+}
+
+#login{
+    color:white;
+}
 
 .error {
 	border-color: red;
