@@ -2,6 +2,11 @@
 <html>
 <head>
 	<title>Record Run - Create</title>
+			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.en_US.js" type="text/javascript"></script>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
 	<?php
@@ -15,11 +20,11 @@
 	<?php include("includes/navbar2.php"); ?>
 	<div class="container">
 		<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12">
 			<div id="userInformation">
 				<form class="form-inline" method="post" action="db/createUser.php">
 				<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<h3><b>Account Information</b></h3>
 
 					<label for="usernameInput">Username<span style="color:red">*</span></label>
@@ -27,14 +32,14 @@
 						<input type="text" class="form-control <?php errorOutline("failedUsername"); ?>" name="username" maxlength="20" <?php rememberField("username") ?> >
 						<?php errorMessage("failedUsername"); ?>
 					</div>
-					<br>
+					<br /><br />
 
 					<label for="passwordInput">Password<span style="color:red">*</span></label>
 					<div class="control-group">
 	                  	<input type="password" class="form-control <?php errorOutline("failedPassword"); ?>" name="password" maxlength="20">
 					 	<?php errorMessage("failedPassword"); ?>
 					</div>
-					<br>
+					<br/ ><br />
 
 					<label for="verifyPasswordInput">Verify Password<span style="color:red">*</span></label>
 					<div class="control-group">
@@ -43,8 +48,9 @@
 					</div>
 					<br>
 					</div>
-					<div class="col-md-6">
-					<h3><b>Contact Information</b></h3>
+					<h3 class="text-center"><b>Contact Information</b></h3>
+					<div class="col-md-4">
+					
 
 					<label for="firstNameInput">First Name<span style="color:red">*</span></label>
 					<div class="control-group">
@@ -61,26 +67,26 @@
 					</div>
 					<br>
 
-					<label for="genderInput">Gender</label>
+					<label for="genderInput">Gender</label><br />
 					<div class="btn-group has-<?php errorOutLine("failedGender"); ?>" >
-						<label class="radio-inline"><input type="radio" name="gender" value="male" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"male") === 0) { print ' checked="checked"'; }}?> >Male</label>
-						<label class="radio-inline"><input type="radio" name="gender" value="female" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"female") === 0) { print ' checked="checked"'; }}?> >Female</label>
+						<label class="radio-inline inline"><input type="radio" name="gender" value="male" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"male") === 0) { print ' checked="checked"'; }}?> >Male</label>
+						<label class="radio-inline inline"><input type="radio" name="gender" value="female" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"female") === 0) { print ' checked="checked"'; }}?> >Female</label>
 						<?php errorMessage("failedGender"); ?>
 					</div>
 
 
 					<br>
 					<br>
-					<label for="dateOfBirthInput">Date of birth</label>
+					<label for="dateOfBirthInput">Date of birth</label><br />
 					<div class="form-group has-<?php errorOutLine("failedDateOfBirth"); ?>">
 						<?php echo '<input type="date" class="form-control" name="dateOfBirth" '; rememberField("dateOfBirth");
 								echo'>';?>
 						<?php errorMessage("failedDateOfBirth"); ?>
 					</div>
+					</div>
+					<div class="col-md-4">
 
-					<br>
-					<br>
-					<label for="emailInput">E-mail</label>
+					<label for="emailInput">E-mail</label><br />
 					<div class="form-group has-<?php errorOutline("failedEmail");?>">
 						<?php echo '<input type="email" class="form-control" name="email" maxlength="40" class="errorOutLine("failedEmail")." '; rememberField("email"); echo">";?>
 						<?php errorMessage("failedEmail"); ?>
@@ -91,7 +97,7 @@
 					<br>
 
 					<div class="form-group has-<?php errorOutLine("failedState"); ?>">
-					    <label for="stateInput">State</label>
+					    <label for="stateInput">State</label> <br />
 
 						<?php
 						if(isset($_SESSION['state'])) {
@@ -112,30 +118,36 @@
 					<br>
 					<br>
 					<div class="form-group has-<?php errorOutLine("failedCity"); ?>">
-					<label for="cityInput">City</label>
+					<label for="cityInput">City</label><br />
 						<?php echo '<input type="text" class="form-control" name="city" maxlength="20"'; rememberField("city"); echo '>'; ?>
 						<?php errorMessage("failedCity"); ?>
 					</div>
 
 					<br>
 					<br>
-					<label for="zipInput">Zip</label>
+					<label for="zipInput">Zip</label><br />
 					<div class="form-group has-<?php errorOutLine("failedZip"); ?>">
 						<?php echo '<input type="number" class="form-control" name="zip" maxLength="5" '; rememberField("zip");
 							echo '> <span class="help-inline"> </span>';
 						?>
 						<?php errorMessage("failedZip"); ?>
 					</div>
-
+					</div>
 					<br />
 					<br />
 					</div>
-					<input type="submit" name="submit">
+					<br />
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
+						<input type="submit" name="submit" class="btn btn-primary btn-block login-submit">
+						</div>
+					</div>
 				</form>
 	        </div>
 	     </div>
 	   </div>
 	</div>
+
 </body>
 </html>
 
