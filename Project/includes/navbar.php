@@ -12,7 +12,7 @@
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				
-				<li class="active"><a href="main.php">Home</a></li>
+				<li class="active"><a href="main.php" class="logo navbar-brand">Record•Run</a></li>
 				<li class="dropdown">
 					<a data-toggle="dropdown" class="dropdown-toggle" role="button"
 					href="#">Menu <span class="caret"></span></a>

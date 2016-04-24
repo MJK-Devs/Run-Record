@@ -1,80 +1,91 @@
-
-
 <html>
 <head>
 	<title>Record Run</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link href="style.css" rel="stylesheet">
+	<link href="css/cosmo.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/welcome.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2Run' rel='stylesheet' type='text/css'>
 </head>
 <body class="welcomePage">
 
-	<div id="Welcome-Carousel" class="carousel slide" data-ride="carousel">
-	    <!-- Indicators -->
-	    <!--<ol class="carousel-indicators">
-	    	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-	    	<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-	    	<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-	    	<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-	    	<li data-target="#carousel-example-generic" data-slide-to="4"></li>
-	    	<li data-target="#carousel-example-generic" data-slide-to="5"></li>
-	    	<li data-target="#carousel-example-generic" data-slide-to="6"></li>
-	    	<li data-target="#carousel-example-generic" data-slide-to="7"></li>
-	    	<li data-target="#carousel-example-generic" data-slide-to="8"></li>
-	  	</ol>-->
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand logo" href="#">Record•Run</a>
+    </div>
 
-	  	<!-- Wrapper for slides -->
-	  	<div class="carousel-inner" role="listbox">
-	    	<div class="item active">
-	        	<img src="./images/quote_pictures/1.jpg" alt="Run Quote 1">
-	        		<div class="carousel-caption">
-	        		</div>
-	    	</div>
-	    	<div class="item">
-	      		<img src="./images/quote_pictures/2.jpg" alt="Run Quote 2">
-	      		<div class="carousel-caption">
-	      		</div>
-	    	</div>
-	    	<div class="item">
-	      		<img src="./images/quote_pictures/3.jpg" alt="Run Quote 3">
-	      		<div class="carousel-caption">
-	      		</div>
-	    	</div>
-	    	<div class="item">
-	      		<img src="./images/quote_pictures/4.jpg" alt="Run Quote 4">
-	      		<div class="carousel-caption">
-	      		</div>
-	    	</div>
-	    	<div class="item">
-	      		<img src="./images/quote_pictures/5.jpg" alt="Run Quote 5">
-	      		<div class="carousel-caption">
-	      		</div>
-	    	</div>
-	    	<div class="item">
-	      		<img src="./images/quote_pictures/6.jpg" alt="Run Quote 6">
-	      		<div class="carousel-caption">
-	      		</div>
-	    	</div>
-	    	<div class="item">
-	      		<img src="./images/quote_pictures/7.jpg" alt="Run Quote 7">
-	      		<div class="carousel-caption">
-	      		</div>
-	    	</div>
-	    	<div class="item">
-	      		<img src="./images/quote_pictures/8.jpg" alt="Run Quote 8">
-	      		<div class="carousel-caption">
-	      		</div>
-	    	</div>
-	  	</div>
-	</div>
-	<div class="container welcome-links">
-	    <div class="vertical-center-row">
-	        <div align="center">
-	        	<a href="create.php" class="btn btn-default btn-lg" role="button">Create An Account</a>
-	        	<a href="login.php" class="btn btn-default btn-lg" role="button">Login</a>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="create.php">Create An Account</a></li>
+        <li><a href="login.php">Login</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+	<div class="fill">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	  <div class="carousel-inner">
+	    <div class="active item">
+	      <div class="fill" style="background-image:url('images/quote_pictures/1.jpg');">
+	        <div class="container">
+	          <div class="welcome-links">
+	    		
+			  </div>
 	        </div>
+	      </div>
 	    </div>
-	</div>
+	    <div class="item">
+	      <div class="fill" style="background-image:url('images/quote_pictures/2.jpg');">
+	        <div class="container">
+	          <div class="welcome-links">
+	    		
+			  </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="item">
+	      <div class="fill" style="background-image:url('images/quote_pictures/3.jpg');">
+	        <div class="container">
+	          <div class="welcome-links">
+	    		
+			  </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="item">
+	      <div class="fill" style="background-image:url('images/quote_pictures/4.jpg');">
+	        <div class="container">
+	          <div class="welcome-links">
+	    		
+			  </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="item">
+	      <div class="fill" style="background-image:url('images/quote_pictures/5.jpg');">
+	        <div class="container">
+	          <div class="welcome-links">
+	    		
+			  </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
 
+	</div>
+	</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

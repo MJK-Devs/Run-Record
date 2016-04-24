@@ -1,12 +1,6 @@
 
-.welcomePage{
-    background: gray; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left top, gray, white); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, gray, white); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, gray, white); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, gray, white); /* Standard syntax */
-
-
+.logo{
+    font-family:Bangers;
 }
 
 .error {
