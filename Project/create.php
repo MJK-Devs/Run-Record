@@ -145,7 +145,7 @@
 
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-4">
+						<div class="col-md-4 col-md-offset-4 no-padding">
 						<input type="submit" name="submit" value="Create Account" class="btn btn-primary btn-block login-submit">
 					</div>
 				</form>
