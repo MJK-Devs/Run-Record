@@ -13,7 +13,7 @@
 	<link href="css/welcome.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Bangers&text=Record%E2%80%A2Run' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="login">
 	<?php include("includes/navbar2.php"); ?>
 	<div class="header">
 		<img width="100" height="100" alt="" src="images/logo.png">
