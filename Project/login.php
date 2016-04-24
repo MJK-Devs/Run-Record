@@ -25,7 +25,7 @@
 					<?php
 						formPassword();
 					?>
-	              <button type="submit" value="submit" class="btn btn-primary btn-block login-submit">Login</button>
+	              <button type="submit" value="Login" class="btn btn-primary btn-block login-submit">Login</button>
 			  </form>
 			</div>
 		 </div>
