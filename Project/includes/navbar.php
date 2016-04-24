@@ -33,6 +33,7 @@
 					else {
 						print('<li><a href="login.php#">Login</a></li>');
 						print('<li><a href="create.php">Create Account</a></li>');
+						header('Location: welcome.php');
 					}
 				?>
 				<!-- if the user is logged in, replace create account with
