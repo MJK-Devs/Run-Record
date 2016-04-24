@@ -31,6 +31,10 @@
     color:white;
 }
 
+.createAccount{
+    background:url('../images/quote_pictures/6-1.png');
+}
+
 .error {
 	border-color: red;
 }

@@ -11,12 +11,8 @@
 	?>
 </head>
 
-<body>
+<body class="createAccount">
 	<?php include("includes/navbar2.php"); ?>
-	<div class="header">
-		<a href="main.php"><img width="100" height="100" alt="" src="images/logo.png"></a>
-		<h1><b>Create Account</b></h1>
-	</div>
 	<div class="container">
 		<div class="row">
 		</div>
