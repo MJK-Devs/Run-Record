@@ -54,28 +54,28 @@
 function userInfoTable() {
 	$user = new User(getUserID($_COOKIE['User']));
 	echo '<tr>
+ 		    <td>Name</td>
+     	    <td>' . $user->getFirstName() . ' ' . $user->getLastName() . '</td>
+		  </tr>';
+	echo '<tr>
  		    <td>About me</td>
      	    <td>' . $user->getAboutMe() . '</td>
 		  </tr>';
-	echo '<tr>
- 		    <td>Name</td>
-     	    <td>' . $user->getFirstName() . ' ' . $user->getLastName() . '</td>
+  	echo '<tr>
+			<td>Gender</td>
+			<td>' . $user->getGender() . '</td>
 		  </tr>';
 	echo '<tr>
    		    <td>Age</td>
 			<td>' . calculateAge($user->getDOB()) . '</td>
 		  </tr>';
+  	echo '<tr>
+		    <td>Height</td>
+		    <td>' . $user->getHeight() . '</td>
+			</tr>';
 	echo '<tr>
 			<td>Weight</td>
 			<td>' . $user->getWeight() . '</td>
-		  </tr>';
-	echo '<tr>
-		    <td>Height</td>
-		    <td>' . $user->getHeight() . '</td>
-         </tr>';
-	echo '<tr>
-			<td>Gender</td>
-			<td>' . $user->getGender() . '</td>
 		  </tr>';
 	echo '<tr>
 			<td>Location</td> <!-- city, state -->
