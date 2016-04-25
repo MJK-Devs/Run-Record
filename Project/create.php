@@ -18,8 +18,6 @@
 
 <body class="createAccount">
 	<?php include("includes/navbar2.php"); ?>
-	<br />
-	<br />
 	<div class="container">
 		<div class="row">
 		<div class="col-md-12">
