@@ -1,4 +1,5 @@
-<head>  <title>Record Run</title>
+<head>
+	<title>Record Run</title>
 	<?php include("includes/header.php"); ?>
 <!--<script src="includes/sliderScript.js"></script>-->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">-->
