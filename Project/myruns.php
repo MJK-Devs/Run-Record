@@ -17,6 +17,7 @@ date_default_timezone_set('America/New_York');
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
+				<h3><b>My Runs</b></h3>
 				<?php displayRuns(getUserID($_COOKIE['User'])); ?>
 			</div>
 		</div>
@@ -52,7 +53,7 @@ function displayRuns($UserID) {
 		}
 
         while ($row = $result->fetch()) {
-			echo '<div style="margin:3px" class="col-md-10">';
+			echo '<div style="margin:3px 3px 15px 3px">';
 
 			$dayOfWeek = date("l",strtotime($row['Date']));
 			$month = date("F",strtotime($row['Date']));

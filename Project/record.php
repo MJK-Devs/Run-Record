@@ -22,37 +22,32 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
-
-			<br>
-			<br>
-			<h3><b>General Run Information</b></h3>
-			<br>
+			<h3><b>Record a Run</b></h3>
 			<?php
 			if(isset($errMessage)) {
 				echo $errMessage;
 			}
 			?>
-			<br>
-
-
 				<div id="record-a-run">
 					<form class="form-inline" method="post" action="db/createRun.php">
 						<div class="form-inline" method="post">
-							<label>Date: </label>
+							<label>Date:</label>
+							<br>
 							<input type="date" class="form-control" name="date">
 						</div>
 						<br>
 						<div class="form-inline">
-							<label>Distance: </label>
+							<label>Distance:</label>
+							<br>
 							<input type="number" min="0" max="100" step="0.01" value="0.00" class="numeric form-control" name="distance">
 							<label>miles</label>
 						</div>
 						<br>
 						<div class="form-inline">
-							<label>Time: </label>
+							<label>Time:</label>
+							<br>
 							<?php printTimeForms(); ?>
 						</div>
-						<br>
 						<br>
 
 						<button type="submit" value="submit" class="btn btn-primary" >Save this Run</button>
