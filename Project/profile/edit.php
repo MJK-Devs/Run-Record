@@ -76,11 +76,11 @@ function userInfoTable_Edit() {
 			</td>
 		  </tr>';
 	echo '<tr>
-			<td>Weight</td>
-			<td>
-				<div class="' . $formSize . '">
-					<input class="form-control" type="number" name="weight" max="1000" min="0"
-						value="' . $user->getWeight() . '">
+		    <td>About me</td>
+		    <td>
+				<div class="col-xs-7">
+					<textarea class="form-control" rows="3" name="aboutMe">
+					' . $user->getAboutMe() . '</textarea>
 				</div>
 			</td>
 		  </tr>';
@@ -103,6 +103,15 @@ function userInfoTable_Edit() {
 			</td>
 		  </tr>';
 	echo '<tr>
+			<td>Weight</td>
+			<td>
+				<div class="' . $formSize . '">
+					<input class="form-control" type="number" name="weight" max="1000" min="0"
+						value="' . $user->getWeight() . '">
+				</div>
+			</td>
+		  </tr>';
+	echo '<tr>
 			<td>City</td>
 			<td>
 				<div class="' . $formSize . '">
@@ -111,39 +120,30 @@ function userInfoTable_Edit() {
 				</div>
 			</td>
 		  </tr>';
+	  echo '<tr>
+				<td>State</td>
+				<td>
+					<div class="col-xs-7">
+						<select name="state" class="form-control">';
+							include("../includes/states.php");
+							foreach($states as $s){
+								if(strcmp($states,$user->getState()) === 0) {
+									echo '<option selected="selected">' . $user->getState() . '</option>';
+								}
+								else {
+									echo '<option value="' . $s . '">' . $s . '</option>';
+								}
+							}
+					echo '</select>
+					</div>
+				</td>
+			  </tr>';
 	echo '<tr>
 			<td>Email</td>
 	    	<td>
 				<div class="' . $formSize . '">
 					<input class="form-control" type="email" name="email" size="20"
 						value="' . $user->getEmail() . '">
-				</div>
-			</td>
-		  </tr>';
-	echo '<tr>
-			<td>State</td>
-			<td>
-				<div class="col-xs-7">
-					<select name="state" class="form-control">';
-						include("../includes/states.php");
-						foreach($states as $s){
-							if(strcmp($states,$user->getState()) === 0) {
-								echo '<option selected="selected">' . $user->getState() . '</option>';
-							}
-							else {
-								echo '<option value="' . $s . '">' . $s . '</option>';
-							}
-						}
-				echo '</select>
-				</div>
-			</td>
-		  </tr>';
-	echo '<tr>
- 		    <td>About me</td>
-     	    <td>
-				<div class="col-xs-7">
-					<textarea class="form-control" rows="3" name="aboutMe">
-					' . $user->getAboutMe() . '</textarea>
 				</div>
 			</td>
 		  </tr>';
