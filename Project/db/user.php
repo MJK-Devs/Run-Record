@@ -14,6 +14,7 @@ class User {
 	private $ZipCode = "";
 	private $Height = "";
 	private $AboutMe = "";
+	private $BMI = "";
 
 
 	function __construct($ID){
@@ -67,11 +68,11 @@ class User {
 	function changeInfo($Username, $Email, $FirstName, $LastName, $Weight, $Height, $AboutMe, $City, $State) {
 		try {
 			// if any fields are empty, they are not to be updated
-			if(empty($Email)){ $Email = $this->Email;}
-			if(empty($FirstName)){ $FirstName = $this->FirstName;}
-			if(empty($LastName)){ $LastName = $this->LastName;}
-			if(empty($Weight)){ $Weight = $this->$Weight;}
-			if(empty($State)){ $State = $this->State;}
+			if(strcmp("",$Email)==0){ $Email = $this->Email;}
+			if(strcmp("",$FirstName==0)){ $FirstName = $this->FirstName;}
+			if(strcmp("",$LastName==0)){ $LastName = $this->LastName;}
+			if(strcmp("",$Weight)==0){ $Weight = $this->$Weight;}
+			if(strcmp("",$State)==0){ $State = $this->State;}
 
 			$connString = "mysql:host=localhost;dbname=knovak18";
 			$user = "knovak18";
@@ -174,9 +175,26 @@ class User {
 	public function getHeight() {return $this->Height;}
 	public function getZipCode() {return $this->ZipCode;}
 	public function getAboutMe() {return $this->AboutMe;}
+	public function getBMI() {
+		if((strcmp($this->Height,"") != 0) and ((strcmp($this->Weight,"") != 0))){
+			return calculateBMI($this->$Height, $this->$Weight);
+		}
+		else{
+			return "Set height and weight to calculate BMI.";
+		}
+	}
 }
 
-
+function calculateBMI($height, $weight) {
+	$inches = convertStringHeightToInches($height);
+	
+	$kg = $weight * 0.45;
+	$m = $inches * 0.025;
+	$mSquared = $m * $m;
+	$BMI = $kg / $mSquared;
+	
+	return (number_format($BMI, 1));
+}
 
 
 
