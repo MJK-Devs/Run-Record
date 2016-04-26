@@ -19,6 +19,7 @@
 	include("../db/user.php");
 	//include("../db/db.php");
 	include("navbar.php");
+	//include("../db/runs.php");
 
 	$user = new User(getUserID($_COOKIE['User']));
 
@@ -114,10 +115,18 @@
 
 function userTotals() {
 	$user = new User(getUserID($_COOKIE['User']));
+	//$runs = new UserRuns(getUserID($_COOKIE['User']));
+	echo '<tr>
+ 		    <td>Runs</td>
+     	    <td>' .
+			//. $runs->getTotalNumberOfRuns() . 
+			'</td>
+		  </tr>';
 	echo '<tr>
  		    <td>Distance</td>
-     	    <td>0</td>
+     	    <td></td>
 		  </tr>';
+	//print_r($runs->getTotalDistance());
 	echo '<tr>
  		    <td>Time</td>
      	    <td>0</td>
@@ -174,10 +183,48 @@ function userPersonalInfo() {
 		  </tr>';
 	echo '<tr>
 			<td>BMI</td>
-			<td>' . $user->getWeight() . '</td>
+			<td><font color="' . BMIcolor($user->getBMI()) . '">' . $user->getBMI() . " " . BMIhealthStatus($user->getBMI()) . '</font></td>
 		  </tr>';
 }
 
+function BMIhealthStatus($BMI){
+	if (strcmp($BMI, "Set height and weight to calculate BMI.") === 0) { return ""; }
+	else {
+		if($BMI < 18.5){
+			return "(Underweight)";
+		}
+		else if($BMI >= 18.5 and $BMI <= 25){
+			return "(Healthy)";
+		}
+		else if($BMI > 25 and $BMI < 30) {
+			return "(Overweight)";
+		}
+		else {
+			return "(Obese)";
+		}
+	}
+	
+	
+}
+
+function BMIcolor($BMI) {
+	if (strcmp($BMI, "Set height and weight to calculate BMI.") === 0) { return "black"; }
+	else {
+		if($BMI < 18.5){
+			return "blue";
+		}
+		else if($BMI >= 18.5 and $BMI <= 25){
+			return "green";
+		}
+		else if($BMI > 25 and $BMI < 30) {
+			return "orange";
+		}
+		else {
+			return "red";
+		}
+	}
+	
+}
 
 function userInfoTable() {
 	$user = new User(getUserID($_COOKIE['User']));

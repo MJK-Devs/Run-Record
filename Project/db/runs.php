@@ -23,7 +23,7 @@ class UserRuns {
 			$pdo = new PDO($connString,$user,$pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$sql = "SELECT Date, Distance, Time FROM rruser 
-					NATURAL JOIN rruserruns NATURALJOIN rrruns WHERE
+					NATURAL JOIN rruserruns NATURAL JOIN rrruns WHERE
 					UserID=" . $ID . "";
 					
 			$result = $pdo->query($sql);
@@ -38,21 +38,21 @@ class UserRuns {
 			
 			foreach($runs as $run) {
 				$distance = $run["Distance"];
-				$time = $run["Time"];
-				$date = $run["Date"];
-				$dateParsed = date_parse($date);
-				$year = $dateParsed["year"];
-				$month = $dateParsed["month"];
-				$week = date("w", strtotime($date));
-				$caloriesBurned = calculateCaloriesBurned($user->getAge(), $user->getWeight, $user->getGender(), $time);
+				//$time = $run["Time"];
+				//$date = $run["Date"];
+				//$dateParsed = date_parse($date);
+				//$year = $dateParsed["year"];
+				//$month = $dateParsed["month"];
+				//$week = date("w", strtotime($date));
+				//$caloriesBurned = calculateCaloriesBurned($user->getAge(), $user->getWeight, $user->getGender(), $time);
 				
 				$this->TotalNumberOfRuns = $this->TotalNumberOfRuns + 1;
-				$this->TotalTime = $this->TotalTime + $time;
-				$this->TotalDistance = $this->TotalDistance + $distance;
-				if($caloriesBurned == -1) { $this->TotalCaloriesBurned = "Weight needs to be set to calculate."; }
-				else {
-					$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + $caloriesBurned;
-				}
+				//$this->TotalTime = $this->TotalTime + $time;
+				$this->TotalDistance = $runs;//$this->TotalDistance + $distance;
+				//if($caloriesBurned == -1) { $this->TotalCaloriesBurned = "Weight needs to be set to calculate."; }
+				//else {
+				//	$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + $caloriesBurned;
+				//}
 				
 			}
 		}
@@ -61,6 +61,9 @@ class UserRuns {
 			return null;
 		}	
 	}
+	
+	function getTotalDistance() { return $this->TotalDistance;}
+	function getTotalNumberOfRuns() { return $this->TotalNumberOfRuns;}
 }
 
 
