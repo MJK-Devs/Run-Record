@@ -19,7 +19,7 @@
 	include("../db/user.php");
 	//include("../db/db.php");
 	include("navbar.php");
-	//include("../db/runs.php");
+	include("runs.php");
 
 	$user = new User(getUserID($_COOKIE['User']));
 
@@ -115,67 +115,53 @@
 
 function userTotals() {
 	$user = new User(getUserID($_COOKIE['User']));
-	//$runs = new UserRuns(getUserID($_COOKIE['User']));
+	
+	$runs = new UserRuns(getUserID($_COOKIE['User']));
 	echo '<tr>
  		    <td>Runs</td>
-     	    <td>' .
-			//. $runs->getTotalNumberOfRuns() . 
-			'</td>
+     	    <td>' . $runs->getTotalNumberOfRuns() . '</td>
 		  </tr>';
 	echo '<tr>
  		    <td>Distance</td>
-     	    <td></td>
+     	    <td>' . $runs->getTotalDistance() . '</td>
 		  </tr>';
-	//print_r($runs->getTotalDistance());
 	echo '<tr>
  		    <td>Time</td>
-     	    <td>0</td>
+     	    <td>' . $runs->getTotalTime() . '</td>
 		  </tr>';
 	echo '<tr>
  		    <td>Calories Burned</td>
-     	    <td>0</td>
+     	    <td>' . $runs->getTotalCaloriesBurned() . '</td>
 		  </tr>';
 
 }
 
 function userAverages() {
 	$user = new User(getUserID($_COOKIE['User']));
+	$runs = new UserRuns(getUserID($_COOKIE['User']));
 	echo '<tr>
    		    <td>Distance</td>
-			<td>0</td>
+			<td>' . $runs->getAverageDistance() . '</td>
 		  </tr>';
 	echo '<tr>
 			<td>Time</td>
-			<td>0</td>
+			<td>' . $runs->getAverageTime() . '</td>
 		  </tr>';
 	echo '<tr>
 			<td>Pace</td>
-			<td>0</td>
+			<td>' . $runs->getAveragePace() . '</td>
 		  </tr>';
 	echo '<tr>
 			<td>Calories Burned</td>
-			<td>0</td>
+			<td>' . $runs->getAverageCaloriesBurned() . '</td>
 		  </tr>';
-	echo '<tr>
-			<td>Miles per Week</td>
-			<td>0</td>
-		  </tr>';
-	echo '<tr>
-			<td>Miles per Month</td>
-			<td>0</td>
-		  </tr>';
-	echo '<tr>
-			<td>Miles per Year</td>
-			<td>0</td>
-		  </tr>';
-
 }
 
 function userPersonalInfo() {
 	$user = new User(getUserID($_COOKIE['User']));
 	echo '<tr>
    		    <td>Height</td>
-			<td>' . $user->getHeight() . '</td>
+			<td>' . $user->getHeight() . '"</td>
 		  </tr>';
 	echo '<tr>
 			<td>Weight</td>
@@ -224,35 +210,6 @@ function BMIcolor($BMI) {
 		}
 	}
 	
-}
-
-function userInfoTable() {
-	$user = new User(getUserID($_COOKIE['User']));
-	echo '<tr>
-		    <td>Height</td>
-		    <td>' . $user->getHeight() . '</td>
-         </tr>';
-	echo '<tr>
-			<td>Gender</td>
-			<td>' . $user->getGender() . '</td>
-		  </tr>';
-	echo '<tr>
-			<td>Location</td> <!-- city, state -->
-			<td>' . $user->getCity() . ", " . $user->getState() . '</td>
-		  </tr>';
-	echo '<tr>
-			<td>Email</td>
-	    	<td>'. $user->getEmail() . '</td>
-		  </tr>';
-	echo '<tr>
-			<td>Member Since</td>
-			<td>' . convertDate($user->getJoinDate()) . '</td>
-		  </tr>';
-}
-
-function calculateAge($DOB) {
-	date_default_timezone_set('America/New_York');
-    return date_diff(date_create($DOB), date_create('today'))->y;
 }
 
 function convertDate($date){
