@@ -49,11 +49,11 @@
 								</div>
 								<br>
 								<label for="emailInput">E-mail<span style="color:#1a6ecc">*</span></label><br>
-										<div class="form-group <?php errorOutline("failedEmail");?>">
-											<?php echo '<input type="email" class="form-control" name="email" maxlength="40" class="errorOutLine("failedEmail")." '; rememberField("email"); echo">";?>
-											<?php errorMessage("failedEmail"); ?>
-										</div>
-										<br>
+								<div class="control-group">
+									<input type="email" class="form-control <?php errorOutline("failedEmail");?>" name="email" maxlength="40" <?php rememberField("email") ?> >
+									<?php errorMessage("failedEmail"); ?>
+								</div>
+								<br>
 							</div>
 
 							<div class="col-md-6 ">
