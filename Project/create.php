@@ -95,9 +95,9 @@
 									</div>
 
 									<div class="col-md-6">
-										<div class="form-group <?php errorOutLine("failedCity"); ?>">
+										<div class="form-group">
 											<label for="cityInput">City<span style="color:#1a6ecc">*</span></label><br>
-											<?php echo '<input type="text" class="form-control" name="city" maxlength="20"'; rememberField("city"); echo '>'; ?>
+											<input type="text" class="form-control <?php errorOutline("failedCity"); ?>" name="city" maxlength="20" <?php rememberField("city") ?> >
 											<?php errorMessage("failedCity"); ?>
 										</div>
 										<br>
@@ -122,13 +122,9 @@
 										<br>
 										<br>
 
-
-
-										<label for="zipInput">Zip<span style="color:#1a6ecc">*</span></label><br>
-										<div class="form-group <?php errorOutLine("failedZip"); ?>">
-											<?php echo '<input type="number" class="form-control" name="zip" maxLength="5" '; rememberField("zip");
-												echo '> <span class="help-inline"> </span>';
-											?>
+										<div class="form-group">
+											<label for="zipInput">Zip<span style="color:#1a6ecc">*</span></label><br>
+											<input type="number" class="form-control <?php errorOutline("failedZip"); ?>" name="zip" maxLength="5" <?php rememberField("zip") ?> >
 											<?php errorMessage("failedZip"); ?>
 										</div>
 									</div>
