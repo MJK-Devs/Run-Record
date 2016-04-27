@@ -10,6 +10,10 @@ input[type="radio"]{
   margin: 0 5px 0 10px;
 }
 
+.smaller-margin {
+    margin-bottom: 0px;
+}
+
 .logo{
     font-family:Bangers;
     font-size:24px;

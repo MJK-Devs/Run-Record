@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="logo page-header text-center">Create An Account</h1>
+				<h1 class="logo page-header text-center smaller-margin">Create An Account</h1>
 				<div id="userInformation">
 					<form class="form-inline" method="post" action="db/createUser.php">
 						<div class="row">
@@ -124,7 +124,6 @@
 											<?php errorMessage("failedZip"); ?>
 										</div>
 									</div>
-									<br>
 									<br>
 								</div>
 							</div>
