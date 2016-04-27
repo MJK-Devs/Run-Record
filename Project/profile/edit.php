@@ -92,10 +92,10 @@ function userInfoTable_Edit() {
 						include("../includes/height.php");
 						foreach($height as $h){
 							if(strcmp($user->getHeight(),$h) === 0 ) {
-								echo '<option selected="selected">' . $h . '</option>';
+								echo '<option selected="selected">' . $h . '"</option>';
 							}
 							else {
-								echo '<option value="' . $h . '">' . $h . '</option>';
+								echo '<option value="' . $h . '">' . $h . '"</option>';
 							}
 						}
 				echo '</select>

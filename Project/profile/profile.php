@@ -33,7 +33,7 @@
 			</div>
 		  </div>
 		  <div class="panel-footer">
-		    <a href="#" title="Statistics" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-stats"></i></a>
+		    <a href="../stats/stats_main.php" title="Statistics" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-stats"></i></a>
 			<span class="pull-right">
 			  <a href="edit.php" title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 			  <a href="delete.php" title="Delete Account" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
@@ -71,7 +71,7 @@ function userInfoTable() {
 		  </tr>';
   	echo '<tr>
 		    <td>Height</td>
-		    <td>' . $user->getHeight() . '</td>
+		    <td>' . $user->getHeight() . '"' . '</td>
 			</tr>';
 	echo '<tr>
 			<td>Weight</td>
