@@ -48,6 +48,7 @@
                   					<?php errorMessage("failedVerifyPassword"); ?>
 								</div>
 								<br>
+
 								<label for="emailInput">E-mail<span style="color:#1a6ecc">*</span></label><br>
 								<div class="control-group">
 									<input type="email" class="form-control <?php errorOutline("failedEmail");?>" name="email" maxlength="40" <?php rememberField("email") ?> >
@@ -74,36 +75,32 @@
 										</div>
 										<br>
 																				<label for="genderInput">Gender<span style="color:#1a6ecc">*</span></label><br>
-										<div class="btn-group <?php errorOutLine("failedGender"); ?>" >
-											<label class="radio-inline inline"><input type="radio" name="gender" value="male" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"male") === 0) { print ' checked="checked"'; }}?> >Male</label>
-											<label class="radio-inline inline"><input type="radio" name="gender" value="female" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"female") === 0) { print ' checked="checked"'; }}?> >Female</label>
+										<div class="btn-group" >
+											<input type="radio" name="gender" value="male" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"male") === 0) { print ' checked="checked"'; }}?> >Male
+											<input type="radio" name="gender" value="female" class="form-control" <?php if(isset($_SESSION['gender'])){if(strcmp($_SESSION['gender'],"female") === 0) { print ' checked="checked"'; }}?> >Female
 											<?php errorMessage("failedGender"); ?>
 										</div>
 										<br>
 										<br>
-										<br />
-										<label for="dateOfBirthInput">Date of Birth<span style="color:#1a6ecc">*</span></label><br>
-										<div class="form-group <?php errorOutLine("failedDateOfBirth"); ?>">
-											<?php echo '<input type="date" class="form-control" name="dateOfBirth" '; rememberField("dateOfBirth");
-													echo'>';?>
+
+										<div class="control-group">
+											<label for="dateOfBirthInput">Date of Birth<span style="color:#1a6ecc">*</span></label><br>
+											<input type="date" class="form-control <?php errorOutline("failedDateOfBirth"); ?>" name="dateOfBirth" <?php rememberField("dateOfBirth") ?> >
 											<?php errorMessage("failedDateOfBirth"); ?>
 										</div>
-
-										<br />
-										<br />
+										<br>
 
 									</div>
 
 									<div class="col-md-6">
-										<div class="form-group">
+										<div class="control-group">
 											<label for="cityInput">City<span style="color:#1a6ecc">*</span></label><br>
 											<input type="text" class="form-control <?php errorOutline("failedCity"); ?>" name="city" maxlength="20" <?php rememberField("city") ?> >
 											<?php errorMessage("failedCity"); ?>
 										</div>
 										<br>
-										<br>
 
-										<div class="form-group <?php errorOutLine("failedState"); ?>">
+										<div class="control-group <?php errorOutLine("failedState"); ?>">
 										    <label for="stateInput">State<span style="color:#1a6ecc">*</span></label> <br>
 											<?php
 											if(isset($_SESSION['state'])) {
@@ -120,9 +117,8 @@
 											<?php errorMessage("failedState"); ?>
 										</div>
 										<br>
-										<br>
 
-										<div class="form-group">
+										<div class="control-group">
 											<label for="zipInput">Zip<span style="color:#1a6ecc">*</span></label><br>
 											<input type="number" class="form-control <?php errorOutline("failedZip"); ?>" name="zip" maxLength="5" <?php rememberField("zip") ?> >
 											<?php errorMessage("failedZip"); ?>
@@ -135,9 +131,7 @@
 							<div class="row">
 								<div class="col-md-4 col-md-offset-4 no-padding">
 
-									<br />
-									<br />
-									<br />
+									<br>
 									<input type="submit" name="submit" value="Create Account" class="btn btn-primary btn-block login-submit">
 								</div>
 							</div>
