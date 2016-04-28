@@ -17,7 +17,7 @@ date_default_timezone_set('America/New_York');
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
-				<h3><b>My Runs</b></h3>
+				<h3 align="center"><b>My Runs</b></h3>
 				<?php displayRuns(getUserID($_COOKIE['User'])); ?>
 			</div>
 		</div>
@@ -51,24 +51,54 @@ function displayRuns($UserID) {
 			echo 'You have no recorded runs.';
 			echo '<b><a href=record.php><br>Record your first run</a></b>';
 		}
-
+		echo '<div class="col-xs-9 col-sm-9 col-md-7 col-lg-7 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3  toppad" >';
         while ($row = $result->fetch()) {
-			echo '<div style="margin:3px 3px 15px 3px">';
-
 			$dayOfWeek = date("l",strtotime($row['Date']));
 			$month = date("F",strtotime($row['Date']));
 			$day = date("j",strtotime($row['Date']));
 			$year = date("Y",strtotime($row['Date']));
-			echo '<strong>' . $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year . '</strong>';
-			echo '<br>';
+			echo	
+					   '<div class="panel panel-info">
+						  <div class="panel-heading">
+							<h3 class="panel-title"><strong>' . $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year . '</strong></h3>
+						  </div>
+						  <div class="panel-body">
+							<div class="row">
+							  <div class="col-md-6 col-lg-6">
+								<table class="table table-user-information">
+								  <tbody>
+								    <tr>
+									  <td>Distance</td>
+									  <td>' . $row['Distance'] . ' miles</td>
+									</tr>
+									<tr>
+									  <td>Time</td>
+									  <td>' . gmdate("H:i:s", $row['Time']) . '</td>
+									</tr>
+									<tr>
+									  <td>Pace</td>
+									  <td>' . gmdate("i:s", $row['Time']/$row['Distance']) . '</td>
+									</tr>
+								  </tbody>
+								</table>
+							  </div>
+							</div>
+						  </div>
+						</div>';
+			//echo '<div style="margin:3px 3px 15px 3px">';
 
-			echo 'Distance: ' . $row['Distance'] . ' Miles';
-			echo '<br>';
 
-			echo 'Time: ' . gmdate("H:i:s", $row['Time']);
+			//echo '<strong>' . $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year . '</strong>';
+			//echo '<br>';
 
-			echo '</div>';
+			//echo 'Distance: ' . $row['Distance'] . ' Miles';
+			//echo '<br>';
+
+			//echo 'Time: ' . gmdate("H:i:s", $row['Time']);
+
+			//echo '</div>';
 		}
+		echo '</div>';
         $pdo = null;
     }
     catch (PDOException $e) {
