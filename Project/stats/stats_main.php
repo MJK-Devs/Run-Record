@@ -3,10 +3,8 @@
 <head>
 	<title>Record Run - Stats</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link href="style.css" rel="stylesheet">
+	<?php include("../includes/header2.php"); ?>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.en_US.js" type="text/javascript"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
 
 	<?php
@@ -18,8 +16,8 @@
 	<?php
 	include("../db/user.php");
 	//include("../db/db.php");
-	include("navbar.php");
 	include("runs.php");
+	include("../includes/navbar3.php");
 
 	$user = new User(getUserID($_COOKIE['User']));
 
@@ -115,7 +113,7 @@
 
 function userTotals() {
 	$user = new User(getUserID($_COOKIE['User']));
-	
+
 	$runs = new UserRuns(getUserID($_COOKIE['User']));
 	echo '<tr>
  		    <td>Runs</td>
@@ -189,8 +187,8 @@ function BMIhealthStatus($BMI){
 			return "(Obese)";
 		}
 	}
-	
-	
+
+
 }
 
 function BMIcolor($BMI) {
@@ -209,7 +207,7 @@ function BMIcolor($BMI) {
 			return "red";
 		}
 	}
-	
+
 }
 
 function convertDate($date){
