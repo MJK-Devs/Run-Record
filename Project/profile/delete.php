@@ -1,13 +1,12 @@
 <head> <title>Record Run - Delete Profile</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link href="style.css" type="text/css" rel="stylesheet"></link>
+	<?php include("../includes/header2.php"); ?>
 </head>
 
 <body>
 	<?php
 	include("../db/user.php");
 	include("../db/db.php");
-	include("navbar.php");
+	include("../includes/navbar3.php");
 
 	$user = new User(getUserID($_COOKIE['User']));
 

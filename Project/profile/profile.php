@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <head> <title>Record Run - Profile</title>
 	<?php include("../includes/header2.php"); ?>
 </head>
