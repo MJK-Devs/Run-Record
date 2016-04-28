@@ -193,12 +193,12 @@ function calculateAge($DOB) {
 
 function calculateBMI($height, $weight) {
 	$inches = convertStringHeightToInches($height);
-	
+
 	$kg = $weight * 0.45;
 	$m = $inches * 0.025;
 	$mSquared = $m * $m;
 	$BMI = $kg / $mSquared;
-	
+
 	return (number_format($BMI, 1));
 }
 
