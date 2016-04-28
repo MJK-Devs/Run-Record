@@ -91,10 +91,10 @@ function userInfoTable() {
 		  </tr>';
 }
 
-function calculateAge($DOB) {
-	date_default_timezone_set('America/New_York');
-    return date_diff(date_create($DOB), date_create('today'))->y;
-}
+// function calculateAge($DOB) {
+// 	date_default_timezone_set('America/New_York');
+//     return date_diff(date_create($DOB), date_create('today'))->y;
+// }
 
 function convertDate($date){
 	date_default_timezone_set('America/New_York');
