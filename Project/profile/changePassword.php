@@ -1,5 +1,6 @@
 <?php session_start(); ?>
-<head> <title>Record Run - Change Password</title>
+<head>
+	<title>Record Run - Change Password</title>
 	<?php include("../includes/header2.php"); ?>
 </head>
 

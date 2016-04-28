@@ -1,4 +1,6 @@
-<head> <title>Record Run - Delete Profile</title>
+<?php session_start(); ?>
+<head>
+	<title>Record Run - Delete Profile</title>
 	<?php include("../includes/header2.php"); ?>
 </head>
 
