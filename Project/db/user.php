@@ -181,7 +181,7 @@ class User {
 	}
 	public function getBMI() {
 		if((strcmp($this->Height,"") != 0) and ((strcmp($this->Weight,"") != 0))){
-			return calculateBMI($this->$Height, $this->$Weight);
+			return calculateBMI($this->Height, $this->Weight);
 		}
 		else{
 			return "Set height and weight to calculate BMI.";
