@@ -19,5 +19,4 @@ if(isset($_FILE)){
 	header("Location: profilePicUpload.php");
 }
 header("Location: profile.php");
-
 ?>

@@ -175,10 +175,13 @@ class User {
 	public function getHeight() {return $this->Height;}
 	public function getZipCode() {return $this->ZipCode;}
 	public function getAboutMe() {return $this->AboutMe;}
-	public function getAge() {return calculateAge($this->DOB);}
+	public function getAge() {
+		date_default_timezone_set('America/New_York');
+		return date_diff(date_create($this->DOB), date_create('today'))->y;
+	}
 	public function getBMI() {
 		if((strcmp($this->Height,"") != 0) and ((strcmp($this->Weight,"") != 0))){
-			return calculateBMI($this->Height, $this->Weight);
+			return calculateBMI($this->$Height, $this->$Weight);
 		}
 		else{
 			return "Set height and weight to calculate BMI.";
@@ -186,19 +189,14 @@ class User {
 	}
 }
 
-function calculateAge($DOB) {
-	date_default_timezone_set('America/New_York');
-    return date_diff(date_create($DOB), date_create('today'))->y;
-}
-
 function calculateBMI($height, $weight) {
 	$inches = convertStringHeightToInches($height);
-
+	
 	$kg = $weight * 0.45;
 	$m = $inches * 0.025;
 	$mSquared = $m * $m;
 	$BMI = $kg / $mSquared;
-
+	
 	return (number_format($BMI, 1));
 }
 

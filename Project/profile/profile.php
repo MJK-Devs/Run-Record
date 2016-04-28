@@ -68,7 +68,7 @@ function userInfoTable() {
 		  </tr>';
 	echo '<tr>
    		    <td>Age</td>
-			<td>' . calculateAge($user->getDOB()) . '</td>
+			<td>' . $user->getAge() . '</td>
 		  </tr>';
   	echo '<tr>
 		    <td>Height</td>
