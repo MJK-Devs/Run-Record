@@ -14,6 +14,7 @@ class UserRuns {
 	private $MilesPerMonth;
 	private $MilesPerYear;
 	private $user;
+	private $UserID;
 	
 	function __construct($ID){
 		try {
@@ -59,6 +60,8 @@ class UserRuns {
 				
 			}
 			
+			$this->UserID = getUserID($_COOKIE['User']);
+			
 			// calculate averages
 			$this->AverageDistance = number_format($this->TotalDistance / $this->TotalNumberOfRuns, 1);
 			$this->AverageTime = gmdate("H:i:s", $this->TotalTime / $this->TotalNumberOfRuns);
@@ -71,7 +74,58 @@ class UserRuns {
 		}	
 	}
 	
-	function getTotalDistance() { return $this->TotalDistance;}
+	// returns an array of miles with key set as date timestamp and the value as miles
+	// every day without a run will still have an entry but mileage will be at 0
+	function getMileage($startDate, $endDate) {
+		try {
+			$user = new User(getUserID($_COOKIE['User']));
+			
+			$connString = "mysql:host=localhost;dbname=knovak18";
+			$user = "knovak18";
+			$pass = "web2";
+			
+			$pdo = new PDO($connString,$user,$pass);
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$sql = "SELECT Date, Distance, Time FROM rruser 
+					NATURAL JOIN rruserruns NATURAL JOIN rrruns WHERE
+					UserID=" . $this->UserID . "";
+					
+			$result = $pdo->query($sql);
+			$runs = $result->fetchAll();
+			
+			date_default_timezone_set('America/New_York');
+			
+			$dateDiff = floor(($endDate-$startDate)/(60*60*24));
+			$interval = array();
+			
+			for($i = 0; $i <= $dateDiff; ++$i) {
+				$days = '+' . $i . ' days';
+				$date = date('Y-m-d',strtotime($days, $startDate));
+				$interval[$date] = 0;
+			}
+			
+			$x = array();
+			foreach($runs as $run) {
+				$distance = $run["Distance"];
+				array_push($x, $distance);
+				$date = $run["Date"];
+				$formattedDate = date('Y-m-d', strtotime($date));
+				foreach($interval as $key=>$value) {
+					if(strcmp($key, $formattedDate) === 0) {
+						$value = $distance;
+					}
+				}
+			}
+			
+			return $interval;
+		}
+		catch (PDOException $e) {
+			die( $e->getMessage() );
+			return null;
+		}	
+	}
+	
+	function getTotalDistance() { return number_format($this->TotalDistance, 1);}
 	function getTotalNumberOfRuns() { return $this->TotalNumberOfRuns;}
 	function getTotalTime() {return gmdate("H:i:s", $this->TotalTime);}
 	function getTotalCaloriesBurned() {return number_format($this->TotalCaloriesBurned, 1);}
