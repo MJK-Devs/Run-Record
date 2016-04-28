@@ -6,8 +6,18 @@
 </head>
 
 <body>
-
+<script src="js/main.js" type="text/javascript"> newsFeed();</script>
 <?php include("includes/navbar.php"); ?>
+<div class="row">
+	<div class="col-md-3"><!--Div for left sidebar content--> </div>
+
+	<div class="col-md-6" id="newsfeed">
+	<!--Div for newsfeed content-->
+
+	</div>
+
+	<div class="col-md-3"> <!--Div for right sidebar content--></div>
+</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
