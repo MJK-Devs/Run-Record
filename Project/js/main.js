@@ -3,15 +3,20 @@ function getNewsFeed() {
 
 	xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("newsfeed").innerHTML = xmlhttp.responseText;
+                $("#newsfeed").html(xmlhttp.responseText);
             }
         };
-    xmlhttp.open("GET", "/Web2/RR/db/newsfeed.php", true);
-    xmlhttp.send();
+    $(document).ready(function() {
+    	$("#newsfeed").html("<p>LOADING</p>");
+    	xmlhttp.open("GET", "db/newsfeed.php", true);
+    	xmlhttp.send();
+    });
 }
 
 function newsFeed() {
 	window.setInterval(function(){
-  		getNewsFeed
-}, 1000);
+  		getNewsFeed();
+}, 10000);
 }
+
+newsFeed();
