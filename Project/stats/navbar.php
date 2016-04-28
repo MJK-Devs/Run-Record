@@ -8,11 +8,10 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
+			<a class="navbar-brand logo" href="../main.php">Record•Run</a>
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-
-				<li class="active"><a href="../main.php">Home</a></li>
 				<li class="dropdown">
 					<a data-toggle="dropdown" class="dropdown-toggle" role="button"
 					href="#">Menu <span class="caret"></span></a>
@@ -29,8 +28,8 @@
 			<?php
 			print('<ul class="nav navbar-nav navbar-right">');
 					if(isset($_COOKIE['User'])) {
-						print('<li><a href="../profile/profile.php">'.$_COOKIE['User'].'</a></li>');
-						print('<li><a href="../logout.php">Log Out</a></li>');
+						echo '<li><a href="'.$url.'/profile/profile.php">'.$_COOKIE['User'].'</a></li>';
+						echo '<li><a href="../logout.php">Log Out</a></li>';
 					}
 					else {
 						print('<li><a href="../login.php#">Login</a></li>');

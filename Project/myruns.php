@@ -35,8 +35,8 @@ function displayRuns($UserID) {
     try {
          // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $user = DB_USERNAME;
+        $pass = DB_PWD;
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -4,12 +4,18 @@
 // =======================================
 // function that returns an array of values from database
 // see sample usage below
+
+$CONFIGS = include_once('/../config.php');
+
+define("DB_USERNAME", $CONFIGS['DB_USERNAME']);
+define("DB_PWD", $CONFIGS['DB_PWD']);
+
 function executeQuery($query, $attribute) {
     try {
          // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $user = DB_USERNAME;
+        $pass = DB_PWD;
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -51,8 +57,8 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
     try {
         // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $user = DB_USERNAME;
+        $pass = DB_PWD;
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -85,8 +91,8 @@ function createUser($username, $password, $email, $firstname, $lastname, $dob, $
 function authUser($username, $password) {
     try {
         $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $user = DB_USERNAME;
+        $pass = DB_PWD;
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -118,8 +124,8 @@ function createRun($date, $distance, $time) {
     try {
         // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $user = DB_USERNAME;
+        $pass = DB_PWD;
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -145,8 +151,8 @@ function createRun($date, $distance, $time) {
         try {
         // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $user = DB_USERNAME;
+        $pass = DB_PWD;
 
         $pdo2 = new PDO($connString,$user,$pass);
         $pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -175,8 +181,8 @@ function getUserID($username) {
 	try {
          // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $user = DB_USERNAME;
+        $pass = DB_PWD;
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -218,8 +224,8 @@ function checkEmail($email) {
     try {
          // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
-        $user = "knovak18";
-        $pass = "web2";
+        $user = DB_USERNAME;
+        $pass = DB_PWD;
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

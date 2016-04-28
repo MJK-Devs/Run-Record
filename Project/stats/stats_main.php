@@ -4,21 +4,25 @@
 	<title>Record Run - Stats</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link href="style.css" rel="stylesheet">
+	<link href="../css/cosmo.min.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.en_US.js" type="text/javascript"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
 
 	<?php
 		  include_once "../db/db.php";
+
 	?>
+
 </head>
 
 <body>
 	<?php
 	include("../db/user.php");
 	//include("../db/db.php");
-	include("navbar.php");
+	include("../includes/navbar.php");
 	include("runs.php");
 
 	$user = new User(getUserID($_COOKIE['User']));
