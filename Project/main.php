@@ -47,6 +47,10 @@ function printNTopRuns($n) {
         // put query results into array
         $a = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
+        //The results printed here are not static. They *WILL* be modified by 
+        //js/main.js. These are just to fill the page with content when the page
+        //loads!!
        foreach($a as $row) {
 			$dayOfWeek = date("l",strtotime($row['Date']));
             $month = date("F",strtotime($row['Date']));
