@@ -1,6 +1,3 @@
-
-//var lastRun=0;
-
 function getNewsFeed() {
 	var lastRun = $(".panel").slice(0).attr('id');
 	var xmlhttp = new XMLHttpRequest();
@@ -21,10 +18,6 @@ function getNewsFeed() {
 
     	xmlhttp.open("GET", "db/newsfeed.php", true);
     	xmlhttp.send();
-    	
-        //$("#newsfeed").prepend('<p>'+lastRun.attr('id')+'</p>');
-
-
 }
 
 function newsFeed() {
@@ -34,27 +27,4 @@ function newsFeed() {
 	}, 10000);
 }
 
-function fadeSwitchElements(id1, id2)
-    {
-        var element1 = $('#' + id1);
-        var element2 = $('#' + id2);
-        
-        /*if(element1.is(':visible'))
-        {
-            element1.fadeToggle(500);
-            element2.fadeToggle(500);
-        }
-        else
-        {
-             element2.fadeToggle(500, function() {
-                element1.fadeToggle(500);
-            });   
-        } */   
-        element1.fadeToggle(500);
-        element2.fadeToggle(500);
-    }
-
-
-
 newsFeed();
-//getNewsFeed(0);
