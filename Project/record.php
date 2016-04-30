@@ -33,7 +33,8 @@
 						<div class="form-inline" method="post">
 							<label>Date:</label>
 							<br>
-							<input type="date" value= "<?php echo date('Y-m-d'); ?>" class="form-control" name="date">
+							<?php date_default_timezone_set('America/New_York'); ?>
+							<input type="date" value= "<?php echo date('Y-m-d', strtotime("today")); ?>" class="form-control" name="date">
 						</div>
 						<br>
 						<div class="form-inline">

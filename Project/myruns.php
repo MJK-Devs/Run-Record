@@ -11,6 +11,7 @@ include_once "stats/runs.php";
 	<?php include("includes/header.php"); ?>
 </head>
 <body>
+	<?php include("includes/navbar.php"); ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
