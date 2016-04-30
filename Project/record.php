@@ -43,7 +43,14 @@
 			  </tbody>
 			</table>
 		  </div>
+		  <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+		    <div class="wrapper" align="center">
+				<td>Comments</td>
+			</div>
+			<textarea style="width:100%" style="overflow:hidden" rows="3" name="comments"></textarea>
+		  </div>
 	  </div>
+	    
 	  <div class="panel-footer">
 		<div class="wrapper" align="center">
 			<button type="submit" value="submit" class="btn btn-primary" >Save this Run</button>
@@ -52,7 +59,9 @@
 	  </div>
 	</div>
   </div>
+
 </div>
+
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -65,7 +74,7 @@
 </html>
 <?php
 function printColumnOne() {
-	$formSize = "col-md-10";
+	$formSize = "col-md-11";
 	date_default_timezone_set('America/New_York');
 	$todaysDate = date('Y-m-d', strtotime("today"));
 	
@@ -87,11 +96,12 @@ function printColumnOne() {
 		  </tr>';
 	echo '<tr>
 			<td>Time</td>
-			<td>';
+			<td><div class="form-inline">';
+				//printTimeForms();
 				
-					//printTimeForms();
+				displayTime();
 	echo		
-			'</td>
+			'</div></td>
 		  </tr>';
 	echo '<tr>
 			<td>Time Of Day</td>
@@ -145,7 +155,7 @@ function displayConditions() {
 	require 'runOptions.php';
 	echo '<select name="condition" class="form-control">';
 	foreach($conditions as $c){
-		echo '<option>' . $c . '</option>';
+		echo '<option value="' . $c . '">' . $c . '</option>';
 	}
 	echo '</select>';
 }
@@ -155,7 +165,7 @@ function displayDifficulty() {
 	require 'runOptions.php';
 	echo '<select name="difficulty" class="form-control">';
 	foreach($difficulty as $d){
-		echo '<option>' . $d . '</option>';
+		echo '<option value="' . $d . '">' . $d . '</option>';
 	}
 	echo '</select>';
 }
@@ -165,7 +175,10 @@ function displayTemperature() {
 	require 'runOptions.php';
 	echo '<select name="temperature" class="form-control">';
 	foreach($temperature as $t){
-		echo '<option>' . $t . '</option>';
+		if(strcmp("Pleasant", $t) === 0) {
+			echo '<option selected="selected">' . $t . '</option>';
+		}
+		echo '<option value="' . $t . '">' . $t . '</option>';
 	}
 	echo '</select>';
 }
@@ -175,7 +188,7 @@ function displayTerrain() {
 	require 'runOptions.php';
 	echo '<select name="terrain" class="form-control">';
 	foreach($terrain as $t){
-		echo '<option>' . $t . '</option>';
+		echo '<option value="' . $t . '">' . $t . '</option>';
 	}
 	echo '</select>';
 }
@@ -185,53 +198,49 @@ function displayTimeOfDay() {
 	require 'runOptions.php';
 	echo '<select name="timeOfDay" class="form-control">';
 	foreach($timeOfDay as $t){
-		echo '<option>' . $t . '</option>';
+		echo '<option value="' . $t . '">' . $t . '</option>';
 	}
 	echo '</select>';
 }
 
 
-function printTimeForms() {
+function displayTime() {
 	$hours = 0;
 	$minutes = 0;
 	$seconds = 0;
-	$formSize = "col-xs-3";
+	$formSize = "col-xs-1";
+	displayHours();
+	displayMinutes();
+	displaySeconds();
+}
 
-	//print hour options
-	
-
-	echo	'<div class="' . $formSize . '">
-				<select name="hours" class="form-control">';
+function displayHours() {
+			echo '&nbsp;&nbsp;&nbsp;&nbsp;<select name="hours" class="form-control">';
 	while($hours <= 60) {
-		echo '<option>' . $hours . '</option>';
+		echo '<option value="' . $hours . '">' . $hours . '</option>';
 		$hours = $hours + 1;
-		echo $hours;
 	}
-	echo '</select>';
+	echo '</select><label> &nbsp; h &nbsp; </label>';
+}
 
-	
-	/*
-	//print minute options
-	echo '<div class="' . $formSize . '">
+function displayMinutes() {
+	echo '
 			<select name="minutes" class="form-control">';
 	while($minutes <= 60) {
-		echo '<option>' . $minutes . '</option>';
+		echo '<option value="' . $minutes . '">' . $minutes . '</option>';
 		$minutes = $minutes + 1;
-		echo $minutes;
 	}
-	echo '</select>';
-	echo '<label> &nbsp; m &nbsp; </label></div>';
+	echo '</select><label> &nbsp; m &nbsp; </label>';
+}
 
-	//print second options
-	echo '<div class="' . $formSize . '">
+function displaySeconds() {
+	echo '
 			<select name="seconds" class="form-control">';
 	while($seconds <= 60) {
-		echo '<option>' . $seconds . '</option>';
+		echo '<option value="' . $seconds . '">' . $seconds . '</option>';
 		$seconds = $seconds + 1;
-		echo $seconds;
 	}
-	echo '</select>';
-	echo '<label> &nbsp; s</label></div>';
-*/
+	echo '</select><label> &nbsp; s &nbsp; </label>';
 }
+
 ?>

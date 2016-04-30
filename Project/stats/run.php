@@ -91,7 +91,7 @@ class Run {
 								<table class="table table-user-information">
 								  <tbody>
 								    <tr>
-									  <td>Difficulty</td>
+									  <td><label>Difficulty</label></td>
 									  <td>' . $this->Difficulty . '</td>
 									</tr>
 									<tr>
