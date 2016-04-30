@@ -15,10 +15,10 @@ class Run {
 	public $Comments = "";
 	public $Calories = "";
 	public $Pace = "";
-	public $TimeOfDay = "Evening";
+	public $TimeOfDay = "";
 	
 	
-	function __construct($runID, $distance, $time, $date, $calories, $terrain = "", $difficulty ="", $conditions="", $temperature="", $comments="") {
+	function __construct($runID, $date, $distance, $time, $calories, $terrain, $difficulty, $conditions, $temperature, $timeOfDay, $comments) {
 		$this->RunID = $runID;
 		$this->Distance = $distance;
 		$this->_time = $time;
@@ -29,6 +29,7 @@ class Run {
 		$this->Conditions = $conditions;
 		$this->Temperature = $temperature;
 		$this->Comments = $comments;
+		$this->TimeOfDay = $timeOfDay;
 		$this->Pace = gmdate("i:s", ($this->_time/$this->Distance));
 	}
 
@@ -91,7 +92,7 @@ class Run {
 								<table class="table table-user-information">
 								  <tbody>
 								    <tr>
-									  <td><label>Difficulty</label></td>
+									  <td>Difficulty</td>
 									  <td>' . $this->Difficulty . '</td>
 									</tr>
 									<tr>

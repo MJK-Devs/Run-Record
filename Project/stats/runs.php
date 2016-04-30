@@ -2,6 +2,7 @@
 include_once("run.php");
 set_include_path(dirname(__FILE__)."/../db/");
 require 'user.php';
+require_once 'db.php';
 
 class UserRuns {
 	private $TotalTime;
@@ -30,7 +31,7 @@ class UserRuns {
 			
 			$pdo = new PDO($connString,$user,$pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "SELECT RunID, Date, Distance, Time FROM rruser 
+			$sql = "SELECT RunID, Date, Distance, Time, TimeOfDay, Difficulty, Terrain, Conditions, Temperature, Comments FROM rruser 
 					NATURAL JOIN rruserruns NATURAL JOIN rrruns WHERE
 					UserID=" . $ID . "";
 					
@@ -47,8 +48,14 @@ class UserRuns {
 				$distance = $run["Distance"];
 				$time = $run["Time"];
 				$date = $run["Date"];
+				$terrain = $run["Terrain"];
+				$difficulty = $run["Difficulty"];
+				$conditions = $run["Conditions"];
+				$temperature = $run["Temperature"];
+				$timeOfDay = $run["TimeOfDay"];
+				$comments = $run["Comments"];
 				$caloriesBurned = calculateCaloriesBurned($user->getAge(), $user->getWeight(), $user->getGender(), $time);
-				$thisRun = new Run($RunID, $distance, $time, $date, $caloriesBurned);
+				$thisRun = new Run($RunID, $date, $distance, $time, $caloriesBurned, $terrain, $difficulty, $conditions, $temperature, $timeOfDay, $comments );
 				$this->runs[] = $thisRun;
 				$this->t = $thisRun;
 				
@@ -125,6 +132,64 @@ class UserRuns {
 			die( $e->getMessage() );
 			return null;
 		}	
+	}
+	
+	function createRun($date, $distance, $time, $terrain = "", $difficulty ="", $conditions="", $temperature="", $timeOfDay = "", $comments="") {
+				//create record in rruns
+		try {
+			// connect to database
+			$connString = "mysql:host=localhost;dbname=knovak18";
+			$user = "knovak18";
+			$pass = "web2";
+
+			$pdo = new PDO($connString,$user,$pass);
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$statement = $pdo->prepare("INSERT INTO rrruns(Date, Distance, Time, TimeOfDay, Difficulty, Terrain, Conditions, Temperature, Comments)
+				VALUES(:Date, :Distance, :Time, :TimeOfDay, :Difficulty, :Terrain, :Conditions, :Temperature, :Comments)");
+			$statement->execute(array(
+				"Date" => $date,
+				"Distance" => $distance,
+				"Time" => $time,
+				"TimeOfDay" => $timeOfDay,
+				"Difficulty" => $difficulty,
+				"Terrain" => $terrain,
+				"Conditions" => $conditions,
+				"Temperature" => $temperature,
+				"Comments" => $comments
+			));
+		}
+		catch (PDOException $e) {
+			die( $e->getMessage() );
+			return null;
+		}
+
+		//get last runID created
+		$aid = executeQuery("SELECT RunID FROM rrruns ORDER BY RunID DESC LIMIT 1","RunID");
+		$id=$aid[0];
+		$userID = getUserID($_COOKIE['User']);
+
+		//Create Record in rruserruns
+			try {
+			// connect to database
+			$connString = "mysql:host=localhost;dbname=knovak18";
+			$user = "knovak18";
+			$pass = "web2";
+
+			$pdo2 = new PDO($connString,$user,$pass);
+			$pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$statement = $pdo2->prepare("INSERT INTO rruserruns(UserID, RunID)
+				VALUES(:UserID, :RunID)");
+			$statement->execute(array(
+				"UserID" => $userID,
+				"RunID" => $id,
+			));
+		}
+		catch (PDOException $e) {
+			die( $e->getMessage() );
+			return null;
+		}
+			
+		
 	}
 	
 	function getTotalDistance() { return number_format($this->TotalDistance, 1);}

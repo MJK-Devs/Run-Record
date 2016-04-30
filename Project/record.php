@@ -153,7 +153,7 @@ function printColumnTwo() {
 function displayConditions() {
 	set_include_path(dirname(__FILE__)."/includes/");
 	require 'runOptions.php';
-	echo '<select name="condition" class="form-control">';
+	echo '<select name="conditions" class="form-control">';
 	foreach($conditions as $c){
 		echo '<option value="' . $c . '">' . $c . '</option>';
 	}
@@ -205,9 +205,9 @@ function displayTimeOfDay() {
 
 
 function displayTime() {
-	$hours = 0;
-	$minutes = 0;
-	$seconds = 0;
+	
+	
+	
 	$formSize = "col-xs-1";
 	displayHours();
 	displayMinutes();
@@ -215,7 +215,8 @@ function displayTime() {
 }
 
 function displayHours() {
-			echo '&nbsp;&nbsp;&nbsp;&nbsp;<select name="hours" class="form-control">';
+	$hours = 0;
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;<select name="hours" class="form-control">';
 	while($hours <= 60) {
 		echo '<option value="' . $hours . '">' . $hours . '</option>';
 		$hours = $hours + 1;
@@ -224,9 +225,9 @@ function displayHours() {
 }
 
 function displayMinutes() {
-	echo '
-			<select name="minutes" class="form-control">';
-	while($minutes <= 60) {
+	$minutes = 0;
+	echo '<select name="minutes" class="form-control">';
+	while($minutes <= 59) {
 		echo '<option value="' . $minutes . '">' . $minutes . '</option>';
 		$minutes = $minutes + 1;
 	}
@@ -234,9 +235,9 @@ function displayMinutes() {
 }
 
 function displaySeconds() {
-	echo '
-			<select name="seconds" class="form-control">';
-	while($seconds <= 60) {
+	$seconds = 0;
+	echo '<select name="seconds" class="form-control">';
+	while($seconds <= 59) {
 		echo '<option value="' . $seconds . '">' . $seconds . '</option>';
 		$seconds = $seconds + 1;
 	}
