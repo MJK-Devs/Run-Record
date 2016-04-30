@@ -14,9 +14,9 @@
 
 <body>
 	<?php
-	include("../db/user.php");
+	include_once("../db/user.php");
 	//include("../db/db.php");
-	include("runs.php");
+	include_once("runs.php");
 	include("../includes/navbar3.php");
 
 	$user = new User(getUserID($_COOKIE['User']));

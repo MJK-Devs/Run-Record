@@ -1,6 +1,8 @@
 <?php
 session_start();
 date_default_timezone_set('America/New_York');
+include "db/db.php";
+include_once "stats/runs.php";
 ?>
 
 <html>
@@ -9,11 +11,6 @@ date_default_timezone_set('America/New_York');
 	<?php include("includes/header.php"); ?>
 </head>
 <body>
-	<?php
-		include("includes/navbar.php");
-		include_once "db/db.php"
-	?>
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
@@ -32,6 +29,16 @@ date_default_timezone_set('America/New_York');
 
 <?php
 function displayRuns($UserID) {
+	$r = new UserRuns(getUserID($_COOKIE['User']));
+	$runs = $r->getRuns();
+	
+	echo '<div class="col-xs-9 col-sm-9 col-md-7 col-lg-7 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3  toppad" >';
+	// print each run as a panel
+	foreach($runs as $run) {
+		echo $run->printRunPanel();
+	}
+	echo '</div>';
+	/*
     try {
          // connect to database
         $connString = "mysql:host=localhost;dbname=knovak18";
@@ -53,38 +60,7 @@ function displayRuns($UserID) {
 		}
 		echo '<div class="col-xs-9 col-sm-9 col-md-7 col-lg-7 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3  toppad" >';
         while ($row = $result->fetch()) {
-			$dayOfWeek = date("l",strtotime($row['Date']));
-			$month = date("F",strtotime($row['Date']));
-			$day = date("j",strtotime($row['Date']));
-			$year = date("Y",strtotime($row['Date']));
-			echo	
-					   '<div class="panel panel-info">
-						  <div class="panel-heading">
-							<h3 class="panel-title"><strong>' . $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year . '</strong></h3>
-						  </div>
-						  <div class="panel-body">
-							<div class="row">
-							  <div class="col-md-6 col-lg-6">
-								<table class="table table-user-information">
-								  <tbody>
-								    <tr>
-									  <td>Distance</td>
-									  <td>' . $row['Distance'] . ' miles</td>
-									</tr>
-									<tr>
-									  <td>Time</td>
-									  <td>' . gmdate("H:i:s", $row['Time']) . '</td>
-									</tr>
-									<tr>
-									  <td>Pace</td>
-									  <td>' . gmdate("i:s", $row['Time']/$row['Distance']) . '</td>
-									</tr>
-								  </tbody>
-								</table>
-							  </div>
-							</div>
-						  </div>
-						</div>';
+			
 			//echo '<div style="margin:3px 3px 15px 3px">';
 
 
@@ -104,6 +80,6 @@ function displayRuns($UserID) {
     catch (PDOException $e) {
         die( $e->getMessage() );
         return null;
-    }
+    }*/
 }
 ?>

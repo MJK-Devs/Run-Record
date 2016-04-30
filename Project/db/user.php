@@ -73,6 +73,7 @@ class User {
 			if(strcmp("",$LastName==0)){ $LastName = $this->LastName;}
 			if(strcmp("",$Weight)==0){ $Weight = $this->$Weight;}
 			if(strcmp("",$State)==0){ $State = $this->State;}
+			if(strcmp("",$Height)==0){$Height = $this->Height;}
 
 			$connString = "mysql:host=localhost;dbname=knovak18";
 			$user = "knovak18";
@@ -177,15 +178,16 @@ class User {
 	public function getAboutMe() {return $this->AboutMe;}
 	public function getAge() {
 		date_default_timezone_set('America/New_York');
-		return date_diff(date_create($this->DOB), date_create('today'))->y;
+		$age = date_diff(date_create($this->DOB), date_create('today'))->y;
+		return $age;
 	}
 	public function getBMI() {
 		if((strcmp($this->Height,"") != 0) and ((strcmp($this->Weight,"") != 0))){
-			return calculateBMI($this->Height, $this->Weight);
+			return calculateBMI($this->$Height, $this->$Weight);
 		}
 		else{
 			return "Set height and weight to calculate BMI.";
-		}
+		} 
 	}
 }
 
@@ -203,7 +205,8 @@ function calculateBMI($height, $weight) {
 
 
 function convertInchesToStringHeight($in){
-	include("../includes/height.php");
+	set_include_path(dirname(__FILE__)."/../includes/");
+	require 'height.php';
 	foreach($height as $inches=>$string){
 		if(strcmp($in,$inches) === 0){
 			return $string;
@@ -212,7 +215,8 @@ function convertInchesToStringHeight($in){
 }
 
 function convertStringHeightToInches($stringHeight){
-	include("../includes/height.php");
+	set_include_path(dirname(__FILE__)."/../includes/");
+	require 'height.php';
 	foreach($height as $inches=>$string){
 		if(strcmp($stringHeight,$string) === 0){
 			return $inches;

@@ -33,7 +33,7 @@
 						<div class="form-inline" method="post">
 							<label>Date:</label>
 							<br>
-							<input type="date" class="form-control" name="date">
+							<input type="date" value= "<?php echo date('Y-m-d'); ?>" class="form-control" name="date">
 						</div>
 						<br>
 						<div class="form-inline">

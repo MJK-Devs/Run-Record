@@ -95,7 +95,7 @@ function userInfoTable_Edit() {
 								echo '<option selected="selected">' . $h . '"</option>';
 							}
 							else {
-								echo '<option value="' . $h . '">' . $h . '"</option>';
+								echo '<option value="' . $h . '">' . $h . '</option>';
 							}
 						}
 				echo '</select>

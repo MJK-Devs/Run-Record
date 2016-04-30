@@ -1,5 +1,7 @@
 <?php
-include_once("../db/user.php");
+include_once("run.php");
+set_include_path(dirname(__FILE__)."/../db/");
+require 'user.php';
 
 class UserRuns {
 	private $TotalTime;
@@ -15,10 +17,12 @@ class UserRuns {
 	private $MilesPerYear;
 	private $user;
 	private $UserID;
+	private $runs = array();
+	private $t;
 	
 	function __construct($ID){
 		try {
-			$user = new User(getUserID($_COOKIE['User']));
+			
 			
 			$connString = "mysql:host=localhost;dbname=knovak18";
 			$user = "knovak18";
@@ -26,29 +30,27 @@ class UserRuns {
 			
 			$pdo = new PDO($connString,$user,$pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "SELECT Date, Distance, Time FROM rruser 
+			$sql = "SELECT RunID, Date, Distance, Time FROM rruser 
 					NATURAL JOIN rruserruns NATURAL JOIN rrruns WHERE
 					UserID=" . $ID . "";
 					
 			$result = $pdo->query($sql);
-			$runs = $result->fetchAll();
+			$r = $result->fetchAll();
 			
 			date_default_timezone_set('America/New_York');
+
+			$user = new User(getUserID($_COOKIE['User']));
 			
-			$user = new User($ID);
-			$years = array();
-			$months = array();
-			$weeks = array();
-			
-			foreach($runs as $run) {
+			foreach($r as $run) {
+				
+				$RunID = $run["RunID"];
 				$distance = $run["Distance"];
 				$time = $run["Time"];
-				//$date = $run["Date"];
-				//$dateParsed = date_parse($date);
-				//$year = $dateParsed["year"];
-				//$month = $dateParsed["month"];
-				//$week = date("w", strtotime($date));
+				$date = $run["Date"];
 				$caloriesBurned = calculateCaloriesBurned($user->getAge(), $user->getWeight(), $user->getGender(), $time);
+				$thisRun = new Run($RunID, $distance, $time, $date, $caloriesBurned);
+				$this->runs[] = $thisRun;
+				$this->t = $thisRun;
 				
 				$this->TotalNumberOfRuns = $this->TotalNumberOfRuns + 1;
 				$this->TotalTime = $this->TotalTime + $time;
@@ -91,7 +93,7 @@ class UserRuns {
 					UserID=" . $this->UserID . "";
 					
 			$result = $pdo->query($sql);
-			$runs = $result->fetchAll();
+			$r = $result->fetchAll();
 			
 			date_default_timezone_set('America/New_York');
 			
@@ -105,7 +107,7 @@ class UserRuns {
 			}
 			
 			$x = array();
-			foreach($runs as $run) {
+			foreach($r as $run) {
 				$distance = $run["Distance"];
 				array_push($x, $distance);
 				$date = $run["Date"];
@@ -133,7 +135,8 @@ class UserRuns {
 	function getAverageTime() {return $this->AverageTime;}
 	function getAveragePace() {return $this->AveragePace;}
 	function getAverageCaloriesBurned() {return $this->AverageCaloriesBurned;}
-	function test() { return calculateCaloriesBurned(21, 175, "Male", 5700); }
+	function getRuns() {return $this->runs;}
+	function test() { return $this->t; }
 }
 
 
@@ -157,7 +160,7 @@ function calculateCaloriesBurned($age, $weight, $gender, $time, $heartRate = "")
 							   +($heartRate * 0.4472) - 20.4022)
 							   *($minutes/4.184);
 		}
-		return $caloriesBurned;
+		return number_format($caloriesBurned, 0);
 	}
 	
 }
@@ -195,4 +198,6 @@ function getHeartRate($age){
 	}
 	
 	return $heartRate;
-}
+} 
+
+?>
