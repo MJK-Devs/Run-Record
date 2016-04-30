@@ -32,5 +32,11 @@ $terrain = array(
 	"Treadmill",
 	"Track (indoor)",
 	"Track (outdoor)"
-	
+);
+
+$timeOfDay = array(
+	"Morning",
+	"Afternoon",
+	"Evening",
+	"Night"
 );
