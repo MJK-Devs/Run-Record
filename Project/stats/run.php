@@ -1,5 +1,6 @@
 <?php
-
+set_include_path(dirname(__FILE__)."/../includes/");
+require_once "displayFunctions.php";
 date_default_timezone_set('America/New_York');
 
 class Run {
@@ -43,10 +44,7 @@ class Run {
 	public function getComments() {return $this->Comments;}
 	public function getCalories() {return $this->Calories;}
 	public function getPace() {return $this->Pace;}
-	public function printRunPanel($view=true) {
-		// view mode
-		/*if ($view=true) { */
-			
+	public function printRunPanel() {		
 			$dayOfWeek = date("l",strtotime($this->_date));
 			$month = date("F",strtotime($this->_date));
 			$day = date("j",strtotime($this->_date));
@@ -124,8 +122,107 @@ class Run {
 						</div>';
 		return $panel;
 	}
-	public function printEditPanel() {
-		$panel = '';
-		return $panel;
+	function printEditPanel() {
+		$formSize = "col-md-11";
+		date_default_timezone_set('America/New_York');
+		$todaysDate = date('Y-m-d', strtotime("today"));
+		
+		echo'<div class="panel panel-primary" id="' . $this->RunID .'">
+			   <div class="panel-heading">
+				 <div class="pull-left">
+				   <h3 class="panel-title"><strong>Edit Run</strong></h3>
+				 </div>
+			   </div>
+			   <div class="panel-body">
+				<form method="post" action="db/createRun.php">
+				  <div class="col-md-6 col-lg-6">
+					<table class="table table-user-information">
+					  <tbody>
+						<tr>
+							<td>Date</td>
+							<td>
+								<div class="' . $formSize . '">
+									<input type="date" value= "' . $this->_date . '" class="form-control" name="date">
+								</div>
+							</td>
+						  </tr>';
+		echo			  '<tr>
+							<td>Distance</td>
+							<td>
+								<div class="' . $formSize . '">
+									<input type="number" min="0" max="100" step="0.01" value="0.00" class="numeric form-control" name="distance">
+								</div>
+							</td>
+						  </tr>';
+		echo			  '<tr>
+							<td>Time</td>
+							<td><div class="form-inline">';
+								displayTime();
+		echo	
+							'</div></td>
+						  </tr>';
+		echo			  '<tr>
+							<td>Time Of Day</td>
+							<td>
+								<div class="' . $formSize . '">';
+									displayTimeOfDay();
+		echo    				'</div>
+							</td>
+						  </tr>
+					  </tbody>
+					</table>
+				  </div>
+				  <div class="col-md-6 col-lg-6">
+					<table class="table table-user-information">
+					  <tbody>
+		echo 			<tr>
+							<td>Difficulty</td>
+							<td>
+								<div class="' . $formSize . '">';
+									displayDifficulty();
+		echo					'</div>
+							</td>
+						  </tr>';
+		echo			 '<tr>
+							<td>Terrain</td>
+							<td>
+								<div class="' . $formSize . '">';
+									displayTerrain();
+		echo					'</div>
+							</td>
+						  </tr>';
+		echo 			'<tr>
+							<td>Conditions</td>
+							<td>
+								<div class="' . $formSize . '">';
+									displayConditions();
+		echo					'</div>
+							</td>
+						  </tr>';
+		echo			 '<tr>
+							<td>Temperature</td>
+							<td>
+								<div class="' . $formSize . '">';
+									displayTemperature();
+		echo					'</div>
+							</td>
+						  </tr>
+					  </tbody>
+					</table>
+				  </div>
+				  <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+					<div class="wrapper" align="center">
+						<td>Comments</td>
+					</div>
+					<textarea style="width:100%" style="overflow:hidden" rows="3" name="comments"></textarea>
+				  </div>
+			  </div>
+			  <div class="panel-footer">
+				<div class="wrapper" align="center">
+					<button type="submit" value="submit" class="btn btn-primary" >Save this Run</button>
+				</div>
+				</form>
+			  </div>';
+		
 	}
 }

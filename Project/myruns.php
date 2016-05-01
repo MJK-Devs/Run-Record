@@ -32,11 +32,21 @@ include_once "stats/runs.php";
 function displayRuns($UserID) {
 	$r = new UserRuns(getUserID($_COOKIE['User']));
 	$runs = $r->getRuns();
+	$IDtoEdit = "";
+	if(isset($_GET["RunID"])){
+		$IDtoEdit = $_GET["RunID"];
+	}
 	
 	echo '<div class="col-xs-9 col-sm-9 col-md-7 col-lg-7 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3  toppad" >';
 	// print each run as a panel
 	foreach($runs as $run) {
-		echo $run->printRunPanel();
+		if($IDtoEdit === $run->getRunID()){
+			$run->printEditPanel();
+		}
+		else {
+			$run->printRunPanel();
+		}
+
 	}
 	echo '</div>';
 }

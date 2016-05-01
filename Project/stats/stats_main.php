@@ -89,6 +89,22 @@
 			</div>
 		  </div>
 		</div>
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+			<h3 class="panel-title">Personal Records</h3>
+		  </div>
+		  <div class="panel-body">
+			<div class="row">
+			  <div class="col-md-12 col-lg-12">
+				<table class="table table-user-information">
+				  <tbody>
+				    <?php userRecords(); ?>
+				  </tbody>
+				</table>
+			  </div>
+			</div>
+		  </div>
+		</div>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -161,6 +177,27 @@ function userPersonalInfo() {
 		  </tr>';
 }
 
+function userRecords() {
+	$user = new User(getUserID($_COOKIE['User']));
+	$runs = new UserRuns(getUserID($_COOKIE['User']));
+	echo '<tr>
+			<td><b>Distance</b></td>
+			<td><font color="blue">' . $runs->getLongestDistance() . '</font></td>
+		  </tr>';
+	echo '<tr>
+			<td><b>Time</b></td>
+			<td><font color="blue">' . $runs->getLongestTime() . '</font></td>
+		  </tr>';
+	echo '<tr>
+			<td><b>Pace</b></td>
+			<td><font color="blue">' . $runs->getQuickestPace() . '</font></td>
+		  </tr>';
+	echo '<tr>
+			<td><b>Calories</b></td>
+			<td><font color="blue">' . $runs->getMostCalories() . '</font></td>
+		  </tr>';
+}
+
 function BMIhealthStatus($BMI){
 	if (strcmp($BMI, "Set height and weight to calculate BMI.") === 0) { return ""; }
 	else {
@@ -206,17 +243,60 @@ function convertDate($date){
 	return $newDate;
 }
 ?>
-
+	<?php
+		// get dates and data for bar graph
+		$runDataType = "Distance";
+		$dates = array("10"=>(date('m-d',strtotime("-10 days"))),
+					    "9"=>(date('m-d',strtotime("-9 days"))),
+					    "8"=>(date('m-d',strtotime("-8 days"))),
+					    "7"=>(date('m-d',strtotime("-7 days"))),
+					    "6"=>(date('m-d',strtotime("-6 days"))),
+					    "5"=>(date('m-d',strtotime("-5 days"))),
+					    "4"=>(date('m-d',strtotime("-4 days"))),
+					    "3"=>(date('m-d',strtotime("-3 days"))),
+					    "2"=>(date('m-d',strtotime("-2 days"))),
+					    "1"=>(date('m-d',strtotime("-1 days"))),
+					    "0"=>(date('m-d',strtotime("today"))));
+		$runs = new UserRuns(getUserID($_COOKIE['User']));
+		$data = $runs->getData(strtotime("-10 days"), strtotime("-9 days"), $runDataType);
+		print_r($data);
+	?>
 <script type="text/javascript">
-
   window.onload = function () {
+	var runDataType = "<?php echo $runDataType; ?>";
+	// dates
+	var ten = "<?php echo $dates["10"]; ?>";
+	var nine = "<?php echo $dates["9"]; ?>";
+	var eight = "<?php echo $dates["8"]; ?>";
+	var seven = "<?php echo $dates["7"]; ?>";
+	var six = "<?php echo $dates["6"]; ?>";
+	var five = "<?php echo $dates["5"]; ?>";
+	var four = "<?php echo $dates["4"]; ?>";
+	var three = "<?php echo $dates["3"]; ?>";
+	var two = "<?php echo $dates["2"]; ?>";
+	var one = "<?php echo $dates["1"]; ?>";
+	var today = "<?php echo $dates["0"]; ?>";
+	
+	// data
+	var tenData = "<?php echo $data[$dates["10"]]; ?>";
+	var nineData = "<?php echo $data[$dates["10"]]; ?>";
+	var eightData = "<?php echo $data[$dates["10"]]; ?>";
+	var sevenData = "<?php echo $data[$dates["10"]]; ?>";
+	var sixData = "<?php echo $data[$dates["10"]]; ?>";
+	var fiveData = "<?php echo $data[$dates["10"]]; ?>";
+	var fourData = "<?php echo $data[$dates["10"]]; ?>";
+	var threeData = "<?php echo $data[$dates["10"]]; ?>";
+	var twoData = "<?php echo $data[$dates["10"]]; ?>";
+	var oneData = "<?php echo $data[$dates["10"]]; ?>";
+	var today = "<?php echo $data[$dates["10"]]; ?>";
+	
     var chart = new CanvasJS.Chart("chartContainer",
     {
       title:{
-        text: "Top Oil Reserves",   
+        text: "10 Day Mileage",   
       },
       axisY: {
-        title: "Reserves(MMbbl)"
+        title: runDataType,
       },
       legend: {
         verticalAlign: "bottom",
@@ -226,18 +306,20 @@ function convertDate($date){
       data: [
       {       
         type: "column", 
-        showInLegend: true,
+        showInLegend: false,
         legendMarkerColor: "grey",
-        legendText: "MMbbl = one million barrels",
+        legendText: "",
         dataPoints: [     
-        {y: 297571, label: "Venezuela"},
-        {y: 267017,  label: "Saudi" },
-        {y: 175200,  label: "Canada"},
-        {y: 154580,  label: "Iran"},
-        {y: 116000,  label: "Russia"},
-        {y: 97800, label: "UAE"},
-        {y: 20682,  label: "US"},       
-        {y: 20350,  label: "China"},       
+        {y: 2, label: ten},
+        {y: 2,  label: nine },
+        {y: 1,  label: eight},
+        {y: 1,  label: seven},
+        {y: 10,  label: six},
+        {y: 9, label: five},
+        {y: 2,  label: four},       
+        {y: 2,  label: three},       
+        {y: 2,  label: two},       
+        {y: 2,  label: one},          
         ]
       },  
       ]
@@ -247,4 +329,5 @@ function convertDate($date){
 
   }
 </script>
+<?php echo $runDataType; ?>
 
