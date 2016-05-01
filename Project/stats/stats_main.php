@@ -245,17 +245,17 @@ function convertDate($date){
 
 		// get dates and data for bar graph
 		$runDataType = "Distance (miles)";
-		$dates = array("10"=>(date('m-d',strtotime("-10 days"))),
-					    "9"=>(date('m-d',strtotime("-9 days"))),
-					    "8"=>(date('m-d',strtotime("-8 days"))),
-					    "7"=>(date('m-d',strtotime("-7 days"))),
-					    "6"=>(date('m-d',strtotime("-6 days"))),
-					    "5"=>(date('m-d',strtotime("-5 days"))),
-					    "4"=>(date('m-d',strtotime("-4 days"))),
-					    "3"=>(date('m-d',strtotime("-3 days"))),
-					    "2"=>(date('m-d',strtotime("-2 days"))),
-					    "1"=>(date('m-d',strtotime("-1 days"))),
-					    "0"=>(date('m-d',strtotime("today"))));
+		$dates = array("10"=>(date('n-j',strtotime("-10 days"))),
+					    "9"=>(date('n-j',strtotime("-9 days"))),
+					    "8"=>(date('n-j',strtotime("-8 days"))),
+					    "7"=>(date('n-j',strtotime("-7 days"))),
+					    "6"=>(date('n-j',strtotime("-6 days"))),
+					    "5"=>(date('n-j',strtotime("-5 days"))),
+					    "4"=>(date('n-j',strtotime("-4 days"))),
+					    "3"=>(date('n-j',strtotime("-3 days"))),
+					    "2"=>(date('n-j',strtotime("-2 days"))),
+					    "1"=>(date('n-j',strtotime("-1 days"))),
+					    "0"=>(date('n-j',strtotime("today"))));
 		$runs = new UserRuns(getUserID($_COOKIE['User']));
 		$data = $runs->getData(strtotime("-10 days"), strtotime("+0 days"), $runDataType);
 		$dataDates = array("10"=>($data[date('Y-m-d',strtotime("-10 days"))]),
