@@ -1,7 +1,7 @@
 <?php
 include_once("run.php");
 set_include_path(dirname(__FILE__)."/../db/");
-require 'user.php';
+require_once 'user.php';
 require_once 'db.php';
 
 class UserRuns {
@@ -188,8 +188,27 @@ class UserRuns {
 			die( $e->getMessage() );
 			return null;
 		}
-			
+	}
+	
+	function deleteRun($RunID){
+		$connString = "mysql:host=localhost;dbname=knovak18";
+		$user = "knovak18";
+		$pass = "web2";
+
+		$pdo = new PDO($connString,$user,$pass);
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
+		// delete from rrusers
+		$sql = "DELETE FROM rrruns
+				WHERE RunID=" . $RunID . "";
+
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		
+		// delete from rruserruns
+		$sql2 = "DELETE FROM rruserruns
+				 WHERE RunID=" . $RunID . "
+				 AND  UserID=" . $this->UserID . "";
 	}
 	
 	function getTotalDistance() { return number_format($this->TotalDistance, 1);}

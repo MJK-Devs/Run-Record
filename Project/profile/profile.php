@@ -1,21 +1,21 @@
 <?php session_start(); ?>
 <head>
 	<title>Record Run - Profile</title>
-	<?php include("../includes/header2.php"); ?>
+	<?php 
+		include_once("../includes/header2.php");
+		include_once("../db/user.php");
+		include_once("../db/db.php");
+		include_once("../includes/navbar3.php");
+
+		$user = new User(getUserID($_COOKIE['User']));
+
+		if(isset($_COOKIE['User'])) {
+			$username = $_COOKIE['User'];
+		}
+	?>
 </head>
 
 <body>
-	<?php
-	include("../db/user.php");
-	include("../db/db.php");
-	include("../includes/navbar3.php");
-
-	$user = new User(getUserID($_COOKIE['User']));
-
-	if(isset($_COOKIE['User'])) {
-		$username = $_COOKIE['User'];
-	} //else { $username = ""; }
-	?>
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 	   <div class="panel panel-info">
 		  <div class="panel-heading">

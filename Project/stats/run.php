@@ -54,7 +54,7 @@ class Run {
 			$formattedTime = gmdate("H:i:s", $this->_time);
 
 			$panel = '
-						<div class="panel panel-primary">
+						<div class="panel panel-primary" id="' . $this->RunID .'">
 						  <div class="panel-heading">
 							<div class="pull-left">
 							  <h3 class="panel-title"><strong>' . $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year . '</strong></h3>
@@ -115,15 +115,17 @@ class Run {
 							  </div>
 							</div>
 						  </div>
+						  <div class="panel-footer">&nbsp;
+						    <span class="pull-right">
+							  <a href="editRun.php" title="Edit" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+							  <a href="deleteRun.php?ID=' . $this->RunID . '" title="Delete" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+							</span>
+						  </div>
 						</div>';
-		//}
-		// edit mode
-		//else {
-		//	$panel = "";
-		//}
-		
-		//$panel = "";
-		
+		return $panel;
+	}
+	public function printEditPanel() {
+		$panel = '';
 		return $panel;
 	}
 }

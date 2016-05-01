@@ -183,26 +183,21 @@ class User {
 	}
 	public function getBMI() {
 		if((strcmp($this->Height,"") != 0) and ((strcmp($this->Weight,"") != 0))){
-			return calculateBMI($this->$Height, $this->$Weight);
+			$inches = convertStringHeightToInches($this->Height);
+	
+			$kg = $this->Weight * 0.45;
+			$m = $inches * 0.025;
+			$mSquared = $m * $m;
+			$BMI = $kg / $mSquared;
+	
+			return (number_format($BMI, 1));
+			return calculateBMI($this->Height, $this->Weight);
 		}
 		else{
 			return "Set height and weight to calculate BMI.";
 		} 
 	}
 }
-
-function calculateBMI($height, $weight) {
-	$inches = convertStringHeightToInches($height);
-	
-	$kg = $weight * 0.45;
-	$m = $inches * 0.025;
-	$mSquared = $m * $m;
-	$BMI = $kg / $mSquared;
-	
-	return (number_format($BMI, 1));
-}
-
-
 
 function convertInchesToStringHeight($in){
 	set_include_path(dirname(__FILE__)."/../includes/");

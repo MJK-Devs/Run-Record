@@ -9,23 +9,16 @@
 	<script type="text/javascript" src="../js/canvasjs.min.js"></script>
 	<?php
 		  include_once "../db/db.php";
+		  include_once("../db/user.php");
+		  include_once("runs.php");
+		  include_once("../includes/navbar3.php");
+		  if(isset($_COOKIE['User'])) {
+			$username = $_COOKIE['User'];
+		  }
 	?>
 </head>
 
 <body>
-	<?php
-	include_once("../db/user.php");
-	//include("../db/db.php");
-	include_once("runs.php");
-	include("../includes/navbar3.php");
-
-	$user = new User(getUserID($_COOKIE['User']));
-
-	if(isset($_COOKIE['User'])) {
-		$username = $_COOKIE['User'];
-	} //else { $username = ""; }
-	?>
-
 	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 toppad" >
 	   <div class="panel panel-primary">
 		  <div class="panel-heading">
@@ -33,7 +26,6 @@
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
-
 			  <div class="col-md-12 col-lg-12">
 				<table class="table table-user-information">
 				  <tbody>
@@ -61,8 +53,6 @@
 		  </div>
 		</div>
 	</div>
-
-
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  toppad" >
 	   <div class="panel panel-primary">
 		  <div class="panel-heading">

@@ -1,6 +1,6 @@
 <?php
 set_include_path(dirname(__FILE__)."/../stats/");
-require 'runs.php';
+require_once 'runs.php';
 include_once "db.php";
 
 
