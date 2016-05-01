@@ -16,6 +16,10 @@ class UserRuns {
 	private $MilesPerWeek;
 	private $MilesPerMonth;
 	private $MilesPerYear;
+	private $LongestTime = 0;
+	private $LongestDistance = 0;
+	private $MostCalories = 0;
+	private $QuickestPace = 0;
 	private $user;
 	private $UserID;
 	private $runs = array();
@@ -23,8 +27,7 @@ class UserRuns {
 	
 	function __construct($ID){
 		try {
-			
-			
+
 			$connString = "mysql:host=localhost;dbname=knovak18";
 			$user = "knovak18";
 			$pass = "web2";
@@ -40,10 +43,11 @@ class UserRuns {
 			
 			date_default_timezone_set('America/New_York');
 
-			$user = new User(getUserID($_COOKIE['User']));
+			$this->UserID = getUserID($_COOKIE['User']);
+			$user = new User($this->UserID);
 			
 			foreach($r as $run) {
-				
+				// grab data from database for this run
 				$RunID = $run["RunID"];
 				$distance = $run["Distance"];
 				$time = $run["Time"];
@@ -55,21 +59,30 @@ class UserRuns {
 				$timeOfDay = $run["TimeOfDay"];
 				$comments = $run["Comments"];
 				$caloriesBurned = calculateCaloriesBurned($user->getAge(), $user->getWeight(), $user->getGender(), $time);
+				
+				// create new Run object and add it to $this->runs array
 				$thisRun = new Run($RunID, $date, $distance, $time, $caloriesBurned, $terrain, $difficulty, $conditions, $temperature, $timeOfDay, $comments );
 				$this->runs[] = $thisRun;
-				$this->t = $thisRun;
-				
+
+				// add totals for stats
 				$this->TotalNumberOfRuns = $this->TotalNumberOfRuns + 1;
 				$this->TotalTime = $this->TotalTime + $time;
 				$this->TotalDistance = $this->TotalDistance + $distance;
+				
+				// calculate calories
 				if($caloriesBurned == -1) { $this->TotalCaloriesBurned = "Weight needs to be set to calculate."; }
 				else {
 					$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + $caloriesBurned;
 				}
 				
+				// calculate personal records
+				if($distance > $this->LongestDistance){ $this->LongestDistance = $distance; }
+				if($time > $this->LongestTime){ $this->LongestTime = gmdate("H:i:s", $time); }
+				if($caloriesBurned > $this->MostCalories){ $this->MostCalories = $caloriesBurned; }
+				if(($distance/$time) > $this->QuickestPace){ $this->QuickestPace = gmdate("i:s",($distance/$time)); }
 			}
 			
-			$this->UserID = getUserID($_COOKIE['User']);
+			
 			
 			// calculate averages
 			$this->AverageDistance = number_format($this->TotalDistance / $this->TotalNumberOfRuns, 1);
@@ -85,22 +98,9 @@ class UserRuns {
 	
 	// returns an array of miles with key set as date timestamp and the value as miles
 	// every day without a run will still have an entry but mileage will be at 0
-	function getMileage($startDate, $endDate) {
+	function getData($startDate, $endDate, $data) {
 		try {
 			$user = new User(getUserID($_COOKIE['User']));
-			
-			$connString = "mysql:host=localhost;dbname=knovak18";
-			$user = "knovak18";
-			$pass = "web2";
-			
-			$pdo = new PDO($connString,$user,$pass);
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "SELECT Date, Distance, Time FROM rruser 
-					NATURAL JOIN rruserruns NATURAL JOIN rrruns WHERE
-					UserID=" . $this->UserID . "";
-					
-			$result = $pdo->query($sql);
-			$r = $result->fetchAll();
 			
 			date_default_timezone_set('America/New_York');
 			
@@ -112,20 +112,16 @@ class UserRuns {
 				$date = date('Y-m-d',strtotime($days, $startDate));
 				$interval[$date] = 0;
 			}
-			
-			$x = array();
-			foreach($r as $run) {
-				$distance = $run["Distance"];
-				array_push($x, $distance);
+			foreach($this->runs as $run) {
+				$runDataType = $run["Distancec"];
 				$date = $run["Date"];
 				$formattedDate = date('Y-m-d', strtotime($date));
 				foreach($interval as $key=>$value) {
 					if(strcmp($key, $formattedDate) === 0) {
-						$value = $distance;
+						$value = $runDataType;
 					}
 				}
 			}
-			
 			return $interval;
 		}
 		catch (PDOException $e) {
@@ -219,6 +215,10 @@ class UserRuns {
 	function getAverageTime() {return $this->AverageTime;}
 	function getAveragePace() {return $this->AveragePace;}
 	function getAverageCaloriesBurned() {return $this->AverageCaloriesBurned;}
+	function getLongestDistance() {return $this->LongestDistance;}
+	function getLongestTime() {return $this->LongestTime;}
+	function getMostCalories() {return $this->MostCalories;}
+	function getQuickestPace() {return $this->QuickestPace;}
 	function getRuns() {return $this->runs;}
 	function test() { return $this->t; }
 }
