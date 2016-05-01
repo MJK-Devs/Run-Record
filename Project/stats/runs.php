@@ -19,7 +19,7 @@ class UserRuns {
 	private $LongestTime = 0;
 	private $LongestDistance = 0;
 	private $MostCalories = 0;
-	private $QuickestPace = 0;
+	private $QuickestPace = 100000000;
 	private $user;
 	private $UserID;
 	private $runs = array();
@@ -79,7 +79,7 @@ class UserRuns {
 				if($distance > $this->LongestDistance){ $this->LongestDistance = $distance; }
 				if($time > $this->LongestTime){ $this->LongestTime = gmdate("H:i:s", $time); }
 				if($caloriesBurned > $this->MostCalories){ $this->MostCalories = $caloriesBurned; }
-				if(($distance/$time) > $this->QuickestPace){ $this->QuickestPace = gmdate("i:s",($distance/$time)); }
+				if(($time/$distance) < $this->QuickestPace){ $this->QuickestPace = gmdate("i:s",($time/$distance)); }
 			}
 			
 			
@@ -107,18 +107,23 @@ class UserRuns {
 			$dateDiff = floor(($endDate-$startDate)/(60*60*24));
 			$interval = array();
 			
+			// add dates as keys and 0 each distance out in interval array
 			for($i = 0; $i <= $dateDiff; ++$i) {
 				$days = '+' . $i . ' days';
 				$date = date('Y-m-d',strtotime($days, $startDate));
 				$interval[$date] = 0;
 			}
+			
+			// for each run, if it's in the interval,
+			// add the distance to the corresponding date key
 			foreach($this->runs as $run) {
-				$runDataType = $run["Distancec"];
-				$date = $run["Date"];
-				$formattedDate = date('Y-m-d', strtotime($date));
+				$runDataValue = $run->getDistance();
+				$Date = $run->getRunDate();
+				$formattedDate = date('Y-m-d', strtotime($Date));
+				$y[$formattedDate] = $runDataValue;
 				foreach($interval as $key=>$value) {
-					if(strcmp($key, $formattedDate) === 0) {
-						$value = $runDataType;
+					if(strcmp($formattedDate, $key) === 0) {
+						$interval[$formattedDate] = $run->getDistance();
 					}
 				}
 			}

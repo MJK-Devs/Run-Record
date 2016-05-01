@@ -242,10 +242,9 @@ function convertDate($date){
 	$newDate = date("m-d-Y", strtotime($date));
 	return $newDate;
 }
-?>
-	<?php
+
 		// get dates and data for bar graph
-		$runDataType = "Distance";
+		$runDataType = "Distance (miles)";
 		$dates = array("10"=>(date('m-d',strtotime("-10 days"))),
 					    "9"=>(date('m-d',strtotime("-9 days"))),
 					    "8"=>(date('m-d',strtotime("-8 days"))),
@@ -258,9 +257,20 @@ function convertDate($date){
 					    "1"=>(date('m-d',strtotime("-1 days"))),
 					    "0"=>(date('m-d',strtotime("today"))));
 		$runs = new UserRuns(getUserID($_COOKIE['User']));
-		$data = $runs->getData(strtotime("-10 days"), strtotime("-9 days"), $runDataType);
-		print_r($data);
-	?>
+		$data = $runs->getData(strtotime("-10 days"), strtotime("+0 days"), $runDataType);
+		$dataDates = array("10"=>($data[date('Y-m-d',strtotime("-10 days"))]),
+							"9"=>($data[date('Y-m-d',strtotime("-9 days"))]),
+							"8"=>($data[date('Y-m-d',strtotime("-8 days"))]),
+							"7"=>($data[date('Y-m-d',strtotime("-7 days"))]),
+							"6"=>($data[date('Y-m-d',strtotime("-6 days"))]),
+							"5"=>($data[date('Y-m-d',strtotime("-5 days"))]),
+							"4"=>($data[date('Y-m-d',strtotime("-4 days"))]),
+							"3"=>($data[date('Y-m-d',strtotime("-3 days"))]),
+							"2"=>($data[date('Y-m-d',strtotime("-2 days"))]),
+							"1"=>($data[date('Y-m-d',strtotime("-1 days"))]),
+							"0"=>($data[date('Y-m-d',strtotime("today"))]));
+
+?>
 <script type="text/javascript">
   window.onload = function () {
 	var runDataType = "<?php echo $runDataType; ?>";
@@ -276,19 +286,19 @@ function convertDate($date){
 	var two = "<?php echo $dates["2"]; ?>";
 	var one = "<?php echo $dates["1"]; ?>";
 	var today = "<?php echo $dates["0"]; ?>";
-	
-	// data
-	var tenData = "<?php echo $data[$dates["10"]]; ?>";
-	var nineData = "<?php echo $data[$dates["10"]]; ?>";
-	var eightData = "<?php echo $data[$dates["10"]]; ?>";
-	var sevenData = "<?php echo $data[$dates["10"]]; ?>";
-	var sixData = "<?php echo $data[$dates["10"]]; ?>";
-	var fiveData = "<?php echo $data[$dates["10"]]; ?>";
-	var fourData = "<?php echo $data[$dates["10"]]; ?>";
-	var threeData = "<?php echo $data[$dates["10"]]; ?>";
-	var twoData = "<?php echo $data[$dates["10"]]; ?>";
-	var oneData = "<?php echo $data[$dates["10"]]; ?>";
-	var today = "<?php echo $data[$dates["10"]]; ?>";
+
+	//data
+	var tenData = parseInt("<?php echo $dataDates["10"]; ?>", 10);
+	var nineData  = parseInt("<?php echo $dataDates["9"]; ?>", 10);
+	var eightData  = parseInt("<?php echo $dataDates["8"]; ?>", 10);
+	var sevenData  = parseInt("<?php echo $dataDates["7"]; ?>", 10);
+	var sixData  = parseInt("<?php echo $dataDates["6"]; ?>", 10);
+	var fiveData  = parseInt("<?php echo $dataDates["5"]; ?>", 10);
+	var fourData  = parseInt("<?php echo $dataDates["4"]; ?>", 10);
+	var threeData  = parseInt("<?php echo $dataDates["3"]; ?>", 10);
+	var twoData  = parseInt("<?php echo $dataDates["2"]; ?>", 10);
+	var oneData  = parseInt("<?php echo $dataDates["1"]; ?>", 10);
+	var todayData  = parseInt("<?php echo $dataDates["0"]; ?>", 10);
 	
     var chart = new CanvasJS.Chart("chartContainer",
     {
@@ -310,16 +320,16 @@ function convertDate($date){
         legendMarkerColor: "grey",
         legendText: "",
         dataPoints: [     
-        {y: 2, label: ten},
-        {y: 2,  label: nine },
-        {y: 1,  label: eight},
-        {y: 1,  label: seven},
-        {y: 10,  label: six},
-        {y: 9, label: five},
-        {y: 2,  label: four},       
-        {y: 2,  label: three},       
-        {y: 2,  label: two},       
-        {y: 2,  label: one},          
+        {y: tenData, label: ten},
+        {y: nineData,  label: nine },
+        {y: eightData,  label: eight},
+        {y: sevenData,  label: seven},
+        {y: sixData,  label: six},
+        {y: fiveData, label: five},
+        {y: fourData,  label: four},       
+        {y: threeData,  label: three},       
+        {y: twoData,  label: two},       
+        {y: oneData,  label: one},          
         ]
       },  
       ]
@@ -329,5 +339,5 @@ function convertDate($date){
 
   }
 </script>
-<?php echo $runDataType; ?>
+
 
