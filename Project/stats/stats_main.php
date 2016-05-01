@@ -56,7 +56,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  toppad" >
 	   <div class="panel panel-primary">
 		  <div class="panel-heading">
-			<h3 class="panel-title">Charts</h3>
+			<h3 class="panel-title">10 Day Mileage</h3>
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
@@ -303,7 +303,7 @@ function convertDate($date){
     var chart = new CanvasJS.Chart("chartContainer",
     {
       title:{
-        text: "10 Day Mileage",   
+        text: "",   
       },
       axisY: {
         title: runDataType,
