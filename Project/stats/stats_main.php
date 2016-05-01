@@ -275,8 +275,8 @@ function convertDate($date){
   window.onload = function () {
 	var runDataType = "<?php echo $runDataType; ?>";
 	// dates
-	var ten = "<?php echo $dates["10"]; ?>";
-	var nine = "<?php echo $dates["9"]; ?>";
+	var ten = "<?php echo $dates["10"]; ?>"; // ten days ago
+	var nine = "<?php echo $dates["9"]; ?>"; // etc.
 	var eight = "<?php echo $dates["8"]; ?>";
 	var seven = "<?php echo $dates["7"]; ?>";
 	var six = "<?php echo $dates["6"]; ?>";
@@ -288,8 +288,8 @@ function convertDate($date){
 	var today = "<?php echo $dates["0"]; ?>";
 
 	//data
-	var tenData = parseInt("<?php echo $dataDates["10"]; ?>", 10);
-	var nineData  = parseInt("<?php echo $dataDates["9"]; ?>", 10);
+	var tenData = parseInt("<?php echo $dataDates["10"]; ?>", 10); // data from ten days ago
+	var nineData  = parseInt("<?php echo $dataDates["9"]; ?>", 10); // etc.
 	var eightData  = parseInt("<?php echo $dataDates["8"]; ?>", 10);
 	var sevenData  = parseInt("<?php echo $dataDates["7"]; ?>", 10);
 	var sixData  = parseInt("<?php echo $dataDates["6"]; ?>", 10);

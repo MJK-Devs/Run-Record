@@ -115,7 +115,7 @@ class Run {
 						  </div>
 						  <div class="panel-footer">&nbsp;
 						    <span class="pull-right">
-							  <a href="editRun.php" title="Edit" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+							  <a href="editRun.php?ID=' . $this->RunID . '" title="Edit" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 							  <a href="deleteRun.php?ID=' . $this->RunID . '" title="Delete" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 							</span>
 						  </div>

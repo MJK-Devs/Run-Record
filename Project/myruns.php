@@ -40,13 +40,7 @@ function displayRuns($UserID) {
 	echo '<div class="col-xs-9 col-sm-9 col-md-7 col-lg-7 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3  toppad" >';
 	// print each run as a panel
 	foreach($runs as $run) {
-		if($IDtoEdit === $run->getRunID()){
-			$run->printEditPanel();
-		}
-		else {
-			$run->printRunPanel();
-		}
-
+		echo $run->printRunPanel();
 	}
 	echo '</div>';
 }
