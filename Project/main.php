@@ -1,5 +1,5 @@
-<?php 
-date_default_timezone_set('America/New_York'); 
+<?php
+date_default_timezone_set('America/New_York');
 session_start();
 ?>
 
@@ -48,7 +48,7 @@ function printNTopRuns($n) {
         $a = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
-        //The results printed here are not static. They *WILL* be modified by 
+        //The results printed here are not static. They *WILL* be modified by
         //js/main.js. These are just to fill the page with content when the page
         //loads!!
        foreach($a as $row) {
@@ -58,7 +58,7 @@ function printNTopRuns($n) {
             $year = date("Y",strtotime($row['Date']));
 
         	$html="";
-        	$html = $html.'<div class="panel panel-info" id="'.$row['RunID'].'"><div class="panel-heading"><h3 class="panel-title"><strong>'.$row['Username']."'s run on " . $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year . '</strong></h3></div><div class="panel-body"><div class="row"><div class="col-md-6 col-lg-6"><table class="table table-user-information"><tbody><tr><td>Distance</td><td>' . $row['Distance'] . ' miles</td></tr><tr><td>Time</td><td>' . gmdate("H:i:s", $row['Time']) . '</td></tr><tr><td>Pace</td><td>' . gmdate("i:s", $row['Time']/$row['Distance']) . '</td></tr></tbody></table></div></div></div></div>';
+        	$html = $html.'<div class="panel panel-primary" id="'.$row['RunID'].'"><div class="panel-heading"><h3 class="panel-title"><strong>'.$row['Username']."'s run on " . $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year . '</strong></h3></div><div class="panel-body"><div class="row"><div class="col-md-6 col-lg-6"><table class="table table-user-information"><tbody><tr><td>Distance</td><td>' . $row['Distance'] . ' miles</td></tr><tr><td>Time</td><td>' . gmdate("H:i:s", $row['Time']) . '</td></tr><tr><td>Pace</td><td>' . gmdate("i:s", $row['Time']/$row['Distance']) . '</td></tr></tbody></table></div></div></div></div>';
         	echo $html;
 
         }
