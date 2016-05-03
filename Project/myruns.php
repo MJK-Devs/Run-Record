@@ -14,8 +14,7 @@ include_once "stats/runs.php";
 	<?php include("includes/navbar.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10">
-				<h3 align="center"><b>My Runs</b></h3>
+			<div class="col-md-12">
 				<?php displayRuns(getUserID($_COOKIE['User'])); ?>
 			</div>
 		</div>
@@ -36,7 +35,7 @@ function displayRuns($UserID) {
 	if(isset($_GET["RunID"])){
 		$IDtoEdit = $_GET["RunID"];
 	}
-	
+
 	echo '<div class="col-xs-9 col-sm-9 col-md-7 col-lg-7 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3  toppad" >';
 	// print each run as a panel
 	foreach($runs as $run) {
