@@ -6,6 +6,16 @@
     z-index: 1000;
 }
 
+textarea {
+    resize: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
 input[type="radio"]{
   margin: 0 5px 0 10px;
 }
