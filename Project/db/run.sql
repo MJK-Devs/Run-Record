@@ -82,18 +82,18 @@ CREATE TABLE IF NOT EXISTS `rrruns` (
 --
 
 INSERT INTO `rrruns` (`RunID`, `Date`, `Distance`, `Time`, `TimeOfDay`, `Difficulty`, `Terrain`, `Conditions`, `Temperature`, `Comments`) VALUES
-    (1, "2016-04-29", 2.00, 948, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (2, "2016-04-30", 3.00, 1240, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (3, "2016-05-01", 3.25, 1663, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (4, "2016-05-03", 2.25, 921, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (5, "2016-04-28", 4.00, 2135, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (6, "2016-04-30", 5.00, 2314, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (7, "2016-05-02", 6.15, 2414, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (8, "2016-05-03", 1.00, 358, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (9, "2016-04-28", 3.50, 1470, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (10, "2016-04-30", 2.50, 1304, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (11, "2016-05-01", 3.75, 1932, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
-    (12, "2016-05-03", 4.00, 2013, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring.");
+    (1, "2016-04-29", 2.00, 948, "Morning", "Difficult", "Road", "Sunny", "Warm", "Very tiring."),
+    (2, "2016-04-30", 3.00, 1240, "Afternoon", "Somewhat difficult", "Road", "Normal", "Pleasant", "A good run."),
+    (3, "2016-05-01", 3.25, 1663, "Morning", "Somewhat difficult", "Road", "Sunny", "Pleasant", "Stopped a little early."),
+    (4, "2016-05-03", 2.25, 921, "Evening", "Normal", "Sidewalk", "Normal", "Chilly", "Should have worn more layers."),
+    (5, "2016-04-28", 4.00, 2135, "Night", "Normal", "Grass", "Sunny", "Warm", "Personal best."),
+    (6, "2016-04-30", 5.00, 2314, "Night", "Somewhat difficult", "Grass", "Sunny", "Warm", "Good run."),
+    (7, "2016-05-02", 6.15, 2414, "Night", "Hard", "Treadmill", "Sunny", "Warm", "Very tiring."),
+    (8, "2016-05-03", 1.00, 358, "Evening", "Normal", "Track (outdoor)", "Normal", "Pleasant", "Fanatasic run."),
+    (9, "2016-04-28", 3.50, 1470, "Morning", "Normal", "Track (outdoor)", "Normal", "Pleasant", "Remember to bring more water."),
+    (10, "2016-04-30", 2.50, 1304, "Afternoon", "Somewhat difficult", "Track (indoor)", "Windy", "Pleasant", "Too windy today."),
+    (11, "2016-05-01", 3.75, 1932, "Afternoon", "Difficult", "Treadmill", "Normal", "Chilly", "Half hour cooldown."),
+    (12, "2016-05-03", 4.00, 2013, "Morning", "Hard", "Track (outdoor)", "Windy", "Chilly", "Very tiring.");
 
 -- --------------------------------------------------------
 
