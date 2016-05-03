@@ -107,10 +107,15 @@ class Run {
 									</tr>
 								  </tbody>
 								</table>
-							  </div>
-							  <div class="col-md-12 col-lg-12">
-								<div class="comments-div">' . $this->Comments . '</div>
-							  </div>
+							  </div>';
+
+							  if ($this->Comments != "") {
+								  $panel .= '<div class="col-md-12 col-lg-12">
+									<div class="comments-div">' . $this->Comments . '</div>
+								  </div>';
+							  }
+
+							  $panel .= '
 							</div>
 						  </div>
 						  <div class="panel-footer">&nbsp;
