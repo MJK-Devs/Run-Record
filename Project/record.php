@@ -49,7 +49,7 @@
 		    <div class="wrapper" align="center">
 				<td>Comments</td>
 			</div>
-			<textarea style="width:100%" style="overflow:hidden" rows="3" name="comments"></textarea>
+			<textarea class="no-resize" style="width:100%" style="overflow:hidden" rows="3" name="comments"></textarea>
 		  </div>
 	  </div>
 

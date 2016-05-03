@@ -6,6 +6,9 @@
     z-index: 1000;
 }
 
+.no-resize {
+    resize: none;
+}
 .img-circle {
     border: 5px solid #ddd;
 }
