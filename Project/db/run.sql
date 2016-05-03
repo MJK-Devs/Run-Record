@@ -81,19 +81,19 @@ CREATE TABLE IF NOT EXISTS `rrruns` (
 -- Dumping data for table `rrruns`
 --
 
-INSERT INTO `rrruns` (`RunID`, `Date`, `Distance`, `Time`) VALUES
-    (1, "2016-04-29", 2.00, 948),
-    (2, "2016-04-30", 3.00, 1240),
-    (3, "2016-05-01", 3.25, 1663),
-    (4, "2016-05-03", 2.25, 921),
-    (5, "2016-04-28", 4.00, 2135),
-    (6, "2016-04-30", 5.00, 2314),
-    (7, "2016-05-02", 6.15, 2414),
-    (8, "2016-05-03", 1.00, 358),
-    (9, "2016-04-28", 3.50, 1470),
-    (10, "2016-04-30", 2.50, 1304),
-    (11, "2016-05-01", 3.75, 1932),
-    (12, "2016-05-03", 4.00, 2013);
+INSERT INTO `rrruns` (`RunID`, `Date`, `Distance`, `Time`, `TimeOfDay`, `Difficulty`, `Terrain`, `Conditions`, `Temperature`, `Comments`) VALUES
+    (1, "2016-04-29", 2.00, 948, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (2, "2016-04-30", 3.00, 1240, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (3, "2016-05-01", 3.25, 1663, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (4, "2016-05-03", 2.25, 921, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (5, "2016-04-28", 4.00, 2135, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (6, "2016-04-30", 5.00, 2314, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (7, "2016-05-02", 6.15, 2414, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (8, "2016-05-03", 1.00, 358, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (9, "2016-04-28", 3.50, 1470, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (10, "2016-04-30", 2.50, 1304, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (11, "2016-05-01", 3.75, 1932, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring."),
+    (12, "2016-05-03", 4.00, 2013, "Morning", "Difficult", "Track (indoor)", "Sunny", "Warm", "Very tiring.");
 
 -- --------------------------------------------------------
 
@@ -117,9 +117,17 @@ CREATE TABLE IF NOT EXISTS `rruserruns` (
 
 INSERT INTO `rruserruns` (`UserID`, `RunID`) VALUES
     (1, 1),
+    (1, 2),
     (1, 3),
     (1, 4),
-    (2, 2);
+    (2, 5),
+    (2, 6),
+    (2, 7),
+    (2, 8),
+    (3, 9),
+    (3, 10),
+    (3, 11),
+    (3, 12);
 
 -- --------------------------------------------------------
 
