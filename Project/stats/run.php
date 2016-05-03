@@ -17,8 +17,8 @@ class Run {
 	public $Calories = "";
 	public $Pace = "";
 	public $TimeOfDay = "";
-	
-	
+
+
 	function __construct($runID, $date, $distance, $time, $calories, $terrain, $difficulty, $conditions, $temperature, $timeOfDay, $comments) {
 		$this->RunID = $runID;
 		$this->Distance = $distance;
@@ -44,7 +44,7 @@ class Run {
 	public function getComments() {return $this->Comments;}
 	public function getCalories() {return $this->Calories;}
 	public function getPace() {return $this->Pace;}
-	public function printRunPanel() {		
+	public function printRunPanel() {
 			$dayOfWeek = date("l",strtotime($this->_date));
 			$month = date("F",strtotime($this->_date));
 			$day = date("j",strtotime($this->_date));
@@ -109,7 +109,7 @@ class Run {
 								</table>
 							  </div>
 							  <div class="col-md-12 col-lg-12">
-								<textarea readonly style="width:100%">' . $this->Comments . '</textarea>
+								<div class="comments-div">' . $this->Comments . '</div>
 							  </div>
 							</div>
 						  </div>
@@ -126,7 +126,7 @@ class Run {
 		$formSize = "col-md-11";
 		date_default_timezone_set('America/New_York');
 		$todaysDate = date('Y-m-d', strtotime("today"));
-		
+
 		echo'<div class="panel panel-primary" id="' . $this->RunID .'">
 			   <div class="panel-heading">
 				 <div class="pull-left">
@@ -158,7 +158,7 @@ class Run {
 							<td>Time</td>
 							<td><div class="form-inline">';
 								displayTime();
-		echo	
+		echo
 							'</div></td>
 						  </tr>';
 		echo			  '<tr>
@@ -223,6 +223,6 @@ class Run {
 				</div>
 				</form>
 			  </div>';
-		
+
 	}
 }

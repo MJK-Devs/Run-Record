@@ -6,14 +6,9 @@
     z-index: 1000;
 }
 
-textarea {
-    resize: none;
-    overflow: auto;
-    outline: none;
-
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+.comments-div {
+    border: 1px solid #ddd;
+    width:100%
 }
 
 input[type="radio"]{
