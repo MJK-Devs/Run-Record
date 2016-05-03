@@ -51,9 +51,9 @@ CREATE TABLE IF NOT EXISTS `rruser` (
 --
 
 INSERT INTO `rruser` (`UserID`, `Username`, `Password`, `Email`, `FirstName`, `LastName`, `DOB`, `Gender`, `Height`, `Weight`, `State`, `City`, `ZipCode`, `AboutMe`) VALUES
-    (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "M", 66, 140, "OH", "Kent", 44134, "This is me."),
-    (2, "knovak19", "web3", "knovak19@kent.edu", "Kevin", "Novak", "1993-11-29", "M", 66, 140, "OH", "Kent", 44134, "This is me.");
-
+    (1, "knovak18", "web2", "knovak18@kent.edu", "Kevin", "Novak", "1993-11-28", "m", 66, 140, "Ohio", "Kent", 44243, "This is me."),
+    (2, "mboehlke", "pass1234", "mboehlke@kent.edu", "Matt", "Boehlke", "1995-05-06", "m", 69, 165, "Ohio", "Kent", 44243, "I wanted to write something about me!"),
+    (3, "jason", "password", "jryan@kent.edu", "Jason", "Ryan", "1995-01-02", "m", 74, 175, "Ohio", "Madison", 44057, "This is me.");
 -- --------------------------------------------------------
 
 -- --------------------------------------------------------
