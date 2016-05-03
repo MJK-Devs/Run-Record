@@ -2,6 +2,8 @@
 
 <html>
 <head>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<title>Record Run - Record</title>
 	<?php include("includes/header.php"); ?>
 </head>
@@ -37,7 +39,7 @@
 			  </tbody>
 			</table>
 		  </div>
-		  <div class="col-md-6 col-lg-6">
+		  <div class="col-md-6 col-lg-6 table-responsive">
 		    <table class="table table-user-information">
 			  <tbody>
 			    <?php printColumnTwo(); ?>
