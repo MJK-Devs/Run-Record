@@ -24,9 +24,6 @@ function displayTemperature() {
 	require 'runOptions.php';
 	echo '<select name="temperature" class="form-control">';
 	foreach($temperature as $t){
-		if(strcmp("Pleasant", $t) === 0) {
-			echo '<option selected="selected">' . $t . '</option>';
-		}
 		echo '<option value="' . $t . '">' . $t . '</option>';
 	}
 	echo '</select>';

@@ -15,10 +15,10 @@ $difficulty = array(
 );
 
 $temperature = array(
-	"Very hot",
-	"Hot",
-	"Warm",
 	"Pleasant",
+	"Warm",
+	"Hot",
+	"Very hot",
 	"Chilly",
 	"Cold",
 	"Very cold"
