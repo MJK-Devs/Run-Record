@@ -25,7 +25,8 @@
 	  }
 ?>
 <div id="record-a-run">
-  <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-md-offset-2 col-lg-offset-1.5 col-sm-offset-0 col-xs-offset-0 toppad" >
+	<div class="col-md-2"></div>
+  <div class="col-md-8" >
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
 		<h3 class="panel-title">Record a Run</h3>
@@ -53,7 +54,7 @@
 			<textarea style="width:100%" style="overflow:hidden" rows="3" name="comments"></textarea>
 		  </div>
 	  </div>
-	    
+
 	  <div class="panel-footer">
 		<div class="wrapper" align="center">
 			<button type="submit" value="submit" class="btn btn-primary" >Save this Run</button>
@@ -61,8 +62,9 @@
 		</form>
 	  </div>
 	</div>
-  </div>
 
+</div>
+<div class="col-md-2"></div>
 </div>
 
 
@@ -80,7 +82,7 @@ function printColumnOne() {
 	$formSize = "col-md-11";
 	date_default_timezone_set('America/New_York');
 	$todaysDate = date('Y-m-d', strtotime("today"));
-	
+
 	echo '<tr>
 			<td>Date</td>
 			<td>
@@ -101,7 +103,7 @@ function printColumnOne() {
 			<td>Time</td>
 			<td><div class="form-inline">';
 				displayTime();
-	echo		
+	echo
 			'</div></td>
 		  </tr>';
 	echo '<tr>
