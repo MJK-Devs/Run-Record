@@ -15,7 +15,8 @@
 
 .comments-div {
     border: 1px solid #ddd;
-    width:100%
+    width:100%;
+    padding: 10px;
 }
 
 input[type="radio"]{
