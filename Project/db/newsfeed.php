@@ -6,7 +6,7 @@
         $user = "knovak18";
         $pass = "web2";
 
-        $query = "SELECT rrruns.RunID,`Distance`,`Time`,`AddDate`,`Date`,rruser.`UserID`,rruser.Username,`Difficulty`, `Terrain`, `Conditions`, `Temperature`, `Comments`, `TimeOfDay` FROM `rrruns` LEFT JOIN `rruserruns` on rrruns.RunID=rruserruns.RunID LEFT JOIN rruser on rruser.UserID=rruserruns.UserID ORDER BY `AddDate` DESC LIMIT 1";
+        $query = "SELECT rrruns.RunID,`Distance`,`Time`,`AddDate`,`Date`,rruser.`UserID`,rruser.Username,`Difficulty`, `Terrain`, `Conditions`, `Temperature`, `Comments`, `TimeOfDay` FROM `rrruns` LEFT JOIN `rruserruns` on rrruns.RunID=rruserruns.RunID LEFT JOIN rruser on rruser.UserID=rruserruns.UserID ORDER BY `Date` DESC, `AddDate` DESC LIMIT 1";
 
         $pdo = new PDO($connString,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
