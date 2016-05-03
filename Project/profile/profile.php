@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <head>
 	<title>Record Run - Profile</title>
-	<?php 
+	<?php
 		include_once("../includes/header2.php");
 		include_once("../db/user.php");
 		include_once("../db/db.php");

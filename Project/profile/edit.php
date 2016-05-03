@@ -1,13 +1,13 @@
-<head> <title>Record Run - Edit Profile</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link href="style.css" type="text/css" rel="stylesheet"></link>
+<head>
+	<title>Record Run - Edit Profile</title>
+	<?php include("../includes/header2.php"); ?>
 </head>
 
 <body>
 	<?php
 	include_once("../db/user.php");
 	include_once("../db/db.php");
-	include_once("navbar.php");
+	include_once("../includes/navbar3.php");
 
 	$user = new User(getUserID($_COOKIE['User']));
 
