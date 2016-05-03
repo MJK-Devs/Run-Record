@@ -2,11 +2,8 @@
 <html>
 <head>
 	<title>Record Run - Create</title>
-			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<?php include("includes/header.php"); ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.en_US.js" type="text/javascript"></script>
 	<script src="https://cdn.jsdelivr.net/bootstrap.formhelpers/1.8.2/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
 	<?php
@@ -129,7 +126,7 @@
 							</div>
 							<div class="container">
 							<div class="row">
-								<div class="col-md-4 col-md-offset-4 no-padding">
+								<div class="col-md-4 col-md-offset-4">
 									<br>
 									<input type="submit" name="submit" value="Create Account" class="btn btn-primary btn-block login-submit">
 								</div>
