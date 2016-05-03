@@ -127,12 +127,13 @@
 									<br>
 								</div>
 							</div>
+							<div class="container">
 							<div class="row">
 								<div class="col-md-4 col-md-offset-4 no-padding">
-
 									<br>
 									<input type="submit" name="submit" value="Create Account" class="btn btn-primary btn-block login-submit">
 								</div>
+							</div>
 							</div>
 						</div>
 					</form>
