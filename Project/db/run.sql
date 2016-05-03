@@ -67,6 +67,12 @@ CREATE TABLE IF NOT EXISTS `rrruns` (
     `Date` date NOT NULL,
     `Distance` DECIMAL(6,2) DEFAULT '0',
     `Time` int(11) DEFAULT '0',
+    `TimeOfDay` text,
+    `Difficulty` text,
+    `Terrain` text,
+    `Conditions` text,
+    `Temperature` text,
+    `Comments` text,
     `AddDate` timestamp DEFAULT current_timestamp,
     PRIMARY KEY (`RunID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
@@ -76,10 +82,18 @@ CREATE TABLE IF NOT EXISTS `rrruns` (
 --
 
 INSERT INTO `rrruns` (`RunID`, `Date`, `Distance`, `Time`) VALUES
-    (1, "2016-04-03", 2, 720),
-    (2, "2016-03-28", 3, 923),
-    (3, "2016-03-23", 3, 937),
-    (4, "2016-03-22", 3, 933);
+    (1, "2016-04-29", 2.00, 948),
+    (2, "2016-04-30", 3.00, 1240),
+    (3, "2016-05-01", 3.25, 1663),
+    (4, "2016-05-03", 2.25, 921),
+    (5, "2016-04-28", 4.00, 2135),
+    (6, "2016-04-30", 5.00, 2314),
+    (7, "2016-05-02", 6.15, 2414),
+    (8, "2016-05-03", 1.00, 358),
+    (9, "2016-04-28", 3.50, 1470),
+    (10, "2016-04-30", 2.50, 1304),
+    (11, "2016-05-01", 3.75, 1932),
+    (12, "2016-05-03", 4.00, 2013);
 
 -- --------------------------------------------------------
 
