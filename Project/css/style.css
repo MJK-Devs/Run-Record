@@ -6,6 +6,10 @@
     z-index: 1000;
 }
 
+.img-circle {
+    border: 5px solid #ddd;
+}
+
 .comments-div {
     border: 1px solid #ddd;
     width:100%
