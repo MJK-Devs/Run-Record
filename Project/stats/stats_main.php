@@ -19,7 +19,7 @@
 </head>
 
 <body>
-	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 toppad" >
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 toppad" >
 	   <div class="panel panel-primary">
 		  <div class="panel-heading">
 			<h3 class="panel-title">Totals</h3>
@@ -72,7 +72,7 @@
 		</div>
 	</div>
 
-	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 toppad" >
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 toppad" >
 	   <div class="panel panel-primary">
 		  <div class="panel-heading">
 			<h3 class="panel-title">Personal Info</h3>
@@ -299,11 +299,11 @@ function convertDate($date){
 	var twoData  = parseInt("<?php echo $dataDates["2"]; ?>", 10);
 	var oneData  = parseInt("<?php echo $dataDates["1"]; ?>", 10);
 	var todayData  = parseInt("<?php echo $dataDates["0"]; ?>", 10);
-	
+
     var chart = new CanvasJS.Chart("chartContainer",
     {
       title:{
-        text: "",   
+        text: "",
       },
       axisY: {
         title: runDataType,
@@ -314,24 +314,24 @@ function convertDate($date){
       },
       theme: "theme2",
       data: [
-      {       
-        type: "column", 
+      {
+        type: "column",
         showInLegend: false,
         legendMarkerColor: "grey",
         legendText: "",
-        dataPoints: [     
+        dataPoints: [
         {y: tenData, label: ten},
         {y: nineData,  label: nine },
         {y: eightData,  label: eight},
         {y: sevenData,  label: seven},
         {y: sixData,  label: six},
         {y: fiveData, label: five},
-        {y: fourData,  label: four},       
-        {y: threeData,  label: three},       
-        {y: twoData,  label: two},       
-        {y: oneData,  label: one},          
+        {y: fourData,  label: four},
+        {y: threeData,  label: three},
+        {y: twoData,  label: two},
+        {y: oneData,  label: one},
         ]
-      },  
+      },
       ]
     });
 
@@ -339,5 +339,3 @@ function convertDate($date){
 
   }
 </script>
-
-
