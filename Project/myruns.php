@@ -14,9 +14,11 @@ include_once "stats/runs.php";
 	<?php include("includes/navbar.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-3"><!--Div for left sidebar content--> </div>
+			<div class="col-md-6">
 				<?php displayRuns(getUserID($_COOKIE['User'])); ?>
 			</div>
+			<div class="col-md-3"> <!--Div for right sidebar content--></div>
 		</div>
 	</div>
 
@@ -36,11 +38,10 @@ function displayRuns($UserID) {
 		$IDtoEdit = $_GET["RunID"];
 	}
 
-	echo '<div class="col-xs-9 col-sm-9 col-md-7 col-lg-7 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3  toppad" >';
 	// print each run as a panel
 	foreach($runs as $run) {
 		echo $run->printRunPanel();
 	}
-	echo '</div>';
+	
 }
 ?>
