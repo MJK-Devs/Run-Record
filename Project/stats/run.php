@@ -65,7 +65,7 @@ class Run {
 						  <div class="panel-body">
 							<div class="row">
 							  <div class="col-md-6 col-lg-6">
-								<table class="table table-user-information">
+								<table class="table table-user-information table-margin">
 								  <tbody>
 								    <tr>
 									  <td>Distance</td>
@@ -87,7 +87,7 @@ class Run {
 								</table>
 							  </div>
 							  <div class="col-md-6 col-lg-6">
-								<table class="table table-user-information">
+								<table class="table table-user-information table-margin">
 								  <tbody>
 								    <tr>
 									  <td>Difficulty</td>
@@ -141,7 +141,7 @@ class Run {
 			   <div class="panel-body">
 				<form method="post" action="db/createRun.php">
 				  <div class="col-md-6 col-lg-6">
-					<table class="table table-user-information">
+					<table class="table table-user-information table-margin">
 					  <tbody>
 						<tr>
 							<td>Date</td>
@@ -178,7 +178,7 @@ class Run {
 					</table>
 				  </div>
 				  <div class="col-md-6 col-lg-6">
-					<table class="table table-user-information">
+					<table class="table table-user-information table-margin">
 					  <tbody>
 		echo 			<tr>
 							<td>Difficulty</td>
