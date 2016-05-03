@@ -211,7 +211,51 @@ class UserRuns {
 				 WHERE RunID=" . $RunID . "
 				 AND  UserID=" . $this->UserID . "";
 	}
+	
+	function updateRun($runid, $date, $distance, $time, $terrain = "", $difficulty ="", $conditions="", $temperature="", $timeOfDay = "", $comments="") {
+		//update record in rruns
+		try {
+			// connect to database
+			$connString = "mysql:host=localhost;dbname=knovak18";
+			$user = "knovak18";
+			$pass = "web2";
 
+			$pdo = new PDO($connString,$user,$pass);
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			
+			$sql = "UPDATE rruserruns
+					SET	Date=:Date, Distance=:Distance, Time=:Time, TimeOfDay=:TimeOfDay,
+						Difficulty=:Difficulty, Terrain=:Terrain, Conditions=:Conditions,
+						Temperature=:Temperature, Comments=:Comments
+					WHERE RunID=" . $runid . "";
+					
+			$statement = $pdo->prepare($sql);
+			$statement->execute(array(
+				"Date" => $date,
+				"Distance" => $distance,
+				"Time" => $time,
+				"TimeOfDay" => $timeOfDay,
+				"Difficulty" => $difficulty,
+				"Terrain" => $terrain,
+				"Conditions" => $conditions,
+				"Temperature" => $temperature,
+				"Comments" => $comments
+			));
+		}
+		catch (PDOException $e) {
+			die( $e->getMessage() );
+			return null;
+		}
+	}
+
+	function getRun($ID){
+		foreach($this->runs as $run){
+			if ($run->getRunID() == $ID) {
+				return $run;			}
+		}
+	}
+	
+	
 	function getTotalDistance() { return number_format($this->TotalDistance, 1);}
 	function getTotalNumberOfRuns() { return $this->TotalNumberOfRuns;}
 	function getTotalTime() {return gmdate("H:i:s", $this->TotalTime);}

@@ -288,17 +288,18 @@ function convertDate($date){
 	var today = "<?php echo $dates["0"]; ?>";
 
 	//data
-	var tenData = parseInt("<?php echo $dataDates["10"]; ?>", 10); // data from ten days ago
-	var nineData  = parseInt("<?php echo $dataDates["9"]; ?>", 10); // etc.
-	var eightData  = parseInt("<?php echo $dataDates["8"]; ?>", 10);
-	var sevenData  = parseInt("<?php echo $dataDates["7"]; ?>", 10);
-	var sixData  = parseInt("<?php echo $dataDates["6"]; ?>", 10);
-	var fiveData  = parseInt("<?php echo $dataDates["5"]; ?>", 10);
-	var fourData  = parseInt("<?php echo $dataDates["4"]; ?>", 10);
-	var threeData  = parseInt("<?php echo $dataDates["3"]; ?>", 10);
-	var twoData  = parseInt("<?php echo $dataDates["2"]; ?>", 10);
-	var oneData  = parseInt("<?php echo $dataDates["1"]; ?>", 10);
-	var todayData  = parseInt("<?php echo $dataDates["0"]; ?>", 10);
+	//data
+	var tenData = parseFloat("<?php echo $dataDates["10"]; ?>", 10); // data from ten days ago
+	var nineData  = parseFloat("<?php echo $dataDates["9"]; ?>", 10); // etc.
+	var eightData  = parseFloat("<?php echo $dataDates["8"]; ?>", 10);
+	var sevenData  = parseFloat("<?php echo $dataDates["7"]; ?>", 10);
+	var sixData  = parseFloat("<?php echo $dataDates["6"]; ?>", 10);
+	var fiveData  = parseFloat("<?php echo $dataDates["5"]; ?>", 10);
+	var fourData  = parseFloat("<?php echo $dataDates["4"]; ?>", 10);
+	var threeData  = parseFloat("<?php echo $dataDates["3"]; ?>", 10);
+	var twoData  = parseFloat("<?php echo $dataDates["2"]; ?>", 10);
+	var oneData  = parseFloat("<?php echo $dataDates["1"]; ?>", 10);
+	var todayData  = parseFloat("<?php echo $dataDates["0"]; ?>", 10);
 
     var chart = new CanvasJS.Chart("chartContainer",
     {

@@ -44,6 +44,8 @@ class Run {
 	public function getComments() {return $this->Comments;}
 	public function getCalories() {return $this->Calories;}
 	public function getPace() {return $this->Pace;}
+	public function getTimeODay() {return $this->TimeOfDay;}
+	public function getTemperature() {return $this->Temperature;}
 	public function printRunPanel() {
 			$dayOfWeek = date("l",strtotime($this->_date));
 			$month = date("F",strtotime($this->_date));
