@@ -72,7 +72,7 @@ function userInfoTable() {
 		  </tr>';
   	echo '<tr>
 		    <td>Height</td>
-		    <td>' . $user->getHeight() . '"' . '</td>
+		    <td>' . $user->getHeight() . '</td>
 			</tr>';
 	echo '<tr>
 			<td>Weight</td>
