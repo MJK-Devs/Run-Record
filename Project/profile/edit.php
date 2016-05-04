@@ -76,7 +76,7 @@ function userInfoTable_Edit() {
 		    <td>About me</td>
 		    <td>
 				<div class="col-xs-7">
-					<textarea class="form-control" rows="3" name="aboutMe">' . $user->getAboutMe() . '</textarea>
+					<textarea class="form-control no-resize" rows="3" name="aboutMe">' . $user->getAboutMe() . '</textarea>
 				</div>
 			</td>
 		  </tr>';
