@@ -91,19 +91,19 @@ class UserRuns {
 			if($this->TotalDistance > 0) {
 				$this->AverageDistance = number_format($this->TotalDistance / $this->TotalNumberOfRuns, 1);
 			} else {
-				$this->AverageDistance = 0;
+				$this->AverageDistance = 0.00;
 			}
 
 			if($this->TotalNumberOfRuns > 0) {
 				$this->AverageTime = gmdate("H:i:s", $this->TotalTime / $this->TotalNumberOfRuns);
 			} else {
-				$this->AverageTime = 0;
+				$this->AverageTime = "00:00:00";
 			}
 
 			if($this->TotalDistance > 0) {
 				$this->AveragePace = gmdate("i:s", $this->TotalTime / $this->TotalDistance);
 			} else {
-				$this->AveragePace = 0;
+				$this->AveragePace = "00:00";
 			}
 
 			if($this->TotalNumberOfRuns > 0) {
