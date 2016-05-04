@@ -207,7 +207,7 @@ function convertInchesToStringHeight($in){
 		$in = $in - 12;
 		$feet++;
 	}
-	$stringHeight = $feet . '\'' . $in . '"';
+	$stringHeight = $feet . '′' . $in . '″';
 	return $stringHeight;
 }
 

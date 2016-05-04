@@ -128,7 +128,7 @@ function userInfoTable_Edit() {
 							include("../includes/states.php");
 							foreach($states as $s){
 								if(strcmp($states,$user->getState()) === 0) {
-									echo '<option selected="selected">' . $user->getState() . '</option>';
+									echo '<option selected="selected">' . $s . '</option>';
 								}
 								else {
 									echo '<option value="' . $s . '">' . $s . '</option>';
