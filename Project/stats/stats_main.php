@@ -165,7 +165,7 @@ function userPersonalInfo() {
 	$user = new User(getUserID($_COOKIE['User']));
 	echo '<tr>
    		    <td><b>Height</b></td>
-			<td><font color="blue">' . $user->getHeight() . '"</font></td>
+			<td><font color="blue">' . $user->getHeight() . '</font></td>
 		  </tr>';
 	echo '<tr>
 			<td><b>Weight</b></td>
