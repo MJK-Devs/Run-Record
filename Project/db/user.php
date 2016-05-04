@@ -219,6 +219,7 @@ function convertStringHeightToInches($stringHeight){
 			return $inches;
 		}
 	}
+	return 0;
 }
 
 
