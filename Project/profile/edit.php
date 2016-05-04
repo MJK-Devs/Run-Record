@@ -91,11 +91,11 @@ function userInfoTable_Edit() {
 					<select name="height" class="form-control">';
 						include("../includes/height.php");
 						foreach($height as $h){
-							if(strcmp($user->getHeight(),$h) === 0 ) {
-								echo '<option selected="selected">' . $h . '"</option>';
+							if(strcmp($user->getHeight(), $h) === 0) {
+								echo '<option selected="selected" value="' . $h . '">' . $h . '</option>';
 							}
 							else {
-								echo '<option value="' . $h . '">' . $h . '"</option>';
+								echo '<option value="' . $h . '">' . $h . '</option>';
 							}
 						}
 				echo '</select>
