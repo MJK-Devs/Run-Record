@@ -87,10 +87,29 @@ class UserRuns {
 
 
 			// calculate averages
-			$this->AverageDistance = number_format($this->TotalDistance / $this->TotalNumberOfRuns, 1);
-			$this->AverageTime = gmdate("H:i:s", $this->TotalTime / $this->TotalNumberOfRuns);
-			$this->AveragePace = gmdate("i:s", $this->TotalTime / $this->TotalDistance);
-			$this->AverageCaloriesBurned = number_format($this->TotalCaloriesBurned / $this->TotalNumberOfRuns, 1);
+			if($this->TotalDistance > 0) {
+				$this->AverageDistance = number_format($this->TotalDistance / $this->TotalNumberOfRuns, 1);
+			} else {
+				$this->AverageDistance = 0;
+			}
+
+			if($this->TotalNumberOfRuns > 0) {
+				$this->AverageTime = gmdate("H:i:s", $this->TotalTime / $this->TotalNumberOfRuns);
+			} else {
+				$this->AverageTime = 0;
+			}
+
+			if($this->TotalDistance > 0) {
+				$this->AveragePace = gmdate("i:s", $this->TotalTime / $this->TotalDistance);
+			} else {
+				$this->AveragePace = 0;
+			}
+
+			if($this->TotalNumberOfRuns > 0) {
+				$this->AverageCaloriesBurned = number_format($this->TotalCaloriesBurned / $this->TotalNumberOfRuns, 1);
+			} else {
+				$this->AverageCaloriesBurned = 0;
+			}
 		}
 		catch (PDOException $e) {
 			die( $e->getMessage() );
@@ -213,7 +232,7 @@ class UserRuns {
 				 WHERE RunID=" . $RunID . "
 				 AND  UserID=" . $this->UserID . "";
 	}
-	
+
 	function updateRun($runid, $date, $distance, $time, $terrain = "", $difficulty ="", $conditions="", $temperature="", $timeOfDay = "", $comments="") {
 		//update record in rruns
 		try {
@@ -224,13 +243,13 @@ class UserRuns {
 
 			$pdo = new PDO($connString,$user,$pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			
+
 			$sql = "UPDATE rrruns
 					SET	Date=:Date, Distance=:Distance, Time=:Time, TimeOfDay=:TimeOfDay,
 						Difficulty=:Difficulty, Terrain=:Terrain, Conditions=:Conditions,
 						Temperature=:Temperature, Comments=:Comments
 					WHERE RunID=:ID";
-					
+
 			$statement = $pdo->prepare($sql);
 			$statement->execute(array(
 				"Date" => $date,
@@ -257,8 +276,8 @@ class UserRuns {
 				return $run;			}
 		}
 	}
-	
-	
+
+
 	function getTotalDistance() { return number_format($this->TotalDistance, 1);}
 	function getTotalNumberOfRuns() { return $this->TotalNumberOfRuns;}
 	function getTotalTime() {return gmdate("H:i:s", $this->TotalTime);}

@@ -33,6 +33,7 @@ include_once "stats/runs.php";
 function displayRuns($UserID) {
 	$r = new UserRuns(getUserID($_COOKIE['User']));
 	$runs = $r->getRuns();
+
 	$IDtoEdit = "";
 	if(isset($_GET["RunID"])){
 		$IDtoEdit = $_GET["RunID"];
@@ -42,6 +43,6 @@ function displayRuns($UserID) {
 	foreach($runs as $run) {
 		echo $run->printRunPanel();
 	}
-	
+
 }
 ?>
