@@ -1,3 +1,26 @@
+<?php
+	function printActivePage($index) {
+		if($index === 1) {
+			if(strpos($_SERVER['PHP_SELF'],"record.php") !== FALSE){
+				echo 'class="active"';
+				return;
+			}
+		}
+		else if($index === 2) {
+			if(strpos($_SERVER['PHP_SELF'],"myruns.php") !== FALSE){
+				echo 'class="active"';
+				return;
+			}
+		}
+		else if($index === 3) {
+			if(strpos($_SERVER['PHP_SELF'],"stats_main.php") !== FALSE){
+				echo 'class="active"';
+				return;
+			}
+		}
+	}
+?>
+
 <div id="navbar">
 	<nav role="navigation" class="navbar navbar-inverse navbar-fixed">
 		<div class="navbar-header">
@@ -11,9 +34,9 @@
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="record.php">Record a Run</a></li>
-				<li><a href="myruns.php">My Runs</a></li>
-				<li><a href="stats/stats_main.php">Statistics</a></li>
+				<li <?php printActivePage(1); ?> ><a href="record.php">Record a Run</a></li>
+				<li <?php printActivePage(2); ?> ><a href="myruns.php">My Runs</a></li>
+				<li <?php printActivePage(3); ?> ><a href="stats/stats_main.php">Statistics</a></li>
 			</ul>
 			<?php
 			print('<ul class="nav navbar-nav navbar-right">');
@@ -42,3 +65,4 @@
         </div>
     </div>
 </nav>
+
