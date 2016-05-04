@@ -46,6 +46,7 @@ class UserRuns {
 			$this->UserID = getUserID($_COOKIE['User']);
 			$user = new User($this->UserID);
 			$t = array();
+			$this->TotalNumberOfRuns = 0;
 
 			foreach($r as $run) {
 				// grab data from database for this run
