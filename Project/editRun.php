@@ -21,7 +21,6 @@ session_start();
 	  }
 	  $runs = new UserRuns(getUserID($_COOKIE['User']));
 	  $run = $runs->getRun($_GET["ID"]);
-	  print_r($run);
 ?>
 
 <?php
@@ -61,10 +60,11 @@ session_start();
 		    <div class="wrapper" align="center">
 				<td>Comments</td>
 			</div>
-			<textarea class="no-resize" style="width:100%" rows="3" name="comments"><?php $run->getComments(); ?></textarea>
+			<textarea style="width:100%" rows="3" name="comments">
+			<?php $run->getComments(); ?></textarea>
 		  </div>
 	  </div>
-
+	    
 	  <div class="panel-footer">
 		<div class="wrapper" align="center">
 			<button type="submit" value="submit" class="btn btn-primary" >Update</button>
@@ -97,7 +97,7 @@ function printColumnOne() {
 	$hours = gmdate("H", $run->getTime());
 	$minutes = gmdate("i", $run->getTime());
 	$seconds = gmdate("s", $run->getTime());
-
+	
 	echo '<tr>
 			<td>Date</td>
 			<td>
@@ -118,7 +118,7 @@ function printColumnOne() {
 			<td>Time</td>
 			<td><div class="form-inline">';
 				displayTime((int)$hours, (int)$minutes, (int)$seconds);
-	echo
+	echo		
 			'</div></td>
 		  </tr>';
 	echo '<tr>
@@ -135,7 +135,7 @@ function printColumnTwo() {
 	$formSize = "col-md-11";
 	$runs = new UserRuns(getUserID($_COOKIE['User']));
 	$run = $runs->getRun($_GET["ID"]);
-
+	
 	echo '<tr>
 			<td>Difficulty</td>
 			<td>
