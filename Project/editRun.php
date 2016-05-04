@@ -125,8 +125,8 @@ function printColumnOne() {
 			<td>Time Of Day</td>
 			<td>
 				<div class="' . $formSize . '">';
-					//displayTimeOfDay($run->getTimeODay());
-	echo        $hours . ' ' . $minutes . ' ' . $seconds . '</div>
+					displayTimeOfDay($run->getTimeODay());
+	echo        '</div>
 			</td>
 		  </tr>';
 }

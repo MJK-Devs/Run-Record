@@ -1,5 +1,8 @@
 <?php
-function displayConditions($default = "Normal") {
+function displayConditions($default = null) {
+	if ( null === $default ) {
+		$default = "Normal";
+	}
 	set_include_path(dirname(__FILE__)."/");
 	require 'runOptions.php';
 	echo '<select name="conditions" class="form-control">';
@@ -13,7 +16,10 @@ function displayConditions($default = "Normal") {
 	echo '</select>';
 }
 
-function displayDifficulty($default = "Normal") {
+function displayDifficulty($default = null) {
+	if ( null === $default ) {
+		$default = "Normal";
+	}
 	set_include_path(dirname(__FILE__)."/");
 	require 'runOptions.php';
 	echo '<select name="difficulty" class="form-control">';
@@ -27,7 +33,10 @@ function displayDifficulty($default = "Normal") {
 	echo '</select>';
 }
 
-function displayTemperature($default = "Pleasant") {
+function displayTemperature($default = null) {
+	if ( null === $default ) {
+		$default = "Pleasant";
+	}
 	set_include_path(dirname(__FILE__)."/");
 	require 'runOptions.php';
 	echo '<select name="temperature" class="form-control">';
@@ -41,7 +50,10 @@ function displayTemperature($default = "Pleasant") {
 	echo '</select>';
 }
 
-function displayTerrain($default = "Road") {
+function displayTerrain($default = null) {
+	if ( null === $default ) {
+		$default = "Road";
+	}
 	set_include_path(dirname(__FILE__)."/");
 	require 'runOptions.php';
 	echo '<select name="terrain" class="form-control">';
@@ -55,7 +67,10 @@ function displayTerrain($default = "Road") {
 	echo '</select>';
 }
 
-function displayTimeOfDay($default = "Morning") {
+function displayTimeOfDay($default = null) {
+	if ( null === $default ) {
+		$default = "Morning";
+	}
 	set_include_path(dirname(__FILE__)."/");
 	require 'runOptions.php';
 	echo '<select name="timeOfDay" class="form-control">';
@@ -70,17 +85,20 @@ function displayTimeOfDay($default = "Morning") {
 }
 
 
-function displayTime($hours, $minutes, $seconds) {
+function displayTime($hours = null, $minutes = null, $seconds = null) {
 	displayHours($hours);
 	displayMinutes($minutes);
 	displaySeconds($seconds);
 }
 
-function displayHours($default = 0) {
+function displayHours($default = null) {
+	if ( null === $default ) {
+		$default = 0;
+	}
 	$hours = 0;
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;<select name="hours" class="form-control">';
 	for($hours ; $hours < 60; ++$hours){
-		if($hours == $default) {
+		if($hours === $default) {
 			 echo '<option selected="selected">' . $default . '</option>';
 		}
 		else {
@@ -92,25 +110,31 @@ function displayHours($default = 0) {
 
 // displays minutes, default selected is 0 unless otherwise specified
 function displayMinutes($default = 0) {
+	if ( null === $default ) {
+		$default = 0;
+	}
 	$minutes = 0;
 	echo '<select name="minutes" class="form-control">';
 	while($minutes <= 59) {
-		$minutes = $minutes + 1;
-		if($minutes == $default) {
+		if($minutes === $default) {
 			 echo '<option selected="selected">' . $default . '</option>';
 		} else {
 			 echo '<option value="' . $minutes . '">' . $minutes . '</option>';
 		}
+		$minutes = $minutes + 1;
 		
 	}
 	echo '</select><label> &nbsp; m &nbsp; </label>';
 }
 
 function displaySeconds($default = 0) {
+	if ( null === $default ) {
+		$default = 0;
+	}
 	$seconds = 0;
 	echo '<select name="seconds" class="form-control">';
 	while($seconds <= 59) {
-		if($seconds == $default) {
+		if($seconds === $default) {
 			 echo '<option selected="selected">' . $default . '</option>';
 		} else {
 			 echo '<option value="' . $seconds . '">' . $seconds . '</option>';
