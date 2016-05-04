@@ -28,7 +28,6 @@
 				  <tbody>
 				    <form method="post" action="update.php">
 					  <?php userInfoTable_Edit(); ?>
-
 				  </tbody>
 				</table>
 			  </div>
@@ -41,8 +40,6 @@
 			  </form>
 			  <a href="profile.php" title="Cancel" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
 			</span>
-
-
 		  </div>
 		</div>
 	</div>

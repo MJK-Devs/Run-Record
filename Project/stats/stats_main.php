@@ -15,6 +15,8 @@
 		  if(isset($_COOKIE['User'])) {
 			$username = $_COOKIE['User'];
 		  }
+		  $runs = new UserRuns(getUserID($_COOKIE['User']));
+		  
 	?>
 </head>
 
@@ -124,6 +126,7 @@ function userTotals() {
 	echo '<tr>
  		    <td><b>Runs</b></td>
      	    <td><font color="blue">' . $runs->getTotalNumberOfRuns() . '</font></td>
+			<td>' . print_r($runs->test()) . '</td>
 		  </tr>';
 	echo '<tr>
  		    <td><b>Distance</b></td>

@@ -45,6 +45,7 @@ class UserRuns {
 
 			$this->UserID = getUserID($_COOKIE['User']);
 			$user = new User($this->UserID);
+			$t = array();
 
 			foreach($r as $run) {
 				// grab data from database for this run
@@ -73,13 +74,14 @@ class UserRuns {
 				if($caloriesBurned == -1) { $this->TotalCaloriesBurned = "Weight needs to be set to calculate."; }
 				else {
 					$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + $caloriesBurned;
+					if($caloriesBurned > $this->MostCalories){ $this->MostCalories = $caloriesBurned; }
+					array_push($t, $caloriesBurned, $this->MostCalories);
 				}
 
 				// calculate personal records
 				if($distance > $this->LongestDistance){ $this->LongestDistance = $distance; }
-				if($time > $this->LongestTime){ $this->LongestTime = gmdate("H:i:s", $time); }
-				if($caloriesBurned > $this->MostCalories){ $this->MostCalories = $caloriesBurned; }
-				if(($time/$distance) < $this->QuickestPace){ $this->QuickestPace = gmdate("i:s",($time/$distance)); }
+				if($time > $this->LongestTime){ $this->LongestTime = $time; }
+				if(($time/$distance) < $this->QuickestPace){ $this->QuickestPace = ($time/$distance); }
 			}
 
 
@@ -266,9 +268,9 @@ class UserRuns {
 	function getAveragePace() {return $this->AveragePace;}
 	function getAverageCaloriesBurned() {return $this->AverageCaloriesBurned;}
 	function getLongestDistance() {return $this->LongestDistance;}
-	function getLongestTime() {return $this->LongestTime;}
+	function getLongestTime() {return gmdate("H:i:s", $this->LongestTime);}
 	function getMostCalories() {return $this->MostCalories;}
-	function getQuickestPace() {return $this->QuickestPace;}
+	function getQuickestPace() {return gmdate("i:s", $this->QuickestPace);}
 	function getRuns() {return $this->runs;}
 	function test() { return $this->t; }
 }
