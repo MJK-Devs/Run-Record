@@ -21,6 +21,7 @@ session_start();
 	  }
 	  $runs = new UserRuns(getUserID($_COOKIE['User']));
 	  $run = $runs->getRun($_GET["ID"]);
+	  print_r($run);
 ?>
 
 <?php
@@ -32,8 +33,13 @@ session_start();
  <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 col-xs-offset-2 toppad" >
 	<div class="panel panel-primary">
-	  <div class="panel-heading">
-		<h3 class="panel-title">Edit Run</h3>
+	  <div class="panel-heading">&nbsp;
+	    <span class="pull-left">
+			 <h3 class="panel-title">Edit Run</h3>
+		</span>
+		<span class="pull-right">
+			  <a href="myruns.php" title="Cancel" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+		</span>
 	  </div>
 	  <div class="panel-body">
 	    <form method="post" action="db/updateRun.php?ID=<?php echo $_GET["ID"]; ?>">
@@ -62,7 +68,7 @@ session_start();
 	    
 	  <div class="panel-footer">
 		<div class="wrapper" align="center">
-			<button type="submit" value="submit" class="btn btn-primary" >Save this Run</button>
+			<button type="submit" value="submit" class="btn btn-primary" >Update</button>
 		</div>
 		</form>
 	  </div>
@@ -120,8 +126,8 @@ function printColumnOne() {
 			<td>Time Of Day</td>
 			<td>
 				<div class="' . $formSize . '">';
-					displayTimeOfDay($run->getTimeODay());
-	echo        '</div>
+					//displayTimeOfDay($run->getTimeODay());
+	echo        $hours . ' ' . $minutes . ' ' . $seconds . '</div>
 			</td>
 		  </tr>';
 }
