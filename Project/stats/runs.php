@@ -62,30 +62,34 @@ class UserRuns {
 				$comments = $run["Comments"];
 				$caloriesBurned = calculateCaloriesBurned($user->getAge(), $user->getWeight(), $user->getGender(), $time);
 
-				// create new Run object and add it to $this->runs array
-				$thisRun = new Run($RunID, $date, $distance, $time, $caloriesBurned, $terrain, $difficulty, $conditions, $temperature, $timeOfDay, $comments );
-				$this->runs[] = $thisRun;
-
 				// add totals for stats
 				$this->TotalNumberOfRuns = $this->TotalNumberOfRuns + 1;
 				$this->TotalTime = $this->TotalTime + $time;
 				$this->TotalDistance = $this->TotalDistance + $distance;
 
 				// calculate calories
-				if($caloriesBurned == -1) { $this->TotalCaloriesBurned = "Weight needs to be set to calculate."; }
-				else {
-					$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + $caloriesBurned;
-					if($caloriesBurned > $this->MostCalories){ $this->MostCalories = $caloriesBurned; }
-					array_push($t, $caloriesBurned, $this->MostCalories);
+				if($caloriesBurned === -1) { 
+					$this->TotalCaloriesBurned = '<a href="../profile/edit.php">Set weight</a> to calculate'; 
+					$caloriesBurned = '<a href="profile/edit.php">Set weight</a> to calculate';
+					$this->MostCalories = '<a href="../profile/edit.php">Set weight</a> to calculate';
+				} else {
+					$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + number_format($caloriesBurned, 1);
+					if($caloriesBurned > $this->MostCalories){ $this->MostCalories = number_format($caloriesBurned, 1); }
 				}
 
+				// create new Run object and add it to $this->runs array
+				$thisRun = new Run($RunID, $date, $distance, $time, $caloriesBurned, $terrain, $difficulty, $conditions, $temperature, $timeOfDay, $comments );
+				$this->runs[] = $thisRun;
+				
 				// calculate personal records
 				if($distance > $this->LongestDistance){ $this->LongestDistance = $distance; }
 				if($time > $this->LongestTime){ $this->LongestTime = $time; }
 				if(($time/$distance) < $this->QuickestPace){ $this->QuickestPace = ($time/$distance); }
 			}
 
-
+			if (sizeof($this->runs) === 0) {
+				$this->QuickestPace = 0;
+			}
 
 			// calculate averages
 			if($this->TotalDistance > 0) {
@@ -107,7 +111,11 @@ class UserRuns {
 			}
 
 			if($this->TotalNumberOfRuns > 0) {
-				$this->AverageCaloriesBurned = number_format($this->TotalCaloriesBurned / $this->TotalNumberOfRuns, 1);
+				if (strcmp($this->TotalCaloriesBurned, '<a href="../profile/edit.php">Set weight</a> to calculate') === 0) {
+					$this->AverageCaloriesBurned = '<a href="../profile/edit.php">Set weight</a> to calculate';
+				} else {
+					$this->AverageCaloriesBurned = number_format($this->TotalCaloriesBurned / $this->TotalNumberOfRuns, 1);
+				}
 			} else {
 				$this->AverageCaloriesBurned = 0;
 			}
@@ -282,7 +290,7 @@ class UserRuns {
 	function getTotalDistance() { return number_format($this->TotalDistance, 1);}
 	function getTotalNumberOfRuns() { return $this->TotalNumberOfRuns;}
 	function getTotalTime() {return gmdate("H:i:s", $this->TotalTime);}
-	function getTotalCaloriesBurned() {return number_format($this->TotalCaloriesBurned, 1);}
+	function getTotalCaloriesBurned() {return $this->TotalCaloriesBurned;}
 	function getAverageDistance() {return $this->AverageDistance;}
 	function getAverageTime() {return $this->AverageTime;}
 	function getAveragePace() {return $this->AveragePace;}

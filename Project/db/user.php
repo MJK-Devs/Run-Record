@@ -182,37 +182,31 @@ class User {
 		return $age;
 	}
 	public function getBMI() {
-		if((strcmp($this->Height,"") != 0) and ((strcmp($this->Weight,"") != 0))){
+		if((strcmp($this->Height,"") != 0) and ((strcmp($this->Weight,"") != 0)) and ($this->Weight != 0 )){
 			$inches = convertStringHeightToInches($this->Height);
-
+	
 			$kg = $this->Weight * 0.45;
 			$m = $inches * 0.025;
 			$mSquared = $m * $m;
-			if($mSquared > 0) {
-				$BMI = $kg / $mSquared;
-			} else {
-				$BMI = 0;
-			}
-
+			$BMI = $kg / $mSquared;
+	
 			return (number_format($BMI, 1));
 			return calculateBMI($this->Height, $this->Weight);
 		}
 		else{
 			return "Set height and weight to calculate BMI.";
-		}
+		} 
 	}
 }
 
 function convertInchesToStringHeight($in){
 	set_include_path(dirname(__FILE__)."/../includes/");
 	require 'height.php';
-	$feet = 0;
-	while($in >= 12) {
-		$in = $in - 12;
-		$feet++;
+	foreach($height as $inches=>$string){
+		if(strcmp($in,$inches) === 0){
+			return $string;
+		}
 	}
-	$stringHeight = $feet . '′' . $in . '″';
-	return $stringHeight;
 }
 
 function convertStringHeightToInches($stringHeight){
@@ -223,7 +217,6 @@ function convertStringHeightToInches($stringHeight){
 			return $inches;
 		}
 	}
-	return 0;
 }
 
 
