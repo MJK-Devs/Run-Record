@@ -223,11 +223,11 @@ class UserRuns {
 			$pdo = new PDO($connString,$user,$pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
-			$sql = "UPDATE rruserruns
+			$sql = "UPDATE rrruns
 					SET	Date=:Date, Distance=:Distance, Time=:Time, TimeOfDay=:TimeOfDay,
 						Difficulty=:Difficulty, Terrain=:Terrain, Conditions=:Conditions,
 						Temperature=:Temperature, Comments=:Comments
-					WHERE RunID=" . $runid . "";
+					WHERE RunID=:ID";
 					
 			$statement = $pdo->prepare($sql);
 			$statement->execute(array(
@@ -239,7 +239,8 @@ class UserRuns {
 				"Terrain" => $terrain,
 				"Conditions" => $conditions,
 				"Temperature" => $temperature,
-				"Comments" => $comments
+				"Comments" => $comments,
+				"ID" => $runid
 			));
 		}
 		catch (PDOException $e) {

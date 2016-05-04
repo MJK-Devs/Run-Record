@@ -36,7 +36,7 @@ session_start();
 		<h3 class="panel-title">Edit Run</h3>
 	  </div>
 	  <div class="panel-body">
-	    <form method="post" action="db/updateRun.php">
+	    <form method="post" action="db/updateRun.php?ID=<?php echo $_GET["ID"]; ?>">
 		  <div class="col-md-6 col-lg-6">
 		    <table class="table table-user-information">
 			  <tbody>
