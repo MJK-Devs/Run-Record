@@ -79,8 +79,7 @@ function userInfoTable_Edit() {
 		    <td>About me</td>
 		    <td>
 				<div class="col-xs-7">
-					<textarea class="form-control" rows="3" name="aboutMe">
-					' . $user->getAboutMe() . '</textarea>
+					<textarea class="form-control" rows="3" name="aboutMe">' . $user->getAboutMe() . '</textarea>
 				</div>
 			</td>
 		  </tr>';
@@ -127,7 +126,7 @@ function userInfoTable_Edit() {
 						<select name="state" class="form-control">';
 							include("../includes/states.php");
 							foreach($states as $s){
-								if(strcmp($states,$user->getState()) === 0) {
+								if(strcmp($s, $user->getState()) === 0) {
 									echo '<option selected="selected">' . $s . '</option>';
 								}
 								else {
