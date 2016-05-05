@@ -7,7 +7,7 @@
 			}
 		}
 		else if($index === 2) {
-			if(strpos($_SERVER['PHP_SELF'],"myruns.php") !== FALSE){
+			if(strpos($_SERVER['PHP_SELF'],"myruns.php") !== FALSE || strpos($_SERVER['PHP_SELF'],"editRun.php") !== FALSE){
 				echo 'class="active"';
 				return;
 			}
@@ -19,7 +19,7 @@
 			}
 		}
 		else if($index === 4) {
-			if(strpos($_SERVER['PHP_SELF'],"profile.php") !== FALSE){
+			if(strpos($_SERVER['PHP_SELF'],"profile.php") !== FALSE || strpos($_SERVER['PHP_SELF'],"edit.php") !== FALSE|| strpos($_SERVER['PHP_SELF'],"delete.php") !== FALSE|| strpos($_SERVER['PHP_SELF'],"changePassword.php") !== FALSE){
 				return 'class="active"';
 
 			}
