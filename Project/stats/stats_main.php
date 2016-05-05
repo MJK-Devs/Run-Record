@@ -137,8 +137,13 @@ function userTotals() {
 		  </tr>';
 	echo '<tr>
  		    <td><b>Calories</td>
-     	    <td><font color="blue">' . $runs->getTotalCaloriesBurned() . '</font></td>
-		  </tr>';
+     	    <td><font color="blue">';
+			if ($runs->getTotalCaloriesBurned()) {
+				echo $runs->getTotalCaloriesBurned();
+			} else {
+				echo 0;
+			}
+	echo '</tr>';
 
 }
 

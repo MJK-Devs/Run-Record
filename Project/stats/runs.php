@@ -68,19 +68,23 @@ class UserRuns {
 				$this->TotalDistance = $this->TotalDistance + $distance;
 
 				// calculate calories
-				if($caloriesBurned === -1) { 
-					$this->TotalCaloriesBurned = '<a href="../profile/edit.php">Set weight</a> to calculate'; 
-					$caloriesBurned = '<a href="profile/edit.php">Set weight</a> to calculate';
-					$this->MostCalories = '<a href="../profile/edit.php">Set weight</a> to calculate';
+				if($this->TotalNumberOfRuns > 0) {
+					if($caloriesBurned === -1) {
+						$this->TotalCaloriesBurned = '<a href="../profile/edit.php">Set weight</a> to calculate';
+						$caloriesBurned = '<a href="profile/edit.php">Set weight</a> to calculate';
+						$this->MostCalories = '<a href="../profile/edit.php">Set weight</a> to calculate';
+					} else {
+						$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + number_format($caloriesBurned, 1);
+						if($caloriesBurned > $this->MostCalories){ $this->MostCalories = number_format($caloriesBurned, 1); }
+					}
 				} else {
-					$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + number_format($caloriesBurned, 1);
-					if($caloriesBurned > $this->MostCalories){ $this->MostCalories = number_format($caloriesBurned, 1); }
+					$this->TotalCaloriesBurned = 0;
 				}
 
 				// create new Run object and add it to $this->runs array
 				$thisRun = new Run($RunID, $date, $distance, $time, $caloriesBurned, $terrain, $difficulty, $conditions, $temperature, $timeOfDay, $comments );
 				$this->runs[] = $thisRun;
-				
+
 				// calculate personal records
 				if($distance > $this->LongestDistance){ $this->LongestDistance = $distance; }
 				if($time > $this->LongestTime){ $this->LongestTime = $time; }
