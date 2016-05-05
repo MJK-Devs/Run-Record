@@ -11,6 +11,10 @@
     padding: 3px 9px 3px 9px;
 }
 
+.no-margin-bottom {
+    margin-bottom: 0px;
+}
+
 .no-resize {
     resize: none;
 }

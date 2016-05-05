@@ -29,7 +29,7 @@
 		  <div class="panel-body">
 			<div class="row">
 			  <div class="col-md-12 col-lg-12">
-				<table class="table table-user-information">
+				<table class="no-margin-bottom table table-user-information">
 				  <tbody>
 					<?php userTotals(); ?>
 				  </tbody>
@@ -45,7 +45,7 @@
 		  <div class="panel-body">
 			<div class="row">
 			  <div class="col-md-12 col-lg-12">
-				<table class="table table-user-information">
+				<table class="no-margin-bottom table table-user-information">
 				  <tbody>
 					<?php userAverages(); ?>
 				  </tbody>
@@ -63,7 +63,7 @@
 		  <div class="panel-body">
 			<div class="row">
 			  <div class="col-md-12 col-lg-12">
-				<table class="table table-user-information">
+				<table class="no-margin-bottom table table-user-information">
 				  <tbody>
 					<div id="chartContainer" style="height: 400px; width: 100%;"> </div>
 				  </tbody>
@@ -82,7 +82,7 @@
 		  <div class="panel-body">
 			<div class="row">
 			  <div class="col-md-12 col-lg-12">
-				<table class="table table-user-information">
+				<table class="no-margin-bottom table table-user-information">
 				  <tbody>
 				    <?php userPersonalInfo(); ?>
 				  </tbody>
@@ -98,7 +98,7 @@
 		  <div class="panel-body">
 			<div class="row">
 			  <div class="col-md-12 col-lg-12">
-				<table class="table table-user-information">
+				<table class="no-margin-bottom table table-user-information">
 				  <tbody>
 				    <?php userRecords(); ?>
 				  </tbody>
