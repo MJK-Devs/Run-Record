@@ -188,7 +188,11 @@ class User {
 			$kg = $this->Weight * 0.45;
 			$m = $inches * 0.025;
 			$mSquared = $m * $m;
-			$BMI = $kg / $mSquared;
+			if($mSquared > 0) {
+				$BMI = $kg / $mSquared;
+			} else {
+				$BMI = 0;
+			}
 
 			return (number_format($BMI, 1));
 			return calculateBMI($this->Height, $this->Weight);

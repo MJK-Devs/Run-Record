@@ -180,7 +180,7 @@ function userPersonalInfo() {
 		  </tr>';
 	echo '<tr>
 			<td><b>BMI</b></td>';
-				if(strcmp($user->getBMI(), "Set height and weight to calculate BMI.") === 0) {
+				if((strcmp($user->getBMI(), "Set height and weight to calculate BMI.") === 0) || $user->getBMI() == 0) {
 					echo '<td><a href="../profile/edit.php" class="btn-height-weight btn btn-primary" >Set Height & Weight</a></td>';
 				} else {
 					echo '<td><font color="' . BMIcolor($user->getBMI()) . '">' . $user->getBMI() . " " . BMIhealthStatus($user->getBMI()) . '</font></td>';
