@@ -99,7 +99,7 @@ function printColumnOne() {
 			<td>Distance</td>
 			<td>
 				<div class="' . $formSize . '">
-					<input type="number" min="0" max="100" step="0.01" value="0.00" class="numeric form-control" name="distance">
+					<input type="number" min="0.01" max="100" step="0.01" value="0.00" class="numeric form-control" name="distance">
 				</div>
 			</td>
 		  </tr>';
