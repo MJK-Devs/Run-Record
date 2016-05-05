@@ -36,6 +36,7 @@ function displayRuns($UserID) {
 
 	if(empty($runs)) {
 		echo '<br /> <br />';
+		echo '<h3 class="text-center">You have no recorded runs.</h3>';
 		echo'<a class="btn btn-primary btn-large text-center" style="display:block" href="record.php">Record Your First Run! </a>';
 		return;
 	}
