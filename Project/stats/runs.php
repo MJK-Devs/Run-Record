@@ -70,9 +70,9 @@ class UserRuns {
 				// calculate calories
 				if($this->TotalNumberOfRuns > 0) {
 					if($caloriesBurned === -1) {
-						$this->TotalCaloriesBurned = '<a href="../profile/edit.php">Set weight</a> to calculate';
-						$caloriesBurned = '<a href="profile/edit.php">Set weight</a> to calculate';
-						$this->MostCalories = '<a href="../profile/edit.php">Set weight</a> to calculate';
+						$this->TotalCaloriesBurned = '<a href="../profile/edit.php" class="btn-height-weight btn btn-primary" >Set Weight</a>';
+						$caloriesBurned = '<a href="profile/edit.php" class="btn-height-weight btn btn-primary" >Set Weight</a>';
+						$this->MostCalories = '<a href="../profile/edit.php" class="btn-height-weight btn btn-primary" >Set Weight</a>';
 					} else {
 						$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + number_format($caloriesBurned, 1);
 						if($caloriesBurned > $this->MostCalories){ $this->MostCalories = number_format($caloriesBurned, 1); }
@@ -115,8 +115,8 @@ class UserRuns {
 			}
 
 			if($this->TotalNumberOfRuns > 0) {
-				if (strcmp($this->TotalCaloriesBurned, '<a href="../profile/edit.php">Set weight</a> to calculate') === 0) {
-					$this->AverageCaloriesBurned = '<a href="../profile/edit.php">Set weight</a> to calculate';
+				if (strcmp($this->TotalCaloriesBurned, '<a href="../profile/edit.php" class="btn-height-weight btn btn-primary" >Set Weight</a>') === 0) {
+					$this->AverageCaloriesBurned = '<a href="../profile/edit.php" class="btn-height-weight btn btn-primary" >Set Weight</a>';
 				} else {
 					$this->AverageCaloriesBurned = number_format($this->TotalCaloriesBurned / $this->TotalNumberOfRuns, 1);
 				}
