@@ -45,14 +45,14 @@ session_start();
 	  </div>
 	  <div class="panel-body">
 	    <form method="post" action="db/updateRun.php?ID=<?php echo $_GET["ID"]; ?>">
-		  <div class="col-md-6 col-lg-6">
+		  <div class="col-md-6 col-lg-6 table-responsive">
 		    <table class="table table-user-information">
 			  <tbody>
 			    <?php printColumnOne(); ?>
 			  </tbody>
 			</table>
 		  </div>
-		  <div class="col-md-6 col-lg-6">
+		  <div class="col-md-6 col-lg-6 table-responsive">
 		    <table class="table table-user-information">
 			  <tbody>
 			    <?php printColumnTwo(); ?>

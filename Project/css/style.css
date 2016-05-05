@@ -128,3 +128,7 @@ input[type="radio"]{
     overflow: hidden;
     padding-top:2em;
 }
+
+.table-responsive{
+    border:none;
+}
