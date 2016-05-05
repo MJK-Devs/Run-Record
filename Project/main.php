@@ -18,7 +18,7 @@ session_start();
 
 		<div class="col-md-6" id="newsfeed">
 		<!--Div for newsfeed content-->
-			<?php printNTopRuns(5);?>
+			<?php printNTopRuns(10);?>
 		</div>
 
 		<div class="col-md-3"> <!--Div for right sidebar content--></div>
@@ -58,7 +58,7 @@ function printNTopRuns($n) {
             $year = date("Y",strtotime($row['Date']));
 
         	$html="";
-            $html = 
+            $html =
                         '<div class="panel panel-primary" id="' . $row['RunID'] .'">
                           <div class="panel-heading">
                             <div class="pull-left">
