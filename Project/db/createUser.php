@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include_once 'db.php';
 
@@ -204,6 +204,31 @@ if($error) {header("Location: ../create.php");}
 else{
 
 createUser($_SESSION['username'],$_POST['password'], $_SESSION['email'], $_SESSION['firstName'], $_SESSION['lastName'], $_SESSION['dateOfBirth'], $_SESSION['gender'], $_SESSION['state'], $_SESSION['city']);
+
+unset($_SESSION['failedUsername']);
+unset($_SESSION['failedPassword']);
+unset($_SESSION['failedVerifyPassword']);
+unset($_SESSION['failedFirstName']);
+unset($_SESSION['failedLastName']);
+unset($_SESSION['failedGender']);
+unset($_SESSION['failedDateOfBirth']);
+unset($_SESSION['failedEmail']);
+unset($_SESSION['failedState']);
+unset($_SESSION['failedCity']);
+unset($_SESSION['failedZip']);
+
+unset($_SESSION['username']);
+unset($_SESSION['password']);
+unset($_SESSION['verifyPassword']);
+unset($_SESSION['firstName']);
+unset($_SESSION['lastName']);
+unset($_SESSION['gender']);
+unset($_SESSION['dateOfBirth']);
+unset($_SESSION['email']);
+unset($_SESSION['state']);
+unset($_SESSION['city']);
+unset($_SESSION['zip']);
+
 
 header("Location: ../login.php");
  }

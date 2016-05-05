@@ -5,6 +5,7 @@
 
 <body>
 	<?php
+	session_start();
 	include_once("../db/user.php");
 	include_once("../db/db.php");
 	include_once("../includes/navbar3.php");
@@ -22,8 +23,8 @@
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
-			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="../images/logo.png" class="img-circle img-responsive"> </div>
-			  <div class="c1ol-md-9 col-lg-9">
+			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="../images/logo.png" class="img-circle img-responsive"> </div>
+			  <div class="col-md-9 col-lg-9">
 				<table class="table table-user-information">
 				  <tbody>
 				    <form method="post" action="update.php">
@@ -58,17 +59,19 @@ function userInfoTable_Edit() {
  		    <td>First Name</td>
      	    <td>
 				<div class="' . $formSize . '">
-					<input class="form-control" type="text" name="firstName" size="20"
+					<input class="form-control '.errorOutLine("failedFirstName").'"type="text" name="firstName" size="20"
 						value="' . $user->getFirstName() . '">
+						'.errorMessage('failedFirstName').'
 				</div>
 			</td>
 		  </tr>';
 	echo '<tr>
  		    <td>Last Name</td>
      	    <td>
-				<div class="' . $formSize . '">
-					<input class="form-control" type="text" name="lastName" size="20"
+				<div class="' . $formSize .'">
+					<input class="form-control '.errorOutLine("failedLastName").'" type="text" name="lastName" size="20"
 						value="' . $user->getLastName() . '">
+						'.errorMessage('failedLastName').'
 				</div>
 			</td>
 		  </tr>';
@@ -102,7 +105,7 @@ function userInfoTable_Edit() {
 			<td>Weight</td>
 			<td>
 				<div class="' . $formSize . '">
-					<input class="form-control" type="number" name="weight" max="1000" min="0"
+					<input class="form-control" type="number" name="weight" max="1000" min="1"
 						value="' . $user->getWeight() . '">
 				</div>
 			</td>
@@ -110,9 +113,10 @@ function userInfoTable_Edit() {
 	echo '<tr>
 			<td>City</td>
 			<td>
-				<div class="' . $formSize . '">
-					<input class="form-control" type="text" name="city" size="20"
+				<div class="' . $formSize .'">
+					<input class="form-control '.errorOutLine("failedCity").'" type="text" name="city" size="20"
 						value="' . $user->getCity() . '">
+						'.errorMessage("failedCity").'
 				</div>
 			</td>
 		  </tr>';
@@ -138,8 +142,9 @@ function userInfoTable_Edit() {
 			<td>Email</td>
 	    	<td>
 				<div class="' . $formSize . '">
-					<input class="form-control" type="email" name="email" size="20"
+					<input class="form-control '.errorOutLine("failedEmail").'" type="email" name="email" size="20"
 						value="' . $user->getEmail() . '">
+						'.errorMessage("failedEmail").'
 				</div>
 			</td>
 		  </tr>';
@@ -152,4 +157,27 @@ function userInfoTable_Edit() {
 
 }
 
+?>
+
+<?php
+// echos out the error message
+// must pass in the $_SESSION parameter to check for
+// Sample Usage: errorMessage("failedUsername");
+function errorMessage($failedType) {
+	if(!empty($_SESSION[$failedType])) {
+		$message = $_SESSION[$failedType];
+		unset($_SESSION[$failedType]);
+		return '<div style="color:#1a6ecc">' . $message.'</div>';
+	}
+}
+
+// outputs "error" into the class of an input box
+// this will put a red line around the input box
+// Sample Usage: errorMessage("failedUsername");
+function errorOutline($failedType) {
+	if(!empty($_SESSION[$failedType])) {
+		//echo "error";
+		return "error";
+	}
+}
 ?>
