@@ -30,9 +30,6 @@
 	    <span class="pull-left">
 			 <h3 class="panel-title">Record a Run</h3>
 		</span>
-		<span class="pull-right">
-			  <a href="myruns.php" title="Cancel" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-		</span>
 	  </div>
 	  <div class="panel-body">
 	    <form method="post" action="db/createRun.php">
