@@ -34,6 +34,12 @@ function displayRuns($UserID) {
 	$r = new UserRuns(getUserID($_COOKIE['User']));
 	$runs = $r->getRuns();
 
+	if(empty($runs)) {
+		echo '<br /> <br />';
+		echo'<a class="btn btn-primary btn-large text-center" style="display:block" href="record.php">Record Your First Run! </a>';
+		return;
+	}
+
 	$IDtoEdit = "";
 	if(isset($_GET["RunID"])){
 		$IDtoEdit = $_GET["RunID"];
