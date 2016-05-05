@@ -60,7 +60,7 @@ session_start();
 		    <div class="wrapper" align="center">
 				<td>Comments</td>
 			</div>
-			<textarea class="no-resize" style="width:100%" rows="3" name="comments"><?php $run->getComments(); ?></textarea>
+			<textarea class="no-resize" style="width:100%" rows="3" name="comments"><?php printComments(); ?></textarea>
 		  </div>
 	  </div>
 
@@ -87,6 +87,13 @@ session_start();
 </body>
 </html>
 <?php
+function printComments() {
+	$runs = new UserRuns(getUserID($_COOKIE['User']));
+	$run = $runs->getRun($_GET["ID"]);
+	echo $run->getComments();
+}
+
+
 function printColumnOne() {
 	$formSize = "col-md-11";
 	date_default_timezone_set('America/New_York');
