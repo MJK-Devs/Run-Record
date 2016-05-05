@@ -174,9 +174,13 @@ function userPersonalInfo() {
 			<td><font color="blue">' . $user->getWeight() . '</font></td>
 		  </tr>';
 	echo '<tr>
-			<td><b>BMI</b></td>
-			<td><font color="' . BMIcolor($user->getBMI()) . '">' . $user->getBMI() . " " . BMIhealthStatus($user->getBMI()) . '</font></td>
-		  </tr>';
+			<td><b>BMI</b></td>';
+				if(strcmp($user->getBMI(), "Set height and weight to calculate BMI.") === 0) {
+					echo '<td><a href="../profile/edit.php" class="btn-height-weight btn btn-primary" >Set Height & Weight</a></td>';
+				} else {
+					echo '<td><font color="' . BMIcolor($user->getBMI()) . '">' . $user->getBMI() . " " . BMIhealthStatus($user->getBMI()) . '</font></td>';
+				}
+	echo '</tr>';
 }
 
 function userRecords() {

@@ -6,6 +6,11 @@
     z-index: 1000;
 }
 
+.btn-height-weight {
+    font-size: 12px;
+    padding: 3px 9px 3px 9px;
+}
+
 .no-resize {
     resize: none;
 }
