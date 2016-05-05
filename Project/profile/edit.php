@@ -148,12 +148,12 @@ function userInfoTable_Edit() {
 				</div>
 			</td>
 		  </tr>';
-	echo '<tr>
- 		    <td>Profile picture</td>
-     	    <td>
-				<input type="file" name="profilePicture">
-			</td>
-		  </tr>';
+	// echo '<tr>
+ // 		    <td>Profile picture</td>
+    //  	    <td>
+	// 			<input type="file" name="profilePicture">
+	// 		</td>
+	// 	  </tr>';
 
 }
 
