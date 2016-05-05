@@ -22,6 +22,9 @@
 		  echo $errMessage;
 	  }
 ?>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/dateRange.js"></script>
 <div id="record-a-run">
 	<div class="col-md-2"></div>
   <div class="col-md-8" >
@@ -67,8 +70,7 @@
 <div class="col-md-2"></div>
 </div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -89,7 +91,7 @@ function printColumnOne() {
 			<td>Date</td>
 			<td>
 				<div class="' . $formSize . '">
-					<input type="date" value= "' . $todaysDate . '" class="form-control" name="date">
+					<input id="datefield" type="date" value= "' . $todaysDate . '" class="form-control" name="date">
 				</div>
 			</td>
 		  </tr>';

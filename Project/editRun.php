@@ -28,6 +28,9 @@ session_start();
 		  echo $errMessage;
 	  }
 ?>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/dateRange.js"> </script>
 <div id="record-a-run">
  <div class="row">
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 col-xs-offset-2 toppad" >
@@ -78,8 +81,7 @@ session_start();
 
 
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -108,7 +110,7 @@ function printColumnOne() {
 			<td>Date</td>
 			<td>
 				<div class="' . $formSize . '">
-					<input type="date" value= "' . $run->getRunDate() . '" class="form-control" name="date">
+					<input id="datefield" type="date" value= "' . $run->getRunDate() . '" class="form-control" name="date">
 				</div>
 			</td>
 		  </tr>';
@@ -116,7 +118,7 @@ function printColumnOne() {
 			<td>Distance</td>
 			<td>
 				<div class="' . $formSize . '">
-					<input type="number" min="0" max="100" step="0.01" value="' . $run->getDistance() . '" class="numeric form-control" name="distance">
+					<input type="number" min="0.01" max="100" step="0.01" value="' . $run->getDistance() . '" class="numeric form-control" name="distance">
 				</div>
 			</td>
 		  </tr>';
