@@ -18,6 +18,12 @@
 				return;
 			}
 		}
+		else if($index === 4) {
+			if(strpos($_SERVER['PHP_SELF'],"profile.php") !== FALSE){
+				return 'class="active"';
+
+			}
+		}
 	}
 ?>
 
@@ -41,7 +47,8 @@
 			<?php
 			print('<ul class="nav navbar-nav navbar-right">');
 					if(isset($_COOKIE['User'])) {
-						print('<li><a href="profile/profile.php">'.$_COOKIE['User'].'</a></li>');
+						$active = printActivePage(4);
+						print('<li '.$active.'><a href="profile/profile.php">'.$_COOKIE['User'].'</a></li>');
 						print('<li><a href="logout.php">Log Out</a></li>');
 					}
 					else {

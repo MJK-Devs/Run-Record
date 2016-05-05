@@ -3,19 +3,25 @@
 		if($index === 1) {
 			if(strpos($_SERVER['PHP_SELF'],"record.php") !== FALSE){
 				echo 'class="active"';
-				return;
+				return 'class=""';
 			}
 		}
 		else if($index === 2) {
 			if(strpos($_SERVER['PHP_SELF'],"myruns.php") !== FALSE){
 				echo 'class="active"';
-				return;
+				return 'class=""';
 			}
 		}
 		else if($index === 3) {
 			if(strpos($_SERVER['PHP_SELF'],"stats_main.php") !== FALSE){
 				echo 'class="active"';
-				return;
+				return 'class=""';
+			}
+		}
+		else if($index === 4) {
+			if(strpos($_SERVER['PHP_SELF'],"profile.php") !== FALSE){
+				return 'class="active"';
+
 			}
 		}
 	}
@@ -41,7 +47,8 @@
 			<?php
 			print('<ul class="nav navbar-nav navbar-right">');
 					if(isset($_COOKIE['User'])) {
-						print('<li><a href="../profile/profile.php">'.$_COOKIE['User'].'</a></li>');
+						$active = printActivePage(4);
+						print('<li '.$active.'><a href="../profile/profile.php">'.$_COOKIE['User'].'</a></li>');
 						print('<li><a href="../logout.php">Log Out</a></li>');
 					}
 					else {
