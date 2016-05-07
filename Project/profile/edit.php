@@ -11,23 +11,32 @@
 	include_once("../includes/navbar3.php");
 
 	$user = new User(getUserID($_COOKIE['User']));
+	$userID = (string)getUserID($_COOKIE['User']);
+	$profilePicture = "default.png";
+	if(file_exists('images/' . $userID . '.png')){$profilePicture = $userID . '.png';}
+	if(file_exists('images/' . $userID . '.PNG')){$profilePicture = $userID . '.PNG';}
+	if(file_exists('images/' . $userID . '.jpeg')){$profilePicture = $userID . '.jpg';}
+	if(file_exists('images/' . $userID . '.JPEG')){$profilePicture = $userID . '.JPEG';}
+	if(file_exists('images/' . $userID . '.jpg')){$profilePicture = $userID . '.jpg';}
+	if(file_exists('images/' . $userID . '.JPG')){$profilePicture = $userID . '.JPG';}
 
 	if(isset($_COOKIE['User'])) {
 		$username = $_COOKIE['User'];
 	} //else { $username = ""; }
 	?>
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+	   <?php echo $_SESSION["uploadSuccess"]; ?>
 	   <div class="panel panel-primary">
 		  <div class="panel-heading">
 			<h3 class="panel-title"><?php echo $user->getUsername(); ?></h3>
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
-			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="../images/logo.png" class="img-circle img-responsive"> </div>
+			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="images/<?php echo $profilePicture; ?>" class="img-circle img-responsive"> </div>
 			  <div class="col-md-9 col-lg-9">
 				<table class="table table-user-information">
 				  <tbody>
-				    <form method="post" action="update.php">
+				    <form method="post" action="update.php" enctype="multipart/form-data">
 					  <?php userInfoTable_Edit(); ?>
 				  </tbody>
 				</table>
@@ -35,6 +44,7 @@
 			</div>
 		  </div>
 		  <div class="panel-footer">
+		    <a href="uploadPicture.php" title="Change Picture" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-picture"></i></a>
 		    <a href="changePassword.php" title="Change Password" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-lock"></i></a>
 			<span class="pull-right">
 			  <button type="submit" value="submit" title="Update" data-toggle="tooltip" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i></button>
@@ -148,13 +158,6 @@ function userInfoTable_Edit() {
 				</div>
 			</td>
 		  </tr>';
-	// echo '<tr>
- // 		    <td>Profile picture</td>
-    //  	    <td>
-	// 			<input type="file" name="profilePicture">
-	// 		</td>
-	// 	  </tr>';
-
 }
 
 ?>

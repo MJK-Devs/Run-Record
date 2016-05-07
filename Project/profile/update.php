@@ -105,9 +105,11 @@ else {
 $user = new User(getUserID($username));
 $user->changeInfo($username, $email, $firstname, $lastname, $weight, $height, $aboutme, $city, $state);
 
-if(isset($_FILE)){
+if(isset($_FILES["profilePicture"])){
 	header("Location: profilePicUpload.php");
 }
-header("Location: profile.php");
+print_r($_FILES["profilePicture"]);
+
+//header("Location: profile.php");
 }
 ?>

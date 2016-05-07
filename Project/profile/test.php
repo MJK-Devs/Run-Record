@@ -1,36 +1,40 @@
+
 <?php
-$string = "5'6\"";
-echo $string . '<br>';
-$test = convertStringHeightToInches($string);
-echo $test . '<br>';
-$test2 = convertInchesToStringHeight($test);
-echo $test2 . '<br>';
-if($string == $test2){
-    echo 'WORKS';
-}
-
-
-function convertInchesToStringHeight($in){
-	set_include_path(dirname(__FILE__)."/../includes/");
-	require 'height.php';
-	$feet = 0;
-	while($in >= 12) {
-		$in = $in - 12;
-		$feet++;
-	}
-	$stringHeight = $feet . '\'' . $in . '"';
-	return $stringHeight;
-}
-
-function convertStringHeightToInches($stringHeight){
-	set_include_path(dirname(__FILE__)."/../includes/");
-	require 'height.php';
-	foreach($height as $inches=>$string){
-		if(strcmp($stringHeight,$string) === 0){
-			return $inches;
-		}
-	}
-	return 0;
-}
-
+   if(isset($_FILES['image'])){
+      $errors= array();
+      $file_name = $_FILES['image']['name'];
+      $file_size =$_FILES['image']['size'];
+      $file_tmp =$_FILES['image']['tmp_name'];
+      $file_type=$_FILES['image']['type'];
+      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+      
+      $expensions= array("jpeg","jpg","png");
+      
+      if(in_array($file_ext,$expensions)=== false){
+         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+      }
+      
+      if($file_size > 2097152){
+         $errors[]='File size must be excately 2 MB';
+      }
+      
+      if(empty($errors)==true){
+         move_uploaded_file($file_tmp,"images/".$file_name);
+         echo "Success";
+      }else{
+         print_r($errors);
+      }
+   }
 ?>
+<html>
+   <body>
+      
+      <form action="" method="POST" enctype="multipart/form-data">
+         <input type="file" name="image" />
+         <input type="submit"/>
+      </form>
+      
+   </body>
+</html>
+
+
