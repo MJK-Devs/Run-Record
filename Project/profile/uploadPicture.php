@@ -14,12 +14,12 @@
 	$user = new User(getUserID($_COOKIE['User']));
 	$userID = getUserID($_COOKIE['User']);
 	$profilePicture = "default.png";
-	if(file_exists('../images/profile_pictures/' . $userID . '.png')){$profilePicture = $userID . '.png';}
-	if(file_exists('../images/profile_pictures/' . $userID . '.PNG')){$profilePicture = $userID . '.PNG';}
-	if(file_exists('../images/profile_pictures/' . $userID . '.jpeg')){$profilePicture = $userID . '.jpg';}
-	if(file_exists('../images/profile_pictures/' . $userID . '.JPEG')){$profilePicture = $userID . '.JPEG';}
-	if(file_exists('../images/profile_pictures/' . $userID . '.jpg')){$profilePicture = $userID . '.jpg';}
-	if(file_exists('../images/profile_pictures/' . $userID . '.JPG')){$profilePicture = $userID . '.JPG';}
+	if(file_exists('images/' . $userID . '.png')){$profilePicture = $userID . '.png';}
+	if(file_exists('images/' . $userID . '.PNG')){$profilePicture = $userID . '.PNG';}
+	if(file_exists('images/' . $userID . '.jpeg')){$profilePicture = $userID . '.jpg';}
+	if(file_exists('images/' . $userID . '.JPEG')){$profilePicture = $userID . '.JPEG';}
+	if(file_exists('images/' . $userID . '.jpg')){$profilePicture = $userID . '.jpg';}
+	if(file_exists('images/' . $userID . '.JPG')){$profilePicture = $userID . '.JPG';}
 
 	  if(isset($_FILES['image'])){
       $errors= array();
@@ -43,9 +43,9 @@
       }
 
       if(empty($errors)==true){
-		 unlink('../images/profile_pictures/' . $profilePicture);
-         move_uploaded_file($file_tmp, "../images/profile_pictures/" . $file_name);
-		 $_SESSION["uploadSuccess"] = '<div class="alert alert-success" role="alert"><div class="wrapper" align="center">Successfully uploaded!</div></div>';
+		 unlink('images/' . $profilePicture);
+         move_uploaded_file($file_tmp,"images/".$file_name);
+		 $_SESSION["uploadSuccess"] = '<div class="alert alert-success" role="alert"><div class="wrapper" align="center">Succesfully uploaded!</div></div>';
 		 header("Location: edit.php");
       }else{
          echo '<div class="alert alert-danger" role="alert">';
@@ -65,7 +65,7 @@
 		  <div class="panel-body"> <br><br>
 			<div class="row">
 			  <div class="c1ol-md-12 col-lg-12">
-			    <div align="center"> <img alt="User Picture" src="../images/profile_pictures/<?php echo $profilePicture; ?>" class="img-circle img-responsive"> </div>
+			    <div align="center"> <img alt="User Picture" src="images/<?php echo $profilePicture; ?>" class="img-circle img-responsive"> </div>
 				<table class="table table-user-information">
 				  <tbody>
 				    <form method="post" action="" enctype="multipart/form-data">
