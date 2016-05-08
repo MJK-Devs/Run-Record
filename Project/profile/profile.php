@@ -9,7 +9,7 @@
 
 		$user = new User(getUserID($_COOKIE['User']));
 		$userID = getUserID($_COOKIE['User']);
-		$profilePicture = "default.png";
+		$profilePicture = "profile_pictures/default.png";
 		if(file_exists('images/' . $userID . '.png')){$profilePicture = $userID . '.png';}
 		if(file_exists('images/' . $userID . '.PNG')){$profilePicture = $userID . '.PNG';}
 		if(file_exists('images/' . $userID . '.jpeg')){$profilePicture = $userID . '.jpg';}
