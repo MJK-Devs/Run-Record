@@ -45,7 +45,7 @@
       if(empty($errors)==true){
 		 unlink('../images/profile_pictures/' . $profilePicture);
          move_uploaded_file($file_tmp, "../images/profile_pictures/" . $file_name);
-		 $_SESSION["uploadSuccess"] = '<div class="alert alert-success" role="alert"><div class="wrapper" align="center">Succesfully uploaded!</div></div>';
+		 $_SESSION["uploadSuccess"] = '<div class="alert alert-success" role="alert"><div class="wrapper" align="center">Successfully uploaded!</div></div>';
 		 header("Location: edit.php");
       }else{
          echo '<div class="alert alert-danger" role="alert">';
