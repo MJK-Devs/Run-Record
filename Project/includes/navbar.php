@@ -19,7 +19,7 @@
 			}
 		}
 		else if($index === 4) {
-			if(strpos($_SERVER['PHP_SELF'],"profile.php") !== FALSE || strpos($_SERVER['PHP_SELF'],"edit.php") !== FALSE|| strpos($_SERVER['PHP_SELF'],"delete.php") !== FALSE|| strpos($_SERVER['PHP_SELF'],"changePassword.php") !== FALSE){
+			if(strpos($_SERVER['PHP_SELF'],"profile.php") !== FALSE || strpos($_SERVER['PHP_SELF'],"edit.php") !== FALSE|| strpos($_SERVER['PHP_SELF'],"delete.php") !== FALSE|| strpos($_SERVER['PHP_SELF'],"changePassword.php") !== FALSE|| strpos($_SERVER['PHP_SELF'],"uploadPicture.php") !== FALSE){
 				return 'class="active"';
 
 			}
@@ -72,4 +72,3 @@
         </div>
     </div>
 </nav>
-
