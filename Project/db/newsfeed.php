@@ -24,8 +24,6 @@
             $year = date("Y",strtotime($a['Date']));
 
         $html=""; 
-        //$html = $html.'<div class="panel panel-info" id="'.$a['RunID'].'"><div class="panel-heading"><h3 class="panel-title"><strong>'.$a['Username']."'s run on " . $dayOfWeek . ', ' . $month . ' ' . $day . ', ' . $year . '</strong></h3></div><div class="panel-body"><div class="row"><div class="col-md-6 col-lg-6"><table class="table table-user-information"><tbody><tr><td>Distance</td><td>' . $a['Distance'] . ' miles</td></tr><tr><td>Time</td><td>' . gmdate("H:i:s", $a['Time']) . '</td></tr><tr><td>Pace</td><td>' . gmdate("i:s", $a['Time']/$a['Distance']) . '</td></tr></tbody></table></div></div></div></div>';
-
         $html = '
                         <div class="panel panel-primary" id="' . $a['RunID'] .'">
                           <div class="panel-heading">

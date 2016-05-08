@@ -3,9 +3,6 @@ set_include_path(dirname(__FILE__)."/../stats/");
 require_once 'runs.php';
 include_once "db.php";
 
-
-#echo "hello world";
-
 $errMessage = "";
 $filledOutForms = isset($_POST['date']) and
 				  isset($_POST['distance']) and 
@@ -33,7 +30,4 @@ function convertTimeToSeconds($hours, $minutes, $seconds) {
 	$newTime = ( $hours * 60 * 60 ) + ( $minutes * 60 ) + ( $seconds );
 	return $newTime;
 }
-
-
-
 ?>
