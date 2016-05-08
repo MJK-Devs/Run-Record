@@ -13,12 +13,12 @@
 	$user = new User(getUserID($_COOKIE['User']));
 	$userID = (string)getUserID($_COOKIE['User']);
 	$profilePicture = "default.png";
-	if(file_exists('images/' . $userID . '.png')){$profilePicture = $userID . '.png';}
-	if(file_exists('images/' . $userID . '.PNG')){$profilePicture = $userID . '.PNG';}
-	if(file_exists('images/' . $userID . '.jpeg')){$profilePicture = $userID . '.jpg';}
-	if(file_exists('images/' . $userID . '.JPEG')){$profilePicture = $userID . '.JPEG';}
-	if(file_exists('images/' . $userID . '.jpg')){$profilePicture = $userID . '.jpg';}
-	if(file_exists('images/' . $userID . '.JPG')){$profilePicture = $userID . '.JPG';}
+	if(file_exists('../images/profile_pictures/' . $userID . '.png')){$profilePicture = $userID . '.png';}
+	if(file_exists('../images/profile_pictures/' . $userID . '.PNG')){$profilePicture = $userID . '.PNG';}
+	if(file_exists('../images/profile_pictures/' . $userID . '.jpeg')){$profilePicture = $userID . '.jpg';}
+	if(file_exists('../images/profile_pictures/' . $userID . '.JPEG')){$profilePicture = $userID . '.JPEG';}
+	if(file_exists('../images/profile_pictures/' . $userID . '.jpg')){$profilePicture = $userID . '.jpg';}
+	if(file_exists('../images/profile_pictures/' . $userID . '.JPG')){$profilePicture = $userID . '.JPG';}
 
 	if(isset($_COOKIE['User'])) {
 		$username = $_COOKIE['User'];
@@ -32,7 +32,7 @@
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
-			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="images/<?php echo $profilePicture; ?>" class="img-circle img-responsive"> </div>
+			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="../images/profile_pictures/<?php echo $profilePicture; ?>" class="img-circle img-responsive"> </div>
 			  <div class="col-md-9 col-lg-9">
 				<table class="table table-user-information">
 				  <tbody>
