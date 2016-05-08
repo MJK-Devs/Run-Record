@@ -31,7 +31,7 @@
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
-			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="images/<?php echo $profilePicture; ?>" class="img-circle img-responsive"> </div>
+			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="../images/<?php echo $profilePicture; ?>" class="img-circle img-responsive"> </div>
 			  <div class="c1ol-md-9 col-lg-9">
 				<table class="table table-user-information">
 				  <tbody>
