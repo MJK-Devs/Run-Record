@@ -36,16 +36,13 @@
          $errors[]="Extension not allowed, please choose a JPEG or PNG file.";
       }
 
-	  $errors[] = $file_size;
-
-      if($file_size > 2097152){
-         $errors[]="File size must be less than 2 MB.";
-      }
+      //if($file_size > 2097152){
+      //   $errors[]="File size must be less than 2 MB.";
+      //}
 
       if(empty($errors)==true){
 		 unlink('images/' . $profilePicture);
          move_uploaded_file($file_tmp,"images/".$file_name);
-		 $_SESSION["uploadSuccess"] = '<div class="alert alert-success" role="alert"><div class="wrapper" align="center">Succesfully uploaded!</div></div>';
 		 header("Location: edit.php");
       }else{
          echo '<div class="alert alert-danger" role="alert">';
