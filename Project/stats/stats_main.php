@@ -203,10 +203,10 @@ function userRecords() {
 			<td><b>Pace</b></td>
 			<td><font color="blue">' . $runs->getQuickestPace() . '</font></td>
 		  </tr>';
-	echo '<tr>
-			<td><b>Calories</b></td>
-			<td><font color="blue">' . $runs->getMostCalories() . '</font></td>
-		  </tr>';
+	//echo '<tr>
+		//	<td><b>Calories</b></td>
+		//	<td><font color="blue">' . $runs->getMostCalories() . '</font></td>
+		//  </tr>';
 }
 
 function BMIhealthStatus($BMI){

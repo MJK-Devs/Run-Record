@@ -31,7 +31,7 @@
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
-			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="images/<?php echo $profilePicture; ?>" class="img-circle img-responsive"> </div>
+			  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Picture" src="../images/profile_pictures/default.png" class="img-circle img-responsive"> </div>
 			  <div class="col-md-9 col-lg-9">
 				<table class="table table-user-information">
 				  <tbody>
@@ -43,7 +43,7 @@
 			</div>
 		  </div>
 		  <div class="panel-footer">
-		    <a href="uploadPicture.php" title="Change Picture" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-picture"></i></a>
+		    <!--<a href="uploadPicture.php" title="Change Picture" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-picture"></i></a>-->
 		    <a href="changePassword.php" title="Change Password" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-lock"></i></a>
 			<span class="pull-right">
 			  <button type="submit" value="submit" title="Update" data-toggle="tooltip" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i></button>

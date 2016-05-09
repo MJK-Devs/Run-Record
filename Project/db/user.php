@@ -147,6 +147,7 @@ class User {
 	}
 
 	function deleteUser(){
+		//remove from rruser
 		$connString = "mysql:host=localhost;dbname=knovak18";
 		$user = "knovak18";
 		$pass = "web2";
@@ -159,6 +160,39 @@ class User {
 
 		$statement = $pdo->prepare($sql);
 		$statement->execute();
+		
+		//get all of the users runs from rruserruns
+		$pdo2 = new PDO($connString, $user, $pass);
+		$pdo2 -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql2 = "SELECT RunID FROM rruserruns
+				 WHERE UserID=".$this->UserID."";
+				 
+		$runs = $pdo2->query($sql2);
+		$runArray = array();
+		while($row = $runs->fetch()) {
+			$runArray[] = $row['RunID'];
+		}
+		
+		//Delete Runs from rruserruns
+		$pdo3 = new PDO($connString, $user, $pass);
+		$pdo3 -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		foreach($runArray AS $run) {
+			$sql3 = "DELETE FROM rruserruns
+					 WHERE RunID=".$run."";
+			$statement3 = $pdo3->prepare($sql3);
+			$statement3 -> execute();
+		}
+		
+		//Delete Runs from rrruns
+		$pdo4 = new PDO($connString, $user, $pass);
+		$pdo4 -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		foreach($runArray AS $run) {
+			$sql4 = "DELETE FROM rrruns
+					 WHERE RunID=".$run."";
+			$statement4 = $pdo4 -> prepare($sql4);
+			$statement4 -> execute();
+		}
+		
 	}
 
 	//getter methods
@@ -222,6 +256,7 @@ function convertStringHeightToInches($stringHeight){
 		}
 	}
 }
+
 
 
 ?>
