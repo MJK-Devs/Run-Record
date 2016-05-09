@@ -74,8 +74,8 @@ class UserRuns {
 						$caloriesBurned = '<a href="profile/edit.php" class="btn-height-weight btn btn-primary" >Set Weight</a>';
 						$this->MostCalories = '<a href="../profile/edit.php" class="btn-height-weight btn btn-primary" >Set Weight</a>';
 					} else {
-						$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + number_format($caloriesBurned, 1);
-						if($caloriesBurned > $this->MostCalories){ $this->MostCalories = number_format($caloriesBurned, 1); }
+						$this->TotalCaloriesBurned = $this->TotalCaloriesBurned + $caloriesBurned;
+						if($caloriesBurned > $this->MostCalories){ $this->MostCalories = $caloriesBurned; }
 					}
 				} else {
 					$this->TotalCaloriesBurned = 0;
