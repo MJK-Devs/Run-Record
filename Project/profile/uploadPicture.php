@@ -41,7 +41,9 @@
       //}
 
       if(empty($errors)==true){
-		 unlink('images/' . $profilePicture);
+		 if(strcmp($profilePicture, "default.png") !== 0) {
+			unlink('images/' . $profilePicture);
+		 }
          move_uploaded_file($file_tmp,"images/".$file_name);
 		 header("Location: edit.php");
       }else{
